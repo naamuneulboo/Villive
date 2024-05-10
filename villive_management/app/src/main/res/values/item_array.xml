@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="item_array">
+        <item>경비비</item>
+        <item>청소비</item>
+        <item>승강기 유지비</item>
+        <item>음식물 수거비</item>
+        <item>대형 폐기물 수거비</item>
+        <item>승강기 전기료</item>
+        <item>공동 전기료</item>
+        <item>공동 열요금</item>
+        <item>난방</item>
+        <item>온수</item>
+        <item>조경비</item>
+        <item>수신비</item>
+    </string-array>
+</resources>

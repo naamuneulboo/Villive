@@ -1,0 +1,58 @@
+<resources>
+    <string name="app_name">villive_management</string>
+
+    <string name="notification_setting">알림 설정</string>
+    <string name="change_pw">비밀번호 변경</string>
+    <string name="add_vill">건물 추가</string>
+    <string name="change_vill">건물 변경</string>
+
+    <string name="logout">로그아웃</string>
+    <string name="rm_member">회원탈퇴</string>
+
+    <string name="villive_logo">빌리브 로고 이미지</string>
+    <string name="PIPP">개인정보처리방침</string>
+
+    <string name="settings">설정</string>
+    <string name="vill_management">관리인</string>
+    <string name="underline">밑줄</string>
+
+    <string name="current_pw">현재 비밀번호</string>
+    <string name="want_change_pw">변경할 비밀번호</string>
+    <string name="pw_check">비밀번호 확인</string>
+    <string name="trim"> </string>
+    <string name="refactor">변경하기</string>
+    <string name="add">등록하기</string>
+
+    <string name="add_notice">공지사항 등록</string>
+    <string name="add_notice_text1">메인화면 상단에 노출시킬 공지사항을 입력하세요.</string>
+    <string name="add_notice_text2">내용을 입력하세요.</string>
+    <string name="add_notice_text3">등록 시 기존에 노출되어있던 공지사항은\n\t\t\t\t공지사항 내역으로 이동됩니다.</string>
+
+    <string name="main_mgmt_page">관리인 페이지</string>
+    <string name="main_mgmt_tanent">세입자 관리</string>
+    <string name="main_mgmt_addnotice">공지사항 등록</string>
+    <string name="main_mgmt_complain">민원 처리</string>
+    <string name="main_mgmt_addcost">관리비 사용내역 등록</string>
+
+    <string name="chat">채팅</string>
+
+    <string name="tanent_text">보증금</string>
+    <string name="tanent_text2">월  세</string>
+    <string name="tanent_text3">관리비</string>
+    <string name="tanent_text4">차  량</string>
+    <string name="won">만 원</string>
+
+    <string name="testtext">원룸 이름</string>
+    <string name="testtext2">세대 호수</string>
+    <string name="testtext3">DB 줍줍</string>
+
+    <string name="usage_history_text">금액을 입력하세요.</string>
+    <string name="usage_history_text2">월, 항목을 선택하고 사용된 금액을 입력하세요 !</string>
+    <string name="usage_history_text3">\t이번 달 관리비 사용내역을 아직 등록하지 않으셨네요?\n\n관리비 사용 내역을 등록하고 입주민들과 함께 확인해요!</string>
+
+    <string name="usage_add">추가</string>
+    <string name="usage_month">월 :</string>
+    <string name="usage_item">항목 :</string>
+    <string name="usage_text">모두 삭제</string>
+
+</resources>

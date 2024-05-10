@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".MGMT_main.Tanent_mgmt">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="600dp"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            tools:ignore="MissingConstraints">
+
+            <ImageView
+                android:id="@+id/logo_view"
+                android:layout_width="150dp"
+                android:layout_height="80dp"
+                android:contentDescription="@string/trim"
+                android:src="@drawable/villive_logo" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginStart="155dp"
+                android:layout_marginTop="25dp"
+                android:backgroundTint="#454040"
+                android:text="@string/main_mgmt_tanent"
+                android:textColor="#FF454040"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+        </FrameLayout>
+
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="80dp">
+
+
+            <TextView
+                android:id="@+id/tv_roomname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/testtext"
+                android:textSize="16sp" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="80dp">
+
+
+            <TextView
+                android:id="@+id/tv_roomnum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/testtext2"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="80dp">
+
+
+            <ImageView
+                android:id="@+id/background6"
+                android:layout_width="380dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:contentDescription="@string/trim"
+                app:srcCompat="@drawable/rectangle_gray" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="30dp"
+                android:text="@string/tanent_text"
+                android:textColor="@color/dark_gray"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginTop="33dp"
+                android:layout_marginEnd="45dp"
+                android:text="@string/won"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/btn_deposit"
+                android:layout_width="380dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:backgroundTint="#00FF0000"
+                android:textColor="#00FF0000"
+                android:text="@string/tanent_text" />
+
+            <TextView
+                android:id="@+id/tv_deposit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/testtext3"
+                android:textSize="20sp" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="80dp">
+
+
+            <ImageView
+                android:id="@+id/background7"
+                android:layout_width="380dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:contentDescription="@string/trim"
+                app:srcCompat="@drawable/rectangle_gray" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="30dp"
+                android:text="@string/tanent_text2"
+                android:textColor="@color/dark_gray"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginTop="33dp"
+                android:layout_marginEnd="45dp"
+                android:text="@string/won"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/btn_monthly_pay"
+                android:layout_width="380dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:backgroundTint="#00FF0000"
+                android:textColor="#00FF0000"
+                android:text="@string/tanent_text2" />
+
+            <TextView
+                android:id="@+id/tv_monthly_pay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/testtext3"
+                android:textSize="20sp" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="80dp">
+
+
+            <ImageView
+                android:id="@+id/background8"
+                android:layout_width="380dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:contentDescription="@string/trim"
+                app:srcCompat="@drawable/rectangle_gray" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="30dp"
+                android:text="@string/tanent_text3"
+                android:textColor="@color/dark_gray"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginTop="33dp"
+                android:layout_marginEnd="45dp"
+                android:text="@string/won"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/btn_mgmt_cost"
+                android:layout_width="380dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:backgroundTint="#00FF0000"
+                android:text="@string/testtext3"
+                android:textColor="#00FF0000" />
+
+            <TextView
+                android:id="@+id/tv_mgmt_cost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/testtext3"
+                android:textSize="20sp" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="80dp">
+
+
+            <ImageView
+                android:id="@+id/background9"
+                android:layout_width="380dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:contentDescription="@string/trim"
+                app:srcCompat="@drawable/rectangle_gray" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="30dp"
+                android:text="@string/tanent_text4"
+                android:textColor="@color/dark_gray"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btn_car"
+                android:layout_width="380dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:backgroundTint="#00FF0000"
+                android:textColor="#00FF0000"
+                android:text="@string/tanent_text4" />
+
+            <TextView
+                android:id="@+id/tv_car"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/testtext3"
+                android:textSize="20sp" />
+
+        </FrameLayout>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
