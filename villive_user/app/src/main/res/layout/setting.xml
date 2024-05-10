@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".SettingFragment"
+    android:background="#FFFFFF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="660dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            tools:ignore="MissingConstraints">
+
+
+
+            <ImageView
+                android:id="@+id/logo_view"
+                android:layout_width="150dp"
+                android:layout_height="80dp"
+                android:contentDescription="@string/trim"
+                android:src="@drawable/villive_logo" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginStart="155dp"
+                android:layout_marginTop="25dp"
+                android:backgroundTint="#454040"
+                android:text="@string/setting"
+                android:textColor="#FF454040"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+        </FrameLayout>
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="80dp">
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="100dp"
+                android:layout_height="10dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:contentDescription="@string/trim"
+                app:srcCompat="@drawable/underline_green" />
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/setting_description6"
+                android:textColor="@color/real_dark_gray"
+                android:textSize="26sp"
+                android:textStyle="bold" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="160dp">
+
+            <ImageButton
+                android:id="@+id/ibtn_set_profile"
+                android:layout_width="380dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:background="@drawable/gray_outline_rectangle"
+                android:contentDescription="@string/setting_description"
+                android:text="@string/setting_description" />
+
+            <TextView
+                android:id="@+id/tv_set_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/setting_description"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/real_dark_gray" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="230dp">
+
+            <ImageButton
+                android:id="@+id/ibtn_change_pw"
+                android:layout_width="380dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:background="@drawable/gray_outline_rectangle"
+                android:contentDescription="@string/setting_description2"
+                android:text="@string/setting_description2" />
+
+            <TextView
+                android:id="@+id/tv_change_pw"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/setting_description2"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/real_dark_gray" />
+
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="300dp">
+
+            <ImageButton
+                android:id="@+id/ibtn_set_noti"
+                android:layout_width="380dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:background="@drawable/gray_outline_rectangle"
+                android:contentDescription="@string/setting_description3"
+                android:text="@string/setting_description3" />
+
+            <TextView
+                android:id="@+id/tv_set_noti"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/setting_description3"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/real_dark_gray" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="370dp">
+
+            <ImageButton
+                android:id="@+id/ibtn_logout"
+                android:layout_width="380dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:background="@drawable/gray_outline_rectangle"
+                android:contentDescription="@string/setting_description4"
+                android:text="@string/setting_description4" />
+
+            <TextView
+                android:id="@+id/tv_logout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/setting_description4"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/real_dark_gray" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="440dp">
+
+            <ImageButton
+                android:id="@+id/ibtn_withdraw"
+                android:layout_width="380dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:background="@drawable/gray_outline_rectangle"
+                android:contentDescription="@string/setting_description5"
+                android:text="@string/setting_description5" />
+
+            <TextView
+                android:id="@+id/tv_withdraw"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/setting_description5"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/real_dark_gray" />
+
+        </FrameLayout>
+
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="580dp">
+
+
+            <Button
+                android:id="@+id/btn_PIPP"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_gravity="end|bottom"
+                android:layout_marginEnd="10dp"
+                android:background="#00FF0000"
+                android:text="@string/setting_PIPP"
+                android:textColor="@color/dark_gray" />
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

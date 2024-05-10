@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ChattingFragment"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <!-- 근데 채팅이 없으면 xml 이렇게 하면 안되지 않나? 안보이게 숨겨놓고
+    채팅 생기면 뜨게 바꿔야하나
+    글고 채팅 수 제한 있음?
+    화면 스크롤 되게끔 해야하나 -->
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        >
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="80dp"
+            android:id="@+id/logo_view"
+            android:src="@drawable/villive_logo"
+            />
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="155dp"
+            android:text="Chat"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            />
+
+        <ImageButton
+            android:id="@+id/noti_button"
+            android:layout_width="62dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="325dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white"
+            android:src="@drawable/baseline_search_24"
+            />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/chat1"
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/baseline_account_circle_24"/>
+
+        <TextView
+            android:id="@+id/chat_id1"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="90dp"
+            android:layout_marginTop="15dp"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:gravity="center_vertical"
+            />
+
+        <TextView
+            android:id="@+id/chat_text1"
+            android:layout_width="170dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="220dp"
+            android:layout_marginTop="15dp"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="23sp"
+            android:textStyle="bold"
+            android:gravity="center_vertical|right"
+            />
+
+    </FrameLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:src="@drawable/garo_line"
+        />
+
+    <FrameLayout
+        android:id="@+id/chat2"
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/baseline_account_circle_24"/>
+
+        <TextView
+            android:id="@+id/chat_id2"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="90dp"
+            android:layout_marginTop="15dp"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:gravity="center_vertical"
+            />
+
+        <TextView
+            android:id="@+id/chat_text2"
+            android:layout_width="170dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="220dp"
+            android:layout_marginTop="15dp"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="23sp"
+            android:textStyle="bold"
+            android:gravity="center_vertical|right"
+            />
+
+    </FrameLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:src="@drawable/garo_line"
+        />
+
+    <FrameLayout
+        android:id="@+id/chat3"
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/baseline_account_circle_24"/>
+
+        <TextView
+            android:id="@+id/chat_id3"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="90dp"
+            android:layout_marginTop="15dp"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:gravity="center_vertical"
+            />
+
+        <TextView
+            android:id="@+id/chat_text3"
+            android:layout_width="170dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="220dp"
+            android:layout_marginTop="15dp"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="23sp"
+            android:textStyle="bold"
+            android:gravity="center_vertical|right"
+            />
+
+    </FrameLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:src="@drawable/garo_line"
+        />
+
+    <FrameLayout
+        android:id="@+id/chat4"
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/baseline_account_circle_24"/>
+
+        <TextView
+            android:id="@+id/chat_id4"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="90dp"
+            android:layout_marginTop="15dp"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:gravity="center_vertical"
+            />
+
+        <TextView
+            android:id="@+id/chat_text4"
+            android:layout_width="170dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="220dp"
+            android:layout_marginTop="15dp"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="23sp"
+            android:textStyle="bold"
+            android:gravity="center_vertical|right"
+            />
+
+    </FrameLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:src="@drawable/garo_line"
+        />
+
+
+
+</LinearLayout>
