@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ConfigurationPage.AlarmActivity">
+
+    <View
+        android:id="@+id/view_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@android:color/black"
+        android:layout_below="@+id/toolbar"/>
+
+    <androidx.appcompat.widget.Toolbar
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:text="알림"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <TextView
+        android:id="@+id/text_allA"
+        android:text="푸시 알림"
+        android:layout_marginLeft="27dp"
+        android:layout_marginTop="90dp"
+        android:layout_width="80dp"
+        android:layout_height="30dp"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/switchPushBtn"
+        android:layout_marginLeft="320dp"
+        android:layout_marginTop="90dp"
+        android:layout_width="50dp"
+        android:layout_height="30dp"
+        android:checked="false"
+        android:thumb="@drawable/switch_thumb"
+        app:track="@drawable/selector_switch" />
+
+    <TextView
+        android:id="@+id/text_managerA"
+        android:text="관리자 문자 알림"
+        android:layout_marginLeft="27dp"
+        android:layout_marginTop="140dp"
+        android:layout_width="145dp"
+        android:layout_height="30dp"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/switchManagerBtn"
+        android:layout_marginLeft="320dp"
+        android:layout_marginTop="140dp"
+        android:layout_width="50dp"
+        android:layout_height="30dp"
+        android:checked="false"
+        android:thumb="@drawable/switch_thumb"
+        app:track="@drawable/selector_switch" />
+
+    <TextView
+        android:id="@+id/text_chattingA"
+        android:text="채팅 알림"
+        android:layout_marginLeft="27dp"
+        android:layout_marginTop="188dp"
+        android:layout_width="80dp"
+        android:layout_height="30dp"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/switchChattingBtn"
+        android:layout_marginLeft="320dp"
+        android:layout_marginTop="188dp"
+        android:layout_width="50dp"
+        android:layout_height="30dp"
+        android:checked="false"
+        android:thumb="@drawable/switch_thumb"
+        app:track="@drawable/selector_switch" />
+
+    <TextView
+        android:id="@+id/text_noticeA"
+        android:text="공지 알림"
+        android:layout_marginLeft="27dp"
+        android:layout_marginTop="236dp"
+        android:layout_width="80dp"
+        android:layout_height="30dp"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/switchNoticeBtn"
+        android:layout_marginLeft="320dp"
+        android:layout_marginTop="236dp"
+        android:layout_width="50dp"
+        android:layout_height="30dp"
+        android:checked="false"
+        android:thumb="@drawable/switch_thumb"
+        app:track="@drawable/selector_switch" />
+
+    <TextView
+        android:id="@+id/text_complainA"
+        android:text="민원 알림"
+        android:layout_marginLeft="27dp"
+        android:layout_marginTop="284dp"
+        android:layout_width="80dp"
+        android:layout_height="30dp"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/switchComplainBtn"
+        android:layout_marginLeft="320dp"
+        android:layout_marginTop="284dp"
+        android:layout_width="50dp"
+        android:layout_height="30dp"
+        android:checked="false"
+        android:thumb="@drawable/switch_thumb"
+        app:track="@drawable/selector_switch" />
+
+    <TextView
+        android:id="@+id/text_articleA"
+        android:text="게시판 알림"
+        android:layout_marginLeft="27dp"
+        android:layout_marginTop="332dp"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/switchArticleBtn"
+        android:layout_marginLeft="320dp"
+        android:layout_marginTop="332dp"
+        android:layout_width="50dp"
+        android:layout_height="30dp"
+        android:checked="false"
+        android:thumb="@drawable/switch_thumb"
+        app:track="@drawable/selector_switch" />
+
+</RelativeLayout>
