@@ -1,2 +1,0 @@
-04-07 14:33:10.736 28176 28197 I TestRunner: started: useAppContext(com.example.villive.ExampleInstrumentedTest)
-04-07 14:33:10.738 28176 28197 I TestRunner: finished: useAppContext(com.example.villive.ExampleInstrumentedTest)
