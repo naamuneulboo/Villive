@@ -75,6 +75,16 @@
 
         <FrameLayout
             android:layout_width="match_parent"
+            android:layout_height="20dp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="80dp">
+
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
             android:layout_height="60dp"
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="0dp"
@@ -86,7 +96,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/add_complain_kind"
                 android:textSize="16sp"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="25dp"
                 android:layout_marginTop="20dp"
                 android:textColor="@color/black" />
 
@@ -97,21 +107,52 @@
                 android:layout_marginStart="110dp"
                 android:layout_marginTop="10dp"
                 android:textColor="@color/black"
-                android:background="@drawable/rectangle_yellow"
+                android:theme="@style/SpinnerTheme"
+                style="@style/SpinnerTextStyle"
+                android:background="@drawable/rectangle_dark_green"
                 tools:ignore="MissingConstraints" />
 
             <CheckBox
                 android:id="@+id/checkBoxAnonymous"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
                 android:layout_marginStart="300dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="10dp"
                 android:text="@string/anonymous"
                 android:buttonTint="@color/black"
                 android:textColor="@color/black"/>
 
         </FrameLayout>
 
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="130dp">
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="380dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:contentDescription="@string/trim"
+                app:srcCompat="@drawable/rectangle_post_title" />
+
+            <EditText
+                android:id="@+id/et_post_title"
+                android:layout_width="360dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:autofillHints="제목을 입력하세요."
+                android:background="#C0DFC3"
+                android:ems="10"
+                android:textColor="@color/black"
+                android:gravity="start|center_vertical"
+                android:hint="@string/add_post_description8"
+                android:inputType="textMultiLine"
+                android:textColorHint="@color/dark_gray" />
+        </FrameLayout>
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -129,14 +170,16 @@
                 app:srcCompat="@drawable/rectangle_real_gray" />
 
             <EditText
-                android:id="@+id/et_notice_input"
+                android:id="@+id/et_post_write"
                 android:layout_width="360dp"
                 android:layout_height="310dp"
                 android:layout_gravity="center"
                 android:background="#F1F7F4"
                 android:ems="10"
+                android:textColor="@color/black"
                 android:gravity="top"
                 android:inputType="textMultiLine"
+                android:textColorHint="@color/dark_gray"
                 android:hint="@string/add_post_description2"
                 android:autofillHints="내용을 입력하세요."/>
         </FrameLayout>
@@ -149,18 +192,18 @@
             tools:layout_editor_absoluteY="480dp">
 
             <Button
-                android:id="@+id/btn_add_noti"
+                android:id="@+id/btn_add_post"
                 android:layout_width="200dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
-                android:backgroundTint="#FFF099"
+                android:background="@drawable/rectangle_yellow"
                 android:text="@string/add_post"
                 android:textColor="@color/black" />
         </FrameLayout>
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="20dp"
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="580dp">
@@ -175,6 +218,25 @@
                 android:textSize="12sp"
                 android:text="@string/add_post_description" />
         </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="580dp">
+
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/real_dark_gray"
+                android:layout_gravity="center"
+                android:textSize="12sp"
+                android:text="@string/add_post_description9" />
+        </FrameLayout>
+
     </LinearLayout>
 
 </LinearLayout>

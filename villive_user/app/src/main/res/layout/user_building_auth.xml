@@ -70,6 +70,8 @@
                 android:layout_width="300dp"
                 android:layout_height="50dp"
                 android:ems="10"
+                android:textColor="@color/black"
+                android:textColorHint="@color/dark_gray"
                 android:inputType="text"
                 android:layout_gravity="center"
                 android:background="@drawable/rectangle"
@@ -89,7 +91,7 @@
                 android:layout_width="160dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
-                android:backgroundTint="@color/yellow"
+                android:background="@drawable/rectangle_yellow"
                 android:textColor="@color/black"
                 android:text="@string/auth" />
         </FrameLayout>
