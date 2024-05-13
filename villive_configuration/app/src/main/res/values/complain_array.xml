@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="complain_array">
+        <item>기계 고장</item>
+        <item>공동 시설</item>
+        <item>환경 개선</item>
+        <item>건의 사항</item>
+        <item>기타 민원</item>
+    </string-array>
+</resources>

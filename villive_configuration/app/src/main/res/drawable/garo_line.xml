@@ -1,0 +1,5 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <size android:width="350dp" android:height="1.5dp" /> <!-- 세로선의 너비와 높이를 설정 -->
+    <solid android:color="#ADADAD" /> <!-- 세로선의 색상을 설정 -->
+</shape>
