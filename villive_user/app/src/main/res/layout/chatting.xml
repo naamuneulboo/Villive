@@ -8,11 +8,6 @@
     android:background="@color/white"
     android:orientation="vertical">
 
-    <!-- 근데 채팅이 없으면 xml 이렇게 하면 안되지 않나? 안보이게 숨겨놓고
-    채팅 생기면 뜨게 바꿔야하나
-    글고 채팅 수 제한 있음?
-    화면 스크롤 되게끔 해야하나 -->
-
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="80dp"

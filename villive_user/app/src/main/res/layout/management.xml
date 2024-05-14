@@ -31,15 +31,6 @@
             android:textStyle="bold"
             />
 
-        <ImageButton
-            android:id="@+id/noti_button"
-            android:layout_width="62dp"
-            android:layout_height="60dp"
-            android:layout_marginLeft="325dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/white"
-            android:src="@drawable/baseline_search_24"
-            />
     </FrameLayout>
 
     <com.google.android.material.tabs.TabLayout
