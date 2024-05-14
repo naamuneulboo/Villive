@@ -25,9 +25,6 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".Community.Community_NoticeTab"
-            android:exported="false" />
-        <activity
             android:name=".Community_Write.Post_Club"
             android:exported="false" />
         <activity

@@ -28,5 +28,12 @@ class StartPage : AppCompatActivity() {
             val intent = Intent(this, user_SignUp::class.java)
             startActivity(intent)
         }
+
+        val go_login = findViewById<Button>(R.id.btn_go_login)
+
+        go_login.setOnClickListener {
+            val intent = Intent(this, user_LogIn::class.java)
+            startActivity(intent)
+        }
     }
 }

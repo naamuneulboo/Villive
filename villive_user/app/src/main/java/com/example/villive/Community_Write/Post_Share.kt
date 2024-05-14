@@ -23,7 +23,6 @@ class Post_Share : AppCompatActivity() {
         }
 
 
-
         // 이건 그냥 게시글 등록 버튼 눌렀을 때 내용 확인용으로 써둔 코드
         val checkBoxAnonymous = findViewById<CheckBox>(R.id.checkBoxAnonymous)
         checkBoxAnonymous.setOnCheckedChangeListener { _, isChecked ->
@@ -34,23 +33,36 @@ class Post_Share : AppCompatActivity() {
             }
         }
 
-        val btnAddNoti = findViewById<View>(R.id.btn_add_noti)
-        btnAddNoti.setOnClickListener {
+        val btnAddPost = findViewById<View>(R.id.btn_add_post)
+        btnAddPost.setOnClickListener {
             val isAnonymous = checkBoxAnonymous.isChecked
-            val editTextContent = findViewById<EditText>(R.id.et_notice_input).text.toString()
+            val PostTitle = findViewById<EditText>(R.id.et_post_title).text.toString()
+            val PostWrite = findViewById<EditText>(R.id.et_post_write).text.toString()
 
-            val message = buildString {
-                append("익명 여부: ${if (isAnonymous) "익명" else "프로필"}\n")
-                append("내용: $editTextContent")
-            }
-
-            AlertDialog.Builder(this)
-                .setMessage(message)
-                .setPositiveButton("확인") { dialog, _ ->
-                    dialog.dismiss()
-                    finish() // 이전 화면으로
+            if (PostTitle.isEmpty() || PostWrite.isEmpty()) {
+                // 제목 또는 내용이 공백인 경우 다이얼로그 표시
+                val message = getString(R.string.add_post_error_message)
+                AlertDialog.Builder(this)
+                    .setMessage(message)
+                    .setPositiveButton("확인") { dialog, _ ->
+                        dialog.dismiss()
+                    }
+                    .show()
+            } else {
+                // 제목과 내용이 모두 채워져 있는 경우 다이얼로그 표시
+                val message = buildString {
+                    append("익명 여부: ${if (isAnonymous) "익명" else "프로필"}\n")
+                    append("제목: $PostTitle\n")
+                    append("내용: $PostWrite")
                 }
-                .show()
+                AlertDialog.Builder(this)
+                    .setMessage(message)
+                    .setPositiveButton("확인") { dialog, _ ->
+                        dialog.dismiss()
+                        finish() // 이전 화면으로
+                    }
+                    .show()
+            }
         }
     }
 }

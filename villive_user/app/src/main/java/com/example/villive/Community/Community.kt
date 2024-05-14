@@ -56,11 +56,6 @@ class Community : AppCompatActivity() {
             startActivity(intent)
         }
 
-        val notice_tab = findViewById<ImageButton>(R.id.ibtn_notice)
 
-        notice_tab.setOnClickListener {
-            val intent = Intent(this, Community_NoticeTab::class.java)
-            startActivity(intent)
-        }
     }
 }

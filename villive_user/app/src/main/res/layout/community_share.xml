@@ -45,12 +45,13 @@
         android:layout_width="match_parent"
         android:layout_height="600dp"
         tools:ignore="MissingConstraints">
-        <ScrollView
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_posts"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
 
-        </ScrollView>
+        </androidx.recyclerview.widget.RecyclerView>
     </FrameLayout>
 
     <FrameLayout

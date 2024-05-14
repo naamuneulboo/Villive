@@ -49,25 +49,39 @@ class Post_Complain : AppCompatActivity() {
         }
 
         // 게시글 등록 버튼 클릭 리스너 설정
-        val btnAddNoti = findViewById<View>(R.id.btn_add_noti)
-        btnAddNoti.setOnClickListener {
+        val btnAddPost = findViewById<View>(R.id.btn_add_post)
+        btnAddPost.setOnClickListener {
             val selectedItem = spinner.selectedItem.toString()
             val isAnonymous = checkBoxAnonymous.isChecked
-            val editTextContent = findViewById<EditText>(R.id.et_notice_input).text.toString()
+            val PostTitle = findViewById<EditText>(R.id.et_post_title).text.toString()
+            val PostWrite = findViewById<EditText>(R.id.et_post_write).text.toString()
 
-            val message = buildString {
-                append("선택된 항목: $selectedItem\n")
-                append("익명 여부: ${if (isAnonymous) "익명" else "프로필"}\n")
-                append("내용: $editTextContent")
-            }
+            if (PostTitle.isEmpty() || PostWrite.isEmpty()) {
+                // 제목 또는 내용이 공백인 경우 다이얼로그 표시
+                val message = getString(R.string.add_post_error_message)
+                AlertDialog.Builder(this)
+                    .setMessage(message)
+                    .setPositiveButton("확인") { dialog, _ ->
+                        dialog.dismiss()
+                    }
+                    .show()
+            } else {
 
-            AlertDialog.Builder(this)
-                .setMessage(message)
-                .setPositiveButton("확인") { dialog, _ ->
-                    dialog.dismiss()
-                    finish() // 이전 화면으로
+                val message = buildString {
+                    append("선택된 항목: $selectedItem\n")
+                    append("익명 여부: ${if (isAnonymous) "익명" else "프로필"}\n")
+                    append("제목: $PostTitle\n")
+                    append("내용: $PostWrite")
                 }
-                .show()
+
+                AlertDialog.Builder(this)
+                    .setMessage(message)
+                    .setPositiveButton("확인") { dialog, _ ->
+                        dialog.dismiss()
+                        finish() // 이전 화면으로
+                    }
+                    .show()
+            }
         }
 
 
