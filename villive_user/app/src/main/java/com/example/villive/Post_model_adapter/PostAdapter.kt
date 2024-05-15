@@ -18,7 +18,7 @@ class PostAdapter (val PostList: ArrayList<Posts>) : RecyclerView.Adapter<PostAd
             itemView.setOnClickListener {  // 눌렀을때 토스트로 내용 뽁 띄워주는거
                 val curPos: Int = adapterPosition
                 val post: Posts =PostList.get(curPos)
-                Toast.makeText(parent.context,"제목 : ${post.title} \n내용 : ${post.write} \n익명여부 : ${post.AorP} \n등록 시간 : ${post.write_time}",Toast.LENGTH_LONG).show()
+                Toast.makeText(parent.context,"제목 : ${post.title} \n내용 : ${post.write} \n익명여부 : ${post.nickname} \n등록 시간 : ${post.write_time}",Toast.LENGTH_LONG).show()
 
             }
         }
@@ -27,7 +27,7 @@ class PostAdapter (val PostList: ArrayList<Posts>) : RecyclerView.Adapter<PostAd
     override fun onBindViewHolder(holder: CustomViewHolder, position: Int) { // 실제로 연결 되면서 데이터를 매치해주는 메소드
         holder.title.text=PostList.get(position).title
         holder.write.text=PostList.get(position).write
-        holder.AorP.text=PostList.get(position).AorP
+        holder.nickname.text=PostList.get(position).nickname
         holder.write_time.text=PostList.get(position).write_time
     }
 
@@ -40,7 +40,7 @@ class PostAdapter (val PostList: ArrayList<Posts>) : RecyclerView.Adapter<PostAd
 
         val title = itemView.findViewById<TextView>(R.id.tv_titlte)
         val write = itemView.findViewById<TextView>(R.id.tv_write)
-        val AorP = itemView.findViewById<TextView>(R.id.tv_anonymous)
+        val nickname = itemView.findViewById<TextView>(R.id.tv_nickname)
         val write_time = itemView.findViewById<TextView>(R.id.tv_write_time)
 
     }

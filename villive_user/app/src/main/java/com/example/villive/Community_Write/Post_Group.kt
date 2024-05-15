@@ -25,19 +25,8 @@ class Post_Group : AppCompatActivity() {
         }
 
 
-        // 이건 그냥 게시글 등록 버튼 눌렀을 때 내용 확인용으로 써둔 코드
-        val checkBoxAnonymous = findViewById<CheckBox>(R.id.checkBoxAnonymous)
-        checkBoxAnonymous.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) {
-                checkBoxAnonymous.text = getString(R.string.anonymous)
-            } else {
-                checkBoxAnonymous.text = getString(R.string.profile)
-            }
-        }
-
         val btnAddPost = findViewById<View>(R.id.btn_add_post)
         btnAddPost.setOnClickListener {
-            val isAnonymous = checkBoxAnonymous.isChecked
             val PostTitle = findViewById<EditText>(R.id.et_post_title).text.toString()
             val PostWrite = findViewById<EditText>(R.id.et_post_write).text.toString()
 
@@ -53,7 +42,6 @@ class Post_Group : AppCompatActivity() {
             } else {
                 // 제목과 내용이 모두 채워져 있는 경우 다이얼로그 표시
                 val message = buildString {
-                    append("익명 여부: ${if (isAnonymous) "익명" else "프로필"}\n")
                     append("제목: $PostTitle\n")
                     append("내용: $PostWrite")
                 }

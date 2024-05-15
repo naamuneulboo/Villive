@@ -96,31 +96,21 @@
                 android:layout_height="wrap_content"
                 android:text="@string/add_complain_kind"
                 android:textSize="16sp"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginStart="30dp"
+                android:layout_gravity="center_vertical"
                 android:textColor="@color/black" />
 
             <Spinner
                 android:id="@+id/sp_item"
                 android:layout_width="150dp"
                 android:layout_height="48dp"
-                android:layout_marginStart="110dp"
-                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
                 android:textColor="@color/black"
                 android:theme="@style/SpinnerTheme"
                 style="@style/SpinnerTextStyle"
                 android:background="@drawable/rectangle_dark_green"
                 tools:ignore="MissingConstraints" />
 
-            <CheckBox
-                android:id="@+id/checkBoxAnonymous"
-                android:layout_width="wrap_content"
-                android:layout_height="48dp"
-                android:layout_marginStart="300dp"
-                android:layout_marginTop="10dp"
-                android:text="@string/anonymous"
-                android:buttonTint="@color/black"
-                android:textColor="@color/black"/>
 
         </FrameLayout>
 

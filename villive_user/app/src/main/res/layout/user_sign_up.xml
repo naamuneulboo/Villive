@@ -125,6 +125,35 @@
             android:layout_width="match_parent"
             android:layout_height="80dp"
             tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="470dp">
+
+            <ImageView
+                android:id="@+id/imageView10"
+                android:layout_width="360dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:contentDescription="@string/trim"
+                app:srcCompat="@drawable/rectangle_little_green" />
+
+            <EditText
+                android:id="@+id/et_nickname"
+                android:layout_width="340dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:autofillHints="@string/nickname"
+                android:background="@drawable/rectangle_little_green"
+                android:ems="10"
+                android:textColor="@color/black"
+                android:textColorHint="@color/dark_gray"
+                android:hint="@string/nickname"
+                android:inputType="text" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="-16dp"
             tools:layout_editor_absoluteY="310dp">
 
