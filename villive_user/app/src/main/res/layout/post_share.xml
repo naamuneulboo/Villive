@@ -6,185 +6,104 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    tools:context=".Community_Write.Post_Share">
+    tools:context=".Community_Write.Post_Club"
+    android:layout_marginTop="20dp"
+    android:orientation="vertical">
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="98dp"
-        android:orientation="vertical">
+        android:layout_height="80dp"
+        tools:ignore="MissingConstraints">
 
-        <FrameLayout
-            android:layout_width="match_parent"
+        <ImageView
+            android:id="@+id/logo_view"
+            android:layout_width="150dp"
             android:layout_height="80dp"
-            tools:ignore="MissingConstraints">
+            android:contentDescription="@string/trim"
+            android:src="@drawable/villive_logo" />
 
-            <ImageView
-                android:id="@+id/logo_view"
-                android:layout_width="150dp"
-                android:layout_height="80dp"
-                android:contentDescription="@string/trim"
-                android:src="@drawable/villive_logo" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_marginStart="155dp"
-                android:layout_marginTop="25dp"
-                android:backgroundTint="#454040"
-                android:text="@string/write_post"
-                android:textColor="#FF454040"
-                android:textSize="24sp"
-                android:textStyle="bold" />
-        </FrameLayout>
-
-        <FrameLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="50dp"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="80dp">
+            android:layout_marginStart="155dp"
+            android:layout_marginTop="25dp"
+            android:backgroundTint="#454040"
+            android:text="@string/write_post"
+            android:textColor="#FF454040"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+    </FrameLayout>
 
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="@string/add_post_description6"
-                android:textColor="@color/real_dark_gray" />
-        </FrameLayout>
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="80dp">
-            <CheckBox
-                android:id="@+id/checkBoxAnonymous"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="300dp"
-                android:layout_marginTop="15dp"
-                android:text="@string/anonymous"
-                android:buttonTint="@color/black"
-                android:textColor="@color/black"/>
-        </FrameLayout>
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="130dp">
-
-            <ImageView
-                android:id="@+id/imageView2"
-                android:layout_width="380dp"
-                android:layout_height="60dp"
-                android:layout_gravity="center"
-                android:contentDescription="@string/trim"
-                app:srcCompat="@drawable/rectangle_post_title" />
-
-            <EditText
-                android:id="@+id/et_post_title"
-                android:layout_width="360dp"
-                android:layout_height="48dp"
-                android:layout_gravity="center"
-                android:autofillHints="제목을 입력하세요."
-                android:background="#C0DFC3"
-                android:ems="10"
-                android:textColor="@color/black"
-                android:gravity="start|center_vertical"
-                android:hint="@string/add_post_description8"
-                android:inputType="textMultiLine"
-                android:textColorHint="@color/dark_gray" />
-        </FrameLayout>
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="350dp"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="130dp">
-
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="380dp"
-                android:layout_height="330dp"
-                android:layout_gravity="center"
-                android:contentDescription="@string/trim"
-                app:srcCompat="@drawable/rectangle_real_gray" />
-
-            <EditText
-                android:id="@+id/et_post_write"
-                android:layout_width="360dp"
-                android:layout_height="310dp"
-                android:layout_gravity="center"
-                android:background="#F1F7F4"
-                android:ems="10"
-                android:textColor="@color/black"
-                android:textColorHint="@color/dark_gray"
-                android:gravity="top"
-                android:inputType="textMultiLine"
-                android:hint="@string/add_post_description2"
-                android:autofillHints="내용을 입력하세요."/>
-        </FrameLayout>
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="-16dp"
-            tools:layout_editor_absoluteY="480dp">
-
-            <Button
-                android:id="@+id/btn_add_post"
-                android:layout_width="200dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center"
-                android:background="@drawable/rectangle_yellow"
-                android:text="@string/add_post"
-                android:textColor="@color/black" />
-        </FrameLayout>
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="20dp"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="580dp">
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:layout_gravity="center"
+        android:text="@string/add_post_description6"
+        android:textColor="@color/real_dark_gray" />
 
 
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/real_dark_gray"
-                android:layout_gravity="center"
-                android:textSize="12sp"
-                android:text="@string/add_post_description" />
-        </FrameLayout>
+    <EditText
+        android:id="@+id/et_post_title"
+        android:layout_width="380dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:autofillHints="제목을 입력하세요."
+        android:background="@drawable/rectangle_little_green"
+        android:backgroundTint="#C0DFC3"
+        android:ems="10"
+        android:textColor="@color/black"
+        android:gravity="start|center_vertical"
+        android:hint="   제목을 입력하세요."
+        android:inputType="textMultiLine"
+        android:textColorHint="@color/dark_gray" />
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="20dp"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="580dp">
+    <EditText
+        android:id="@+id/et_post_write"
+        android:layout_width="380dp"
+        android:layout_height="330dp"
+        android:layout_marginTop="15dp"
+        android:layout_gravity="center"
+        android:background="@drawable/rectangle_little_green"
+        android:backgroundTint="#F1F7F4"
+        android:ems="10"
+        android:textColor="@color/black"
+        android:gravity="top"
+        android:inputType="textMultiLine"
+        android:textColorHint="@color/dark_gray"
+        android:hint="   내용을 입력하세요."
+        android:autofillHints="   내용을 입력하세요."/>
 
+    <Button
+        android:id="@+id/btn_add_post"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center"
+        android:background="@drawable/rectangle_yellow"
+        android:text="@string/add_post"
+        android:textColor="@color/black" />
 
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/real_dark_gray"
-                android:layout_gravity="center"
-                android:textSize="12sp"
-                android:text="@string/add_post_description9" />
-        </FrameLayout>
-    </LinearLayout>
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/real_dark_gray"
+        android:layout_gravity="center"
+        android:textSize="12sp"
+        android:text="@string/add_post_description" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/real_dark_gray"
+        android:layout_gravity="center"
+        android:textSize="12sp"
+        android:text="@string/add_post_description9" />
 
 </LinearLayout>

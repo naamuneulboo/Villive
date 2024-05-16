@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,595 +7,604 @@
     android:background="@color/white"
     tools:context=".HomeFragment">
 
-    <!-- 맨 위 툴바 아직 고정 안됨-->
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="80dp"
             >
-        <ImageView
-            android:layout_width="150dp"
-            android:layout_height="80dp"
-            android:id="@+id/logo_view"
-            android:src="@drawable/villive_logo"
-            />
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="80dp"
+                android:id="@+id/logo_view"
+                android:src="@drawable/villive_logo"
+                />
 
-        <ImageButton
-            android:id="@+id/noti_button"
-            android:layout_width="62dp"
-            android:layout_height="60dp"
-            android:layout_marginLeft="325dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/white"
-            android:src="@drawable/baseline_notifications_24"
-            />
+            <ImageButton
+                android:id="@+id/noti_button"
+                android:layout_width="62dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="325dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:src="@drawable/baseline_notifications_24"
+                />
         </FrameLayout>
 
-        <TextView
-            android:id="@+id/user_text"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="5dp"
-            android:text="홍길동님 반갑습니다!"
-            android:textSize="18sp"
-            android:textColor="@color/black"
-            android:fontFamily="@font/gmarketsansttflight"
-            android:textStyle="bold"
-            />
-
-        <LinearLayout
-            android:id="@+id/top_lo"
-            android:layout_width="350dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="25dp"
-            android:background="@drawable/top_back"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/date_tv"
-                android:layout_width="180dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="25dp"
-
-                android:background="#F9F6E3"
-                android:textColor="@color/black"
-                android:text=""
-                android:fontFamily="@font/gmarketsansttflight"
-                android:textStyle="bold"
-                android:textSize="20sp"
-                android:layout_gravity="center"
-                android:gravity="center"
-                />
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="40dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/sero_line" />
-
-            <TextView
-                android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="10dp"
-                android:background="#F9F6E3"
-                android:textColor="@color/black"
-                android:text=""
-                android:fontFamily="@font/gmarketsansttflight"
-                android:textStyle="bold"
-                android:textSize="20sp"
-                android:layout_gravity="center"
-                android:gravity="center"
-                />
-            <!-- 배출일 관련 정보 출력 TextView-->
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/notice_lo"
-            android:layout_width="350dp"
-            android:layout_height="110dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="25dp"
-            android:background="@drawable/rounded_rectangle"
-            android:backgroundTint="#EDFFEF"
-            android:orientation="vertical">
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="30dp" >
-
-            <ImageView
-                android:id="@+id/speaker_ic"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginLeft="10dp"
-                android:src="@drawable/baseline_campaign_24"
-                />
-
-            <TextView
-                android:layout_width="300dp"
-                android:layout_height="30dp"
-                android:layout_marginLeft="50dp"
-                android:layout_marginTop="5dp"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:textSize="15sp"
-                android:text="공지사항"
-                />
-
-            </FrameLayout>
-
-            <androidx.viewpager.widget.ViewPager
-                android:id="@+id/notice_viewPager"
-                android:layout_width="320dp"
-                android:layout_height="60dp"
-                android:layout_marginLeft="14dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/rounded_rectangle"
-                android:backgroundTint="#DDF2DF"
-                >
-            </androidx.viewpager.widget.ViewPager>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/board_lo"
-            android:layout_width="350dp"
-            android:layout_height="310dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="25dp"
-            android:background="@drawable/rounded_rectangle"
-            android:backgroundTint="#E9F9F6"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="10dp"
-                android:text="게시판"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:textSize="15sp"
-                />
-
+            android:layout_height="match_parent">
             <LinearLayout
-                android:id="@+id/freeboard_lo"
-                android:layout_width="320dp"
-                android:layout_height="110dp"
-                android:background="@drawable/rounded_rectangle"
-                android:backgroundTint="#D0ECE7"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="14dp"
-                android:orientation="vertical"
-                >
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
 
                 <TextView
+                    android:id="@+id/user_text"
                     android:layout_width="match_parent"
-                    android:layout_height="20dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    android:text="자유게시판"
-                    android:textColor="@color/black"
-                    android:textSize="12sp"
-                    android:textStyle="bold"
-
-                />
-
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="20dp"
-                    >
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_marginLeft="10dp"
-                        android:src="@drawable/baseline_face_24"
-                        />
-
-                    <TextView
-                        android:layout_width="150dp"
-                        android:layout_height="15dp"
-                        android:layout_marginLeft="40dp"
-                        android:layout_marginTop="2dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="12sp"
-                        android:textStyle="bold"
-                        />
-                    <!-- 위 TextView에 사용자 이름 받아오기 -->
-
-                </FrameLayout>
-
-                <TextView
-                    android:layout_width="280dp"
-                    android:layout_height="45dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="2dp"
-                    android:text=""
-                    android:textColor="@color/black"
-                    />
-                <!-- 위 TextView에 게시글 내용 받아오기  내용 많으면 줄이기 -->
-
-                <TextView
-                    android:layout_width="30dp"
-                    android:layout_height="10dp"
-                    android:layout_marginLeft="280dp"
-                    android:text=""
-                    android:textColor="@color/black"
-                    android:textSize="8sp"
-                    />
-                <!-- 위 TextView에 게시글 작성 날짜 받아오기 -->
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/star_lo"
-                android:layout_width="320dp"
-                android:layout_height="110dp"
-                android:background="@drawable/rounded_rectangle"
-                android:backgroundTint="#D0ECE7"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="14dp"
-                android:orientation="vertical"
-                >
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="20dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    android:text="중고/공구"
-                    android:textColor="@color/black"
-                    android:textSize="12sp"
-                    android:textStyle="bold"
-                    />
-
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="20dp"
-                    >
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_marginLeft="10dp"
-                        android:src="@drawable/baseline_face_24"
-                        />
-
-                    <TextView
-                        android:layout_width="150dp"
-                        android:layout_height="15dp"
-                        android:layout_marginLeft="40dp"
-                        android:layout_marginTop="2dp"
-                        android:text=""
-                        android:textColor="@color/black"
-                        android:textSize="12sp"
-                        android:textStyle="bold"
-                        />
-                    <!-- 위 TextView에 사용자 이름 받아오기 -->
-
-                </FrameLayout>
-
-                <TextView
-                    android:layout_width="280dp"
-                    android:layout_height="45dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="2dp"
-                    android:text=""
-                    android:textColor="@color/black"
-                    />
-                <!-- 위 TextView에 게시글 내용 받아오기  내용 많으면 줄이기 -->
-
-                <TextView
-                    android:layout_width="30dp"
-                    android:layout_height="10dp"
-                    android:layout_marginLeft="280dp"
-                    android:text=""
-                    android:textColor="@color/black"
-                    android:textSize="8sp"
-                    />
-                <!-- 위 TextView에 게시글 작성 날짜 받아오기 -->
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/issue_lo"
-            android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:layout_marginTop="20dp"
-            android:orientation="vertical">
-
-            <FrameLayout
-                android:layout_width="350dp"
-                android:layout_height="30dp">
-
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginTop="2dp"
-                    android:text="우리 건물 이슈"
-                    android:textColor="@color/black"
-                    android:textSize="15sp"
-                    android:textStyle="bold"
-                    />
-
-                <ImageView
-                    android:layout_width="20dp"
                     android:layout_height="30dp"
-                    android:layout_marginLeft="125dp"
-                    android:src="@drawable/baseline_local_fire_department_24"
-                    />
-
-            </FrameLayout>
-
-            <LinearLayout
-                android:layout_width="350dp"
-                android:layout_height="90dp"
-                android:background="@drawable/rounded_rectangle"
-                android:backgroundTint="#FFF3F0"
-                android:layout_marginLeft="25dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="15dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="2dp"
-                    android:text=""
-                    android:textColor="@color/black"
-                    android:textSize="12sp"
-                    android:textStyle="bold"
-                    />
-                <!-- 위 TextView에 게시판 이름 받아오기 -->
-
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="20dp"
-                    >
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_marginLeft="10dp"
-                        android:src="@drawable/baseline_face_24"
-                        />
-
-                    <TextView
-                    android:layout_width="150dp"
-                    android:layout_height="15dp"
-                    android:layout_marginLeft="40dp"
-                    android:layout_marginTop="2dp"
-                    android:text=""
-                    android:textColor="@color/black"
-                    android:textSize="12sp"
-                    android:textStyle="bold"
-                    />
-                    <!-- 위 TextView에 사용자 이름 받아오기 -->
-
-                </FrameLayout>
-
-                <TextView
-                    android:layout_width="310dp"
-                    android:layout_height="35dp"
                     android:layout_marginLeft="20dp"
-                    android:layout_marginTop="2dp"
-                    android:text=""
+                    android:layout_marginTop="5dp"
+                    android:text="홍길동님 반갑습니다!"
+                    android:textSize="18sp"
                     android:textColor="@color/black"
-                    />
-                <!-- 위 TextView에 게시글 내용 받아오기  내용 많으면 줄이기 -->
-
-                <TextView
-                    android:layout_width="30dp"
-                    android:layout_height="10dp"
-                    android:layout_marginLeft="320dp"
-                    android:layout_marginTop="2dp"
-                    android:text=""
-                    android:textColor="@color/black"
-                    android:textSize="8sp"
-                    />
-                <!-- 위 TextView에 게시글 작성  날짜 받아오기 -->
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="350dp"
-                android:layout_height="90dp"
-                android:background="@drawable/rounded_rectangle"
-                android:backgroundTint="#FFF3F0"
-                android:layout_marginTop="15dp"
-                android:layout_marginLeft="25dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="15dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="2dp"
-                    android:text=""
-                    android:textColor="@color/black"
-                    android:textSize="12sp"
+                    android:fontFamily="@font/gmarketsansttflight"
                     android:textStyle="bold"
                     />
-                <!-- 위 TextView에 게시판 2 이름 받아오기 -->
 
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="20dp"
-                    >
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_marginLeft="10dp"
-                        android:src="@drawable/baseline_face_24"
-                        />
+                <LinearLayout
+                    android:id="@+id/top_lo"
+                    android:layout_width="350dp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="25dp"
+                    android:background="@drawable/top_back"
+                    android:orientation="horizontal">
 
                     <TextView
-                        android:layout_width="150dp"
-                        android:layout_height="15dp"
-                        android:layout_marginLeft="40dp"
-                        android:layout_marginTop="2dp"
-                        android:text=""
+                        android:id="@+id/date_tv"
+                        android:layout_width="180dp"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="25dp"
+
+                        android:background="#F9F6E3"
                         android:textColor="@color/black"
-                        android:textSize="12sp"
+                        android:text=""
+                        android:fontFamily="@font/gmarketsansttflight"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/sero_line" />
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="10dp"
+                        android:background="#F9F6E3"
+                        android:textColor="@color/black"
+                        android:text=""
+                        android:fontFamily="@font/gmarketsansttflight"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        />
+                    <!-- 배출일 관련 정보 출력 TextView-->
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/notice_lo"
+                    android:layout_width="350dp"
+                    android:layout_height="110dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="25dp"
+                    android:background="@drawable/rounded_rectangle"
+                    android:backgroundTint="#EDFFEF"
+                    android:orientation="vertical">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp" >
+
+                        <ImageView
+                            android:id="@+id/speaker_ic"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="10dp"
+                            android:src="@drawable/baseline_campaign_24"
+                            />
+
+                        <TextView
+                            android:layout_width="300dp"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="50dp"
+                            android:layout_marginTop="5dp"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:textSize="15sp"
+                            android:text="공지사항"
+                            />
+
+                    </FrameLayout>
+
+                    <androidx.viewpager.widget.ViewPager
+                        android:id="@+id/notice_viewPager"
+                        android:layout_width="320dp"
+                        android:layout_height="60dp"
+                        android:layout_marginLeft="14dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/rounded_rectangle"
+                        android:backgroundTint="#DDF2DF"
+                        >
+                    </androidx.viewpager.widget.ViewPager>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/board_lo"
+                    android:layout_width="350dp"
+                    android:layout_height="310dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="25dp"
+                    android:background="@drawable/rounded_rectangle"
+                    android:backgroundTint="#E9F9F6"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="10dp"
+                        android:text="게시판"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:textSize="15sp"
+                        />
+
+                    <LinearLayout
+                        android:id="@+id/freeboard_lo"
+                        android:layout_width="320dp"
+                        android:layout_height="110dp"
+                        android:background="@drawable/rounded_rectangle"
+                        android:backgroundTint="#D0ECE7"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="14dp"
+                        android:orientation="vertical"
+                        >
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="자유게시판"
+                            android:textColor="@color/black"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+
+                            />
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp"
+                            >
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_marginLeft="10dp"
+                                android:src="@drawable/baseline_face_24"
+                                />
+
+                            <TextView
+                                android:layout_width="150dp"
+                                android:layout_height="15dp"
+                                android:layout_marginLeft="40dp"
+                                android:layout_marginTop="2dp"
+                                android:text=""
+                                android:textColor="@color/black"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                />
+                            <!-- 위 TextView에 사용자 이름 받아오기 -->
+
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="280dp"
+                            android:layout_height="45dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="2dp"
+                            android:text=""
+                            android:textColor="@color/black"
+                            />
+                        <!-- 위 TextView에 게시글 내용 받아오기  내용 많으면 줄이기 -->
+
+                        <TextView
+                            android:layout_width="30dp"
+                            android:layout_height="10dp"
+                            android:layout_marginLeft="280dp"
+                            android:text=""
+                            android:textColor="@color/black"
+                            android:textSize="8sp"
+                            />
+                        <!-- 위 TextView에 게시글 작성 날짜 받아오기 -->
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/star_lo"
+                        android:layout_width="320dp"
+                        android:layout_height="110dp"
+                        android:background="@drawable/rounded_rectangle"
+                        android:backgroundTint="#D0ECE7"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="14dp"
+                        android:orientation="vertical"
+                        >
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="중고/공구"
+                            android:textColor="@color/black"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            />
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp"
+                            >
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_marginLeft="10dp"
+                                android:src="@drawable/baseline_face_24"
+                                />
+
+                            <TextView
+                                android:layout_width="150dp"
+                                android:layout_height="15dp"
+                                android:layout_marginLeft="40dp"
+                                android:layout_marginTop="2dp"
+                                android:text=""
+                                android:textColor="@color/black"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                />
+                            <!-- 위 TextView에 사용자 이름 받아오기 -->
+
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="280dp"
+                            android:layout_height="45dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="2dp"
+                            android:text=""
+                            android:textColor="@color/black"
+                            />
+                        <!-- 위 TextView에 게시글 내용 받아오기  내용 많으면 줄이기 -->
+
+                        <TextView
+                            android:layout_width="30dp"
+                            android:layout_height="10dp"
+                            android:layout_marginLeft="280dp"
+                            android:text=""
+                            android:textColor="@color/black"
+                            android:textSize="8sp"
+                            />
+                        <!-- 위 TextView에 게시글 작성 날짜 받아오기 -->
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/issue_lo"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:layout_marginTop="20dp"
+                    android:orientation="vertical">
+
+                    <FrameLayout
+                        android:layout_width="350dp"
+                        android:layout_height="30dp">
+
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginTop="2dp"
+                            android:text="우리 건물 이슈"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            />
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="125dp"
+                            android:src="@drawable/baseline_local_fire_department_24"
+                            />
+
+                    </FrameLayout>
+
+                    <LinearLayout
+                        android:layout_width="350dp"
+                        android:layout_height="90dp"
+                        android:background="@drawable/rounded_rectangle"
+                        android:backgroundTint="#FFF3F0"
+                        android:layout_marginLeft="25dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="15dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="2dp"
+                            android:text=""
+                            android:textColor="@color/black"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            />
+                        <!-- 위 TextView에 게시판 이름 받아오기 -->
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp"
+                            >
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_marginLeft="10dp"
+                                android:src="@drawable/baseline_face_24"
+                                />
+
+                            <TextView
+                                android:layout_width="150dp"
+                                android:layout_height="15dp"
+                                android:layout_marginLeft="40dp"
+                                android:layout_marginTop="2dp"
+                                android:text=""
+                                android:textColor="@color/black"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                />
+                            <!-- 위 TextView에 사용자 이름 받아오기 -->
+
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="310dp"
+                            android:layout_height="35dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="2dp"
+                            android:text=""
+                            android:textColor="@color/black"
+                            />
+                        <!-- 위 TextView에 게시글 내용 받아오기  내용 많으면 줄이기 -->
+
+                        <TextView
+                            android:layout_width="30dp"
+                            android:layout_height="10dp"
+                            android:layout_marginLeft="320dp"
+                            android:layout_marginTop="2dp"
+                            android:text=""
+                            android:textColor="@color/black"
+                            android:textSize="8sp"
+                            />
+                        <!-- 위 TextView에 게시글 작성  날짜 받아오기 -->
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="350dp"
+                        android:layout_height="90dp"
+                        android:background="@drawable/rounded_rectangle"
+                        android:backgroundTint="#FFF3F0"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginLeft="25dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="15dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="2dp"
+                            android:text=""
+                            android:textColor="@color/black"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            />
+                        <!-- 위 TextView에 게시판 2 이름 받아오기 -->
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp"
+                            >
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_marginLeft="10dp"
+                                android:src="@drawable/baseline_face_24"
+                                />
+
+                            <TextView
+                                android:layout_width="150dp"
+                                android:layout_height="15dp"
+                                android:layout_marginLeft="40dp"
+                                android:layout_marginTop="2dp"
+                                android:text=""
+                                android:textColor="@color/black"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                />
+                            <!-- 위 TextView에 사용자 2 이름 받아오기 -->
+
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="310dp"
+                            android:layout_height="35dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="2dp"
+                            android:text=""
+                            android:textColor="@color/black"
+                            />
+                        <!-- 위 TextView에 게시글 내용2  받아오기  내용 많으면 줄이기 -->
+
+                        <TextView
+                            android:layout_width="30dp"
+                            android:layout_height="10dp"
+                            android:layout_marginLeft="320dp"
+                            android:layout_marginTop="2dp"
+                            android:text=""
+                            android:textColor="@color/black"
+                            android:textSize="8sp"
+                            />
+                        <!-- 위 TextView에 게시글 2 작성  날짜 받아오기 -->
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:background="#ECF0FF"
+                    android:orientation="vertical"
+                    >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="15dp"
+                        android:text="Quick 민원 신청"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
                         android:textStyle="bold"
                         />
-                    <!-- 위 TextView에 사용자 2 이름 받아오기 -->
 
-                </FrameLayout>
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="160dp"
+                        android:layout_marginTop="20dp">
 
-                <TextView
-                    android:layout_width="310dp"
-                    android:layout_height="35dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="2dp"
-                    android:text=""
-                    android:textColor="@color/black"
-                    />
-                <!-- 위 TextView에 게시글 내용2  받아오기  내용 많으면 줄이기 -->
+                        <Button
+                            android:id="@+id/btn_quick_machine"
+                            android:layout_width="100dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="30dp"
+                            android:background="@drawable/rounded_rectangle"
+                            android:backgroundTint="@color/white"
+                            android:text="기계 고장"
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            />
 
-                <TextView
-                    android:layout_width="30dp"
-                    android:layout_height="10dp"
-                    android:layout_marginLeft="320dp"
-                    android:layout_marginTop="2dp"
-                    android:text=""
-                    android:textColor="@color/black"
-                    android:textSize="8sp"
-                    />
-                <!-- 위 TextView에 게시글 2 작성  날짜 받아오기 -->
+                        <Button
+                            android:id="@+id/btn_quick_public"
+                            android:layout_width="100dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="150dp"
+                            android:background="@drawable/rounded_rectangle"
+                            android:backgroundTint="@color/white"
+                            android:text="공동 시설"
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            />
+
+                        <Button
+                            android:id="@+id/btn_quick_env"
+                            android:layout_width="100dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="270dp"
+                            android:background="@drawable/rounded_rectangle"
+                            android:backgroundTint="@color/white"
+                            android:text="환경 개선"
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            />
+
+                        <Button
+                            android:id="@+id/btn_quick_talk"
+                            android:layout_width="100dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="90dp"
+                            android:layout_marginTop="80dp"
+                            android:background="@drawable/rounded_rectangle"
+                            android:backgroundTint="@color/white"
+                            android:text="건의사항"
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            />
+
+                        <Button
+                            android:id="@+id/btn_quick_etc"
+                            android:layout_width="100dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="210dp"
+                            android:layout_marginTop="80dp"
+                            android:background="@drawable/rounded_rectangle"
+                            android:backgroundTint="@color/white"
+                            android:text="기 타"
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            />
+
+                    </FrameLayout>
+
+                    <Button
+                        android:id="@+id/btn_go_complain"
+                        android:layout_width="230dp"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="90dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/application_button"
+                        android:text="민원 현황 보러가기 →"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        />
+
+                </LinearLayout>
 
             </LinearLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:background="#ECF0FF"
-            android:orientation="vertical"
-            >
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="15dp"
-                android:text="Quick 민원 신청"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                />
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="160dp"
-                android:layout_marginTop="20dp">
-
-                <Button
-                    android:id="@+id/btn_quick_machine"
-                    android:layout_width="100dp"
-                    android:layout_height="60dp"
-                    android:layout_marginLeft="30dp"
-                    android:background="@drawable/rounded_rectangle"
-                    android:backgroundTint="@color/white"
-                    android:text="기계 고장"
-                    android:gravity="center"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    />
-
-                <Button
-                    android:id="@+id/btn_quick_public"
-                    android:layout_width="100dp"
-                    android:layout_height="60dp"
-                    android:layout_marginLeft="150dp"
-                    android:background="@drawable/rounded_rectangle"
-                    android:backgroundTint="@color/white"
-                    android:text="공동 시설"
-                    android:gravity="center"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    />
-
-                <Button
-                    android:id="@+id/btn_quick_env"
-                    android:layout_width="100dp"
-                    android:layout_height="60dp"
-                    android:layout_marginLeft="270dp"
-                    android:background="@drawable/rounded_rectangle"
-                    android:backgroundTint="@color/white"
-                    android:text="환경 개선"
-                    android:gravity="center"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    />
-
-                <Button
-                    android:id="@+id/btn_quick_talk"
-                    android:layout_width="100dp"
-                    android:layout_height="60dp"
-                    android:layout_marginLeft="90dp"
-                    android:layout_marginTop="80dp"
-                    android:background="@drawable/rounded_rectangle"
-                    android:backgroundTint="@color/white"
-                    android:text="건의사항"
-                    android:gravity="center"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    />
-
-                <Button
-                    android:id="@+id/btn_quick_etc"
-                    android:layout_width="100dp"
-                    android:layout_height="60dp"
-                    android:layout_marginLeft="210dp"
-                    android:layout_marginTop="80dp"
-                    android:background="@drawable/rounded_rectangle"
-                    android:backgroundTint="@color/white"
-                    android:text="기 타"
-                    android:gravity="center"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    />
-
-            </FrameLayout>
-
-            <Button
-                android:id="@+id/btn_go_complain"
-                android:layout_width="230dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="90dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/application_button"
-                android:text="민원 현황 보러가기 →"
-                android:gravity="center"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                />
-
-        </LinearLayout>
-
+        </ScrollView>
     </LinearLayout>
-
-</ScrollView>
+</RelativeLayout>

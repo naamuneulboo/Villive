@@ -36,23 +36,10 @@ class Post_Complain : AppCompatActivity() {
         val index = complainArray.indexOf(selectedItem)
         spinner.setSelection(index)
 
-        // 체크 박스 리스너 설정
-        val checkBoxAnonymous = findViewById<CheckBox>(R.id.checkBoxAnonymous)
-        checkBoxAnonymous.isChecked = true
-
-        checkBoxAnonymous.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) {
-                checkBoxAnonymous.text = getString(R.string.anonymous)
-            } else {
-                checkBoxAnonymous.text = getString(R.string.profile)
-            }
-        }
-
         // 게시글 등록 버튼 클릭 리스너 설정
         val btnAddPost = findViewById<View>(R.id.btn_add_post)
         btnAddPost.setOnClickListener {
             val selectedItem = spinner.selectedItem.toString()
-            val isAnonymous = checkBoxAnonymous.isChecked
             val PostTitle = findViewById<EditText>(R.id.et_post_title).text.toString()
             val PostWrite = findViewById<EditText>(R.id.et_post_write).text.toString()
 
@@ -69,7 +56,6 @@ class Post_Complain : AppCompatActivity() {
 
                 val message = buildString {
                     append("선택된 항목: $selectedItem\n")
-                    append("익명 여부: ${if (isAnonymous) "익명" else "프로필"}\n")
                     append("제목: $PostTitle\n")
                     append("내용: $PostWrite")
                 }

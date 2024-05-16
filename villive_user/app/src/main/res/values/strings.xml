@@ -62,7 +62,7 @@
 
 
     <string name="add_post_description3">입주민들과 자유롭게 소통하는 단체 게시판</string>
-    <string name="add_post_description4">입주민들과 함께 구매하고 절약하는 공동구매 게시판</string>
+    <string name="add_post_description4">   입주민들과 함께 구매하고 절약하는 공동구매 게시판</string>
     <string name="add_post_description5">민원사항을 자유롭게 건의하는 민원 게시판</string>
     <string name="add_complain_post">민원 분류를 선택하고 내용을 입력해주세요.</string>
     <string name="add_complain_kind">민원 분류 : </string>
