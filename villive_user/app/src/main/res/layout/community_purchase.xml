@@ -5,67 +5,52 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Community.Community_Purchase"
-    android:background="#FFFFFF">
+    tools:context=".Community.Community_Share"
+    android:background="#FFFFFF"
+    android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="98dp"
-        android:orientation="vertical">
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        tools:ignore="MissingConstraints">
-
-        <ImageView
-            android:id="@+id/logo_view"
-            android:layout_width="150dp"
+        <FrameLayout
+            android:layout_width="match_parent"
             android:layout_height="80dp"
-            android:contentDescription="@string/trim"
-            android:src="@drawable/villive_logo_white" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_marginStart="155dp"
-            android:layout_marginTop="25dp"
-            android:backgroundTint="#454040"
-            android:text="@string/community_purchase"
-            android:textColor="#FF454040"
-            android:textSize="25sp"
-            android:textStyle="bold" />
-
-    </FrameLayout>
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="600dp"
-            tools:ignore="MissingConstraints">
-            <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-
-            </ScrollView>
-        </FrameLayout>
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
             tools:ignore="MissingConstraints">
 
-            <Button
-                android:id="@+id/btn_write_post"
-                android:layout_width="200dp"
+            <ImageView
+                android:id="@+id/logo_view"
+                android:layout_width="150dp"
+                android:layout_height="80dp"
+                android:contentDescription="@string/trim"
+                android:src="@drawable/villive_logo_white" />
+
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="50dp"
-                android:layout_gravity="center"
-                android:backgroundTint="#FFF099"
-                android:text="@string/write_post"
-                android:textColor="@color/black" />
+                android:layout_marginStart="155dp"
+                android:layout_marginTop="25dp"
+                android:backgroundTint="#454040"
+                android:text="공동구매 게시판"
+                android:textColor="#FF454040"
+                android:textSize="25sp"
+                android:textStyle="bold" />
 
         </FrameLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="570dp">
+
+        </ScrollView>
+
+        <Button
+            android:id="@+id/btn_write_post"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/st_round_rectangle"
+            android:backgroundTint="#FFF099"
+            android:text="@string/write_post"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            />
+
     </LinearLayout>
-</LinearLayout>

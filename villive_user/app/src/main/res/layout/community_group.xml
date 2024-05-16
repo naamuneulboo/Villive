@@ -5,17 +5,9 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Community.Community_Group"
-    android:background="#FFFFFF">
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="98dp"
-        android:orientation="vertical">
+    tools:context=".Community.Community_Share"
+    android:background="#FFFFFF"
+    android:orientation="vertical">
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -35,39 +27,30 @@
             android:layout_marginStart="155dp"
             android:layout_marginTop="25dp"
             android:backgroundTint="#454040"
-            android:text="@string/community_group"
+            android:text="자유 게시판"
             android:textColor="#FF454040"
             android:textSize="25sp"
             android:textStyle="bold" />
 
     </FrameLayout>
 
-    <FrameLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="600dp"
-        tools:ignore="MissingConstraints">
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        android:layout_height="570dp">
 
+    </ScrollView>
 
-        </ScrollView>
-    </FrameLayout>
+    <Button
+        android:id="@+id/btn_write_post"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/st_round_rectangle"
+        android:backgroundTint="#FFF099"
+        android:text="@string/write_post"
+        android:textColor="@color/black"
+        android:textSize="17sp"
+        />
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        tools:ignore="MissingConstraints">
-
-        <Button
-            android:id="@+id/btn_write_post"
-            android:layout_width="200dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:backgroundTint="#FFF099"
-            android:text="@string/write_post"
-            android:textColor="@color/black" />
-
-    </FrameLayout>
-    </LinearLayout>
 </LinearLayout>

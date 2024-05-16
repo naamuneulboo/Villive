@@ -7,7 +7,7 @@
     android:background="@color/white"
     tools:context=".HomeFragment">
 
-    <!-- 버튼 연결 안했음 + 맨 위 툴바 아직 고정 안됨-->
+    <!-- 맨 위 툴바 아직 고정 안됨-->
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -361,12 +361,12 @@
                     android:textStyle="bold"
                     />
                 <!-- 위 TextView에 게시판 이름 받아오기 -->
-                
+
                 <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="20dp"
                     >
-                    
+
                     <ImageView
                         android:layout_width="20dp"
                         android:layout_height="20dp"
@@ -577,9 +577,9 @@
                     android:textSize="18sp"
                     android:textStyle="bold"
                     />
-                
+
             </FrameLayout>
-            
+
             <Button
                 android:id="@+id/btn_go_complain"
                 android:layout_width="230dp"

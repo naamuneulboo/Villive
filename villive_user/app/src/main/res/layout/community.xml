@@ -7,16 +7,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Community.Community"
-    android:background="#FFFFFF">
+    android:background="#FFFFFF"
+    android:orientation="vertical">
 
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp"
-        android:orientation="vertical">
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -56,10 +49,10 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="100dp"
+            android:layout_marginTop="10dp"
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="80dp">
-
 
             <ImageButton
                 android:id="@+id/ibtn_group"
@@ -101,7 +94,6 @@
                 android:layout_marginTop="20dp"
                 android:contentDescription="@string/community_group"
                 app:srcCompat="@drawable/community_group" />
-
 
         </FrameLayout>
 
@@ -153,7 +145,6 @@
                 android:contentDescription="@string/community_purchase"
                 app:srcCompat="@drawable/community_purchase" />
 
-
         </FrameLayout>
 
         <FrameLayout
@@ -203,7 +194,6 @@
                 android:layout_marginTop="20dp"
                 android:contentDescription="@string/community_complain"
                 app:srcCompat="@drawable/community_complain" />
-
 
         </FrameLayout>
 
@@ -305,7 +295,5 @@
                 android:contentDescription="@string/community_club"
                 app:srcCompat="@drawable/community_club" />
 
-
         </FrameLayout>
     </LinearLayout>
-  </LinearLayout>

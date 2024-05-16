@@ -5,105 +5,79 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".User_SignPage.StartPage"
-    android:background="#F9FFF1">
+    android:background="@color/white"
+    tools:context=".User_SignPage.StartPage">
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp"
-        android:orientation="vertical">
+        tools:layout_editor_absoluteY="0dp">
 
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="300dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="100dp"
+            android:contentDescription="@string/trim"
+            app:srcCompat="@drawable/villive_logo" />
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            tools:ignore="MissingConstraints">
+        <TextView
+            android:id="@+id/tv_text1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="70dp"
+            android:text="@string/start_view_text"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="300dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center"
-                android:contentDescription="@string/trim"
-                app:srcCompat="@drawable/villive_logo_green" />
+        <TextView
+            android:id="@+id/tv_text2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/start_view_text3"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
 
-        </FrameLayout>
+        <Button
+            android:id="@+id/btn_go_signup"
+            android:layout_width="172dp"
+            android:layout_height="61dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/st_round_rectangle"
+            android:backgroundTint="#C7E9CA"
+            android:text="@string/start_view_text2"
+            android:textColor="@color/black"
+            android:textSize="17sp" />
 
+        <TextView
+            android:id="@+id/tv_text3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginTop="100dp"
+            android:text="@string/start_view_text4"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            tools:ignore="MissingConstraints">
-            <TextView
-                android:id="@+id/tv_text1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:textColor="@color/black"
-                android:text="@string/start_view_text"
-                />
-        </FrameLayout>
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            tools:ignore="MissingConstraints">
-            <TextView
-                android:id="@+id/tv_text2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:textColor="@color/black"
-                android:text="@string/start_view_text3"
-                />
-        </FrameLayout>
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            tools:ignore="MissingConstraints">
-            <Button
-                android:id="@+id/btn_go_signup"
-                android:layout_width="172dp"
-                android:layout_height="61dp"
-                android:background="@drawable/rectange_green_button"
-                android:layout_gravity="center"
-                android:textColor="@color/black"
-                android:text="@string/start_view_text2"  />
-        </FrameLayout>
-
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            tools:ignore="MissingConstraints">
-            <TextView
-                android:id="@+id/tv_text3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|center_horizontal"
-                android:textColor="@color/black"
-                android:text="@string/start_view_text4"
-                />
-        </FrameLayout>
-
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            tools:ignore="MissingConstraints">
-            <Button
-                android:id="@+id/btn_go_login"
-                android:layout_width="160dp"
-                android:layout_height="55dp"
-                android:background="@drawable/rectangle_yellow"
-                android:layout_gravity="center"
-                android:textColor="@color/black"
-                android:text="@string/start_view_text5"  />
-        </FrameLayout>
+        <Button
+            android:id="@+id/btn_go_login"
+            android:layout_width="160dp"
+            android:layout_height="55dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/st_round_rectangle"
+            android:backgroundTint="#FFF5C1"
+            android:text="@string/start_view_text5"
+            android:textColor="@color/black"
+            android:textSize="17sp" />
 
     </LinearLayout>
 

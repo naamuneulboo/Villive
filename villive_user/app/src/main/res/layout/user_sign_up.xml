@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".User_SignPage.user_SignUp"
-    android:background="#F9FFF1">
+    android:background="@color/white">
 
 
     <LinearLayout
@@ -17,37 +17,14 @@
         tools:layout_editor_absoluteY="0dp"
         android:orientation="vertical">
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="20dp"
-            tools:ignore="MissingConstraints">
-
-
-
-        </FrameLayout>
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            tools:ignore="MissingConstraints">
-
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="150dp"
-                android:layout_height="60dp"
+                android:layout_width="200dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="20dp"
                 android:layout_gravity="center"
                 android:contentDescription="@string/trim"
-                app:srcCompat="@drawable/villive_logo_green" />
-
-        </FrameLayout>
-
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="80dp">
+                app:srcCompat="@drawable/villive_logo" />
 
 
             <TextView
@@ -58,175 +35,96 @@
                 android:layout_marginTop="10dp"
                 android:textColor="@color/black"
                 android:text="@string/sign_up_text" />
-        </FrameLayout>
 
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="150dp">
-
-
-            <ImageView
-                android:id="@+id/imageView5"
-                android:layout_width="360dp"
-                android:layout_height="60dp"
-                android:layout_gravity="center"
-                android:contentDescription="@string/trim"
-                app:srcCompat="@drawable/rectangle_little_green" />
 
             <EditText
                 android:id="@+id/et_name"
-                android:layout_width="340dp"
+                android:layout_width="350dp"
                 android:layout_height="60dp"
+                android:layout_marginTop="20dp"
                 android:layout_gravity="center"
-                android:autofillHints="@string/name"
-                android:background="@drawable/rectangle_little_green"
+                android:autofillHints="   이름"
+                android:background="@drawable/rounded_rectangle"
+                android:backgroundTint="#C7E9CA"
                 android:ems="10"
                 android:textColor="@color/black"
-                android:textColorHint="@color/dark_gray"
-                android:hint="@string/name"
+                android:textColorHint="@color/black"
+                android:hint="   이름"
                 android:inputType="text" />
 
-        </FrameLayout>
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="230dp">
+        <EditText
+            android:id="@+id/et_id"
+            android:layout_width="350dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:autofillHints="아이디"
+            android:background="@drawable/rounded_rectangle"
+            android:backgroundTint="#C7E9CA"
+            android:ems="10"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:hint="   아이디"
+            android:inputType="text" />
 
-            <ImageView
-                android:id="@+id/imageView6"
-                android:layout_width="360dp"
-                android:layout_height="60dp"
-                android:layout_gravity="center"
-                android:contentDescription="@string/trim"
-                app:srcCompat="@drawable/rectangle_little_green" />
+        <EditText
+            android:id="@+id/et_nickname"
+            android:layout_width="350dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:autofillHints="세대 호수"
+            android:background="@drawable/rounded_rectangle"
+            android:backgroundTint="#C7E9CA"
+            android:ems="10"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:hint="   닉네임"
+            android:inputType="text" />
 
-            <EditText
-                android:id="@+id/et_id"
-                android:layout_width="340dp"
-                android:layout_height="60dp"
-                android:layout_gravity="center"
-                android:autofillHints="@string/id"
-                android:background="@drawable/rectangle_little_green"
-                android:ems="10"
-                android:textColor="@color/black"
-                android:textColorHint="@color/dark_gray"
-                android:hint="@string/id"
-                android:inputType="text" />
-        </FrameLayout>
+        <EditText
+            android:id="@+id/et_pw"
+            android:layout_width="350dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:autofillHints="비밀번호"
+            android:background="@drawable/rounded_rectangle"
+            android:backgroundTint="#C7E9CA"
+            android:ems="10"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:hint="   비밀번호"
+            android:inputType="text" />
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="-16dp"
-            tools:layout_editor_absoluteY="310dp">
-
-            <ImageView
-                android:id="@+id/imageView7"
-                android:layout_width="360dp"
-                android:layout_height="60dp"
-                android:layout_gravity="center"
-                android:contentDescription="@string/trim"
-                app:srcCompat="@drawable/rectangle_little_green" />
-
-            <EditText
-                android:id="@+id/et_pw"
-                android:layout_width="340dp"
-                android:layout_height="60dp"
-                android:layout_gravity="center"
-                android:autofillHints="@string/pw"
-                android:background="@drawable/rectangle_little_green"
-                android:ems="10"
-                android:textColor="@color/black"
-                android:textColorHint="@color/dark_gray"
-                android:hint="@string/pw"
-                android:inputType="textPassword" />
-        </FrameLayout>
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="390dp">
-
-            <ImageView
-                android:id="@+id/imageView8"
-                android:layout_width="360dp"
-                android:layout_height="60dp"
-                android:layout_gravity="center"
-                android:contentDescription="@string/trim"
-                app:srcCompat="@drawable/rectangle_little_green" />
-
-            <EditText
-                android:id="@+id/et_pw_check"
-                android:layout_width="340dp"
-                android:layout_height="60dp"
-                android:layout_gravity="center"
-                android:autofillHints="@string/pw_check"
-                android:background="@drawable/rectangle_little_green"
-                android:ems="10"
-                android:textColor="@color/black"
-                android:textColorHint="@color/dark_gray"
-                android:hint="@string/pw_check"
-                android:inputType="textPassword" />
-        </FrameLayout>
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="470dp">
-
-            <ImageView
-                android:id="@+id/imageView9"
-                android:layout_width="360dp"
-                android:layout_height="60dp"
-                android:layout_gravity="center"
-                android:contentDescription="@string/trim"
-                app:srcCompat="@drawable/rectangle_little_green" />
-
-            <EditText
-                android:id="@+id/et_home_num"
-                android:layout_width="340dp"
-                android:layout_height="60dp"
-                android:layout_gravity="center"
-                android:autofillHints="@string/home_num"
-                android:background="@drawable/rectangle_little_green"
-                android:ems="10"
-                android:textColor="@color/black"
-                android:textColorHint="@color/dark_gray"
-                android:hint="@string/home_num"
-                android:inputType="text" />
-        </FrameLayout>
-
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="-16dp"
-            tools:layout_editor_absoluteY="630dp">
-
+        <EditText
+            android:id="@+id/et_pw_check"
+            android:layout_width="350dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:autofillHints="비밀번호 확인"
+            android:background="@drawable/rounded_rectangle"
+            android:backgroundTint="#C7E9CA"
+            android:ems="10"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:hint="   비밀번호 확인"
+            android:inputType="text" />
 
             <Button
                 android:id="@+id/btn_sign_up"
                 android:layout_width="180dp"
                 android:layout_height="50dp"
+                android:layout_marginTop="20dp"
                 android:layout_gravity="center"
                 android:background="@drawable/rectangle_yellow"
+                android:backgroundTint="#FCFDD9"
                 android:textColor="@color/black"
-                android:textSize="12sp"
+                android:textSize="15sp"
                 android:text="@string/sign_in" />
-        </FrameLayout>
+
     </LinearLayout>
 
 </LinearLayout>

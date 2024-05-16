@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".User_SignPage.user_LogIn"
-    android:background="#F9FFF1">
+    android:background="@color/white">
 
 
     <LinearLayout
@@ -17,99 +17,59 @@
         tools:layout_editor_absoluteY="0dp"
         android:orientation="vertical">
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            tools:ignore="MissingConstraints">
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="200dp"
-                android:layout_height="100dp"
+                android:layout_width="300dp"
+                android:layout_height="130dp"
+                android:layout_marginTop="75dp"
                 android:layout_gravity="center"
                 android:contentDescription="@string/trim"
-                app:srcCompat="@drawable/villive_logo_green" />
+                app:srcCompat="@drawable/villive_logo" />
 
-        </FrameLayout>
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="200dp">
-
-
-            <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="360dp"
-                android:layout_height="60dp"
-                android:layout_gravity="center"
-                android:contentDescription="@string/trim"
-                app:srcCompat="@drawable/rectangle" />
 
             <EditText
                 android:id="@+id/et_login_id"
                 android:layout_width="340dp"
                 android:layout_height="60dp"
+                android:layout_marginTop="50dp"
                 android:layout_gravity="center"
                 android:autofillHints="@string/id"
-                android:background="@drawable/rectangle"
+                android:background="@drawable/rounded_rectangle"
+                android:backgroundTint="#C7E9CA"
                 android:ems="10"
                 android:textColor="@color/black"
-                android:textColorHint="@color/dark_gray"
-                android:hint="@string/id"
+                android:textColorHint="@color/black"
+                android:hint="   아이디"
                 android:inputType="text" />
 
-        </FrameLayout>
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="300dp">
-
-            <ImageView
-                android:id="@+id/imageView4"
-                android:layout_width="360dp"
-                android:layout_height="60dp"
-                android:layout_gravity="center"
-                android:contentDescription="@string/trim"
-                app:srcCompat="@drawable/rectangle" />
 
             <EditText
                 android:id="@+id/et_login_pw"
                 android:layout_width="340dp"
                 android:layout_height="60dp"
+                android:layout_marginTop="30dp"
                 android:layout_gravity="center"
                 android:autofillHints="@string/pw"
-                android:background="@drawable/rectangle"
+                android:background="@drawable/rounded_rectangle"
+                android:backgroundTint="#C7E9CA"
                 android:ems="10"
                 android:textColor="@color/black"
-                android:textColorHint="@color/dark_gray"
-                android:hint="@string/pw"
+                android:textColorHint="@color/black"
+                android:hint="   비밀번호"
                 android:inputType="textPassword" />
-        </FrameLayout>
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="400dp">
-
 
             <Button
                 android:id="@+id/btn_login"
                 android:layout_width="180dp"
                 android:layout_height="50dp"
+                android:layout_marginTop="40dp"
                 android:layout_gravity="center"
-                android:background="@drawable/rectange_green_button"
+                android:background="@drawable/rectangle_yellow"
                 android:textColor="@color/black"
-                android:textSize="12sp"
+                android:textSize="17sp"
                 android:text="@string/log_in" />
-        </FrameLayout>
+
     </LinearLayout>
 
 </LinearLayout>
