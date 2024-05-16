@@ -47,12 +47,12 @@
 
         <Button
             android:id="@+id/btn_go_signup"
-            android:layout_width="172dp"
-            android:layout_height="61dp"
+            android:layout_width="250dp"
+            android:layout_height="60dp"
             android:layout_gravity="center"
             android:layout_marginTop="30dp"
             android:background="@drawable/st_round_rectangle"
-            android:backgroundTint="#C7E9CA"
+            android:backgroundTint="#DFF8E1"
             android:text="@string/start_view_text2"
             android:textColor="@color/black"
             android:textSize="17sp" />
@@ -69,8 +69,8 @@
 
         <Button
             android:id="@+id/btn_go_login"
-            android:layout_width="160dp"
-            android:layout_height="55dp"
+            android:layout_width="250dp"
+            android:layout_height="60dp"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
             android:background="@drawable/st_round_rectangle"
