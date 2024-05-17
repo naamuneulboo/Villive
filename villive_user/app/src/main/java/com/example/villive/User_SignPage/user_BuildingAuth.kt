@@ -26,14 +26,20 @@ class user_BuildingAuth : AppCompatActivity() {
 
         val toAuth = findViewById<Button>(R.id.btn_to_auth)
         val vill_code = findViewById<EditText>(R.id.et_vill_code)
+        val vill_num=findViewById<EditText>(R.id.et_vill_num)
 
         toAuth.setOnClickListener {
             val vCode = vill_code.text.toString().trim()
+            val vNum=vill_num.text.toString().trim()
 
-            if (vCode.isEmpty()) {
+            if (vCode.isEmpty()&&vNum.isEmpty()) {
                 // 건물 코드를 입력하지 않은 경우
+                showErrorMessage("모든 필드를 입력해주세요!")
+            } else if(vNum.isEmpty()){
+                showErrorMessage("세대 호수를 입력하세요!")
+            }else if(vCode.isEmpty()){
                 showErrorMessage("건물 코드를 입력하세요!")
-            } else {
+            }else{
                 // 건물 코드 입력 후 확인 누르면 로그인 창으로 이동할 수 있게
                 showConfirmationDialog()
             }

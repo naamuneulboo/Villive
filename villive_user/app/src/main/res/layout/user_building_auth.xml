@@ -36,11 +36,33 @@
             android:background="@drawable/st_round_rectangle"
             android:backgroundTint="#C7E9CA"
             android:ems="10"
-            android:hint="   건물 코드를 입력하세요"
+            android:paddingStart="10dp"
+            android:gravity="start|center_vertical"
+            android:hint="@string/auth_text4"
             android:inputType="text"
             android:textColor="@color/black"
-            android:textColorHint="@color/black"
-            android:textSize="17sp" />
+            android:textColorHint="@color/real_dark_gray"
+            android:textSize="17sp"
+            tools:ignore="RtlSymmetry" />
+
+        <EditText
+            android:id="@+id/et_vill_num"
+            android:layout_width="300dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:autofillHints="@string/home_num"
+            android:background="@drawable/st_round_rectangle"
+            android:backgroundTint="#C7E9CA"
+            android:ems="10"
+            android:paddingStart="10dp"
+            android:gravity="start|center_vertical"
+            android:hint="@string/home_num"
+            android:inputType="text"
+            android:textColor="@color/black"
+            android:textColorHint="@color/real_dark_gray"
+            android:textSize="17sp"
+            tools:ignore="RtlSymmetry" />
 
             <Button
                 android:id="@+id/btn_to_auth"

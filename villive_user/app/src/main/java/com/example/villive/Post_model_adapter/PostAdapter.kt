@@ -18,7 +18,7 @@ class PostAdapter (val PostList: ArrayList<Posts>) : RecyclerView.Adapter<PostAd
             itemView.setOnClickListener {  // 눌렀을때 토스트로 내용 뽁 띄워주는거
                 val curPos: Int = adapterPosition
                 val post: Posts =PostList.get(curPos)
-                Toast.makeText(parent.context,"제목 : ${post.title} \n내용 : ${post.write} \n익명여부 : ${post.nickname} \n등록 시간 : ${post.write_time}",Toast.LENGTH_LONG).show()
+                Toast.makeText(parent.context,"제목 : ${post.title} \n내용 : ${post.write} \n닉네임 : ${post.nickname} \n등록 시간 : ${post.write_time}",Toast.LENGTH_LONG).show()
 
             }
         }

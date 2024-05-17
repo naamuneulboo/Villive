@@ -37,14 +37,17 @@
                 android:layout_height="60dp"
                 android:layout_marginTop="30dp"
                 android:layout_gravity="center"
-                android:autofillHints="   이름"
+                android:autofillHints="@string/name"
                 android:background="@drawable/rounded_rectangle"
                 android:backgroundTint="#DFF8E1"
                 android:ems="10"
+                android:paddingStart="10dp"
+                android:gravity="start|center_vertical"
                 android:textColor="@color/black"
-                android:textColorHint="@color/black"
-                android:hint="   이름"
-                android:inputType="text" />
+                android:textColorHint="@color/real_dark_gray"
+                android:hint="@string/name"
+                android:inputType="text"
+                tools:ignore="RtlSymmetry" />
 
 
         <EditText
@@ -53,14 +56,17 @@
             android:layout_height="60dp"
             android:layout_marginTop="20dp"
             android:layout_gravity="center"
-            android:autofillHints="아이디"
+            android:autofillHints="@string/id"
             android:background="@drawable/rounded_rectangle"
             android:backgroundTint="#DFF8E1"
             android:ems="10"
+            android:paddingStart="10dp"
+            android:gravity="start|center_vertical"
             android:textColor="@color/black"
-            android:textColorHint="@color/black"
-            android:hint="   아이디"
-            android:inputType="text" />
+            android:textColorHint="@color/real_dark_gray"
+            android:hint="@string/id"
+            android:inputType="text"
+            tools:ignore="RtlSymmetry" />
 
         <EditText
             android:id="@+id/et_nickname"
@@ -68,14 +74,17 @@
             android:layout_height="60dp"
             android:layout_marginTop="20dp"
             android:layout_gravity="center"
-            android:autofillHints="세대 호수"
+            android:autofillHints="@string/nickname"
             android:background="@drawable/rounded_rectangle"
             android:backgroundTint="#DFF8E1"
             android:ems="10"
+            android:paddingStart="10dp"
+            android:gravity="start|center_vertical"
             android:textColor="@color/black"
-            android:textColorHint="@color/black"
-            android:hint="   닉네임"
-            android:inputType="text" />
+            android:textColorHint="@color/real_dark_gray"
+            android:hint="@string/nickname"
+            android:inputType="text"
+            tools:ignore="RtlSymmetry" />
 
         <EditText
             android:id="@+id/et_pw"
@@ -83,14 +92,17 @@
             android:layout_height="60dp"
             android:layout_marginTop="20dp"
             android:layout_gravity="center"
-            android:autofillHints="비밀번호"
+            android:autofillHints="@string/pw"
             android:background="@drawable/rounded_rectangle"
             android:backgroundTint="#DFF8E1"
             android:ems="10"
+            android:paddingStart="10dp"
+            android:gravity="start|center_vertical"
             android:textColor="@color/black"
-            android:textColorHint="@color/black"
-            android:hint="   비밀번호"
-            android:inputType="text" />
+            android:textColorHint="@color/real_dark_gray"
+            android:hint="@string/pw"
+            android:inputType="textPassword"
+            tools:ignore="RtlSymmetry" />
 
         <EditText
             android:id="@+id/et_pw_check"
@@ -98,14 +110,17 @@
             android:layout_height="60dp"
             android:layout_marginTop="20dp"
             android:layout_gravity="center"
-            android:autofillHints="비밀번호 확인"
+            android:autofillHints="@string/pw_check"
             android:background="@drawable/rounded_rectangle"
             android:backgroundTint="#DFF8E1"
             android:ems="10"
+            android:paddingStart="10dp"
+            android:gravity="start|center_vertical"
             android:textColor="@color/black"
-            android:textColorHint="@color/black"
-            android:hint="   비밀번호 확인"
-            android:inputType="text" />
+            android:textColorHint="@color/real_dark_gray"
+            android:hint="@string/pw_check"
+            android:inputType="textPassword"
+            tools:ignore="RtlSymmetry" />
 
             <Button
                 android:id="@+id/btn_sign_up"
