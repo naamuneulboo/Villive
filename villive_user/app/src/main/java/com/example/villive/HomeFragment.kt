@@ -34,6 +34,7 @@ class HomeFragment : Fragment() {
     ): View? {
 
 
+
         val calendar = Calendar.getInstance()
 
         val dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK)
