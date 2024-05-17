@@ -51,6 +51,7 @@
             android:background="@drawable/st_round_rectangle"
             android:backgroundTint="#FFF099"
             android:text="@string/write_post"
+            android:gravity="center"
             android:textColor="@color/black"
             android:textSize="17sp"
             />

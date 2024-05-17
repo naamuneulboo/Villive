@@ -128,6 +128,7 @@
                 android:layout_height="50dp"
                 android:layout_marginTop="50dp"
                 android:layout_gravity="center"
+                android:gravity="center"
                 android:background="@drawable/rectangle_yellow"
                 android:textColor="@color/black"
                 android:textSize="15sp"

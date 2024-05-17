@@ -69,6 +69,7 @@
                 android:background="@drawable/gray_outline_rectangle"
                 android:contentDescription="@string/setting_description"
                 android:text="@string/setting_description"
+                android:gravity="center"
                 android:textSize="20sp"
                 android:fontFamily="@font/gmarketsansttfmedium"
                 android:textColor="#6A6A6A"
@@ -79,6 +80,7 @@
                 android:layout_width="380dp"
                 android:layout_height="60dp"
                 android:layout_marginTop="10dp"
+                android:gravity="center"
                 android:layout_gravity="center"
                 android:background="@drawable/gray_outline_rectangle"
                 android:contentDescription="@string/setting_description2"
@@ -98,6 +100,7 @@
                 android:contentDescription="@string/setting_description3"
                 android:text="@string/setting_description3"
                 android:textSize="20sp"
+                android:gravity="center"
                 android:fontFamily="@font/gmarketsansttfmedium"
                 android:textColor="#6A6A6A"/>
 
@@ -111,6 +114,7 @@
                 android:background="@drawable/gray_outline_rectangle"
                 android:contentDescription="@string/setting_description4"
                 android:text="@string/setting_description4"
+                android:gravity="center"
                 android:textSize="20sp"
                 android:fontFamily="@font/gmarketsansttfmedium"
                 android:textColor="#6A6A6A" />
@@ -124,6 +128,7 @@
                 android:background="@drawable/gray_outline_rectangle"
                 android:contentDescription="@string/setting_description5"
                 android:text="@string/setting_description5"
+                android:gravity="center"
                 android:textSize="20sp"
                 android:fontFamily="@font/gmarketsansttfmedium"
                 android:textColor="#6A6A6A"/>
@@ -135,6 +140,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_gravity="end|bottom"
                 android:layout_marginEnd="10dp"
+                android:gravity="center"
                 android:background="#00FF0000"
                 android:text="@string/setting_PIPP"
                 android:textColor="@color/dark_gray" />

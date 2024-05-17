@@ -18,7 +18,7 @@ class Community_Group : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-
+        setContentView(R.layout.community_group)
 
         val postlist= arrayListOf(
             Posts("test","test","가연","10:01"),
@@ -39,7 +39,7 @@ class Community_Group : AppCompatActivity() {
         rv_post.adapter= PostAdapter(postlist)
 
 
-        setContentView(R.layout.community_group)
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
