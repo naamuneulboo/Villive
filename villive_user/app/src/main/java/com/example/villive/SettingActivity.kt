@@ -18,19 +18,3 @@ class SettingActivity : ComponentActivity() {
         setContentView(R.layout.setting)
     }
 }
-
-@Composable
-fun Greeting4(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview4() {
-    VilliveTheme {
-        Greeting4("Android")
-    }
-}

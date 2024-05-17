@@ -16,19 +16,3 @@ class HomeActivity : ComponentActivity() {
         setContentView(R.layout.home)
     }
 }
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    VilliveTheme {
-        Greeting("Android")
-    }
-}

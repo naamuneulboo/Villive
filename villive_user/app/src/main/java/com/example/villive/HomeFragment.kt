@@ -20,10 +20,13 @@ import com.example.villive.Community.Community_Purchase
 import com.example.villive.Community.Complain_status
 import com.example.villive.Community_Write.Post_Complain
 import java.text.SimpleDateFormat
+import java.util.Calendar
 import java.util.Date
 import java.util.Locale
 
 class HomeFragment : Fragment() {
+
+    private val eventList = arrayListOf("캔/병", "일반", "음식물", "종이","플라스틱")
 
     @SuppressLint("MissingInflatedId")
     override fun onCreateView(
@@ -31,14 +34,35 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
+
+        val calendar = Calendar.getInstance()
+
+        val dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK)
+        val dayOfYear = calendar.get(Calendar.DAY_OF_YEAR)
+
         fun getCurrentDateTime(): String {
-            val sdf = SimpleDateFormat("yyyy년 MM월 dd일", Locale.getDefault())
+            val sdf = SimpleDateFormat("yyyy년 MM월 dd일 ", Locale.getDefault())
             return sdf.format(Date())
         }
-        val currentDateInfo: String = getCurrentDateTime()
+
+        val dayOfWeekString = when (dayOfWeek) {
+            Calendar.SUNDAY -> "일요일"
+            Calendar.MONDAY -> "월요일"
+            Calendar.TUESDAY -> "화요일"
+            Calendar.WEDNESDAY -> "수요일"
+            Calendar.THURSDAY -> "목요일"
+            Calendar.FRIDAY -> "금요일"
+            Calendar.SATURDAY -> "토요일"
+            else -> "알 수 없음"
+        }
+
+        val currentDateInfo: String = getCurrentDateTime() + dayOfWeekString
         val view = inflater.inflate(R.layout.home, container, false)
 
+        val eventText = dayOfYear%eventList.size
+
         view.findViewById<TextView>(R.id.date_tv).text = currentDateInfo
+        view.findViewById<TextView>(R.id.event_tv).text = eventList[eventText] + " 배출일"
 
         val boardLayout = view.findViewById<LinearLayout>(R.id.board_lo)
 
