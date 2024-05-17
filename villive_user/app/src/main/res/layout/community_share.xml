@@ -35,23 +35,25 @@
 
     </FrameLayout>
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="550dp">
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_posts_share"
+        android:layout_width="match_parent"
+        android:layout_height="550dp">
 
-        </ScrollView>
+    </androidx.recyclerview.widget.RecyclerView>
 
-        <Button
-            android:id="@+id/btn_write_post"
-            android:layout_width="200dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/st_round_rectangle"
-            android:backgroundTint="#FFF099"
-            android:text="@string/write_post"
-            android:textColor="@color/black"
-            android:textSize="17sp"
-            />
+    <Button
+        android:id="@+id/btn_write_post"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/st_round_rectangle"
+        android:backgroundTint="#FFF099"
+        android:text="@string/write_post"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="17sp"
+        />
 
-    </LinearLayout>
+</LinearLayout>
