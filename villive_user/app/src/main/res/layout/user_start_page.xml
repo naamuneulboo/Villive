@@ -79,6 +79,50 @@
             android:textColor="@color/black"
             android:textSize="17sp" />
 
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            tools:ignore="MissingConstraints">
+            <Button
+                android:id="@+id/btn_go_signup"
+                android:layout_width="172dp"
+                android:layout_height="61dp"
+                android:background="@drawable/rectange_green_button"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:text="@string/start_view_text2"  />
+        </FrameLayout>
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            tools:ignore="MissingConstraints">
+            <TextView
+                android:id="@+id/tv_text3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center_horizontal"
+                android:textColor="@color/black"
+                android:text="@string/start_view_text4"
+                />
+        </FrameLayout>
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            tools:ignore="MissingConstraints">
+            <Button
+                android:id="@+id/btn_go_login"
+                android:layout_width="160dp"
+                android:layout_height="55dp"
+                android:background="@drawable/rectangle_yellow"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:text="@string/start_view_text5"  />
+        </FrameLayout>
+
     </LinearLayout>
 
 </LinearLayout>

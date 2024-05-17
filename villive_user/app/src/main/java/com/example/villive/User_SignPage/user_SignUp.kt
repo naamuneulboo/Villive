@@ -26,16 +26,24 @@ class user_SignUp : AppCompatActivity() {
         val btnSignUp = findViewById<Button>(R.id.btn_sign_up)
         btnSignUp.setOnClickListener {
 
+            val etName = findViewById<EditText>(R.id.et_name)
+            val etNickname = findViewById<EditText>(R.id.et_nickname)
+            val etHomenum = findViewById<EditText>(R.id.et_home_num)
+
             val etId = findViewById<EditText>(R.id.et_id)
             val etPw = findViewById<EditText>(R.id.et_pw)
             val etPwCheck = findViewById<EditText>(R.id.et_pw_check)
+
+            val name = etName.text.toString()
+            val nickname = etNickname.text.toString()
+            val homenum = etHomenum.text.toString()
 
             val id = etId.text.toString()
             val pw = etPw.text.toString()
             val pwCheck = etPwCheck.text.toString()
 
             // 공백
-            if (id.trim().isEmpty() || pw.trim().isEmpty() || pwCheck.trim().isEmpty()) {
+            if (id.trim().isEmpty() || pw.trim().isEmpty() || pwCheck.trim().isEmpty() || name.trim().isEmpty() || nickname.trim().isEmpty() || homenum.trim().isEmpty()) {
                 // 공백이 있을 경우
                 Toast.makeText(this, "모든 필드는 공백일 수 없습니다.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
@@ -64,8 +72,12 @@ class user_SignUp : AppCompatActivity() {
                 return@setOnClickListener
             }
 
+            // 닉네임 중복 여부
+
+
             // 모든 유효성 검사를 통과한 경우 회원가입 완료 다이얼로그 표시
             showConfirmationDialog()
+
 
 
 

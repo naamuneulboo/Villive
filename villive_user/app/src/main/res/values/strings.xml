@@ -57,7 +57,7 @@
     <string name="add_post_description8">제목을 입력하세요.</string>
     <string name="add_post_error_message">게시글에 공백을 포함할 수는 없습니다</string>
 
-    <string name="anonymous">익명</string>
+    <string name="nickname">닉네임</string>
     <string name="profile">프로필</string>
 
 
