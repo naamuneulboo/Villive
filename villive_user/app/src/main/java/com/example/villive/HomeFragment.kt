@@ -15,7 +15,6 @@ import android.widget.Spinner
 import android.widget.TextView
 import androidx.lifecycle.findViewTreeViewModelStoreOwner
 import com.example.villive.Community.Community
-import com.example.villive.Community.Community_NoticeTab
 import com.example.villive.Community.Community_Purchase
 import com.example.villive.Community.Complain_status
 import com.example.villive.Community_Write.Post_Complain
@@ -86,11 +85,6 @@ class HomeFragment : Fragment() {
         fun navigateToPostComplain(selectedItem: String) {
             val intent = Intent(activity, Post_Complain::class.java)
             intent.putExtra("selectedItem", selectedItem)
-            startActivity(intent)
-        }
-
-        alarm_button.setOnClickListener {
-            val intent = Intent(activity, Community_NoticeTab::class.java)
             startActivity(intent)
         }
 

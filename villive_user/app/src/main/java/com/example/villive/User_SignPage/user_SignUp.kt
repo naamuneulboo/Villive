@@ -28,7 +28,6 @@ class user_SignUp : AppCompatActivity() {
 
             val etName = findViewById<EditText>(R.id.et_name)
             val etNickname = findViewById<EditText>(R.id.et_nickname)
-            val etHomenum = findViewById<EditText>(R.id.et_home_num)
 
             val etId = findViewById<EditText>(R.id.et_id)
             val etPw = findViewById<EditText>(R.id.et_pw)
@@ -36,14 +35,13 @@ class user_SignUp : AppCompatActivity() {
 
             val name = etName.text.toString()
             val nickname = etNickname.text.toString()
-            val homenum = etHomenum.text.toString()
 
             val id = etId.text.toString()
             val pw = etPw.text.toString()
             val pwCheck = etPwCheck.text.toString()
 
             // 공백
-            if (id.trim().isEmpty() || pw.trim().isEmpty() || pwCheck.trim().isEmpty() || name.trim().isEmpty() || nickname.trim().isEmpty() || homenum.trim().isEmpty()) {
+            if (id.trim().isEmpty() || pw.trim().isEmpty() || pwCheck.trim().isEmpty() || name.trim().isEmpty() || nickname.trim().isEmpty()) {
                 // 공백이 있을 경우
                 Toast.makeText(this, "모든 필드는 공백일 수 없습니다.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
