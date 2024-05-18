@@ -32,6 +32,7 @@
 
     <string name="sign_in">가입하기</string>
     <string name="log_in">로그인</string>
+    <string name="sign_out">회원탈퇴</string>
 
     <string name="community">게시판</string>
     <string name="community_group">자유 게시판</string>
@@ -70,7 +71,7 @@
     <string name="add_post_description7">입주민들과 함께 활동하는 동호회 게시판</string>
 
     <string name="setting">Setting</string>
-    <string name="setting_description">프로필 설정</string>
+    <string name="setting_description">닉네임 변경</string>
     <string name="setting_description2">비밀번호 변경</string>
     <string name="setting_description3">알림 설정</string>
     <string name="setting_description4">로그아웃</string>
@@ -78,4 +79,17 @@
     <string name="setting_description6">세대 호수</string>
     <string name="setting_PIPP">개인정보 처리 방침</string>
     <string name="title_activity_car_registration">car_registration</string>
+
+    <string name="pw_change1">현재 비밀번호</string>
+    <string name="pw_change2">새 비밀번호</string>
+    <string name="pw_change3">비밀번호 확인</string>
+    <string name="pw_change4">비밀번호 변경하기</string>
+
+    <string name="nickname1">닉네임 입력</string>
+    <string name="nickname2">닉네임 중복 확인</string>
+    <string name="nickname3">확인</string>
+
+    <string name="unregister1">비밀번호 입력</string>
+    <string name="unregister2">탈퇴하기</string>
+
 </resources>

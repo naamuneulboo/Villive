@@ -64,6 +64,15 @@
             android:name=".Community.Community"
             android:exported="false" />
         <activity
+            android:name=".ConfigurationPage.PasswordChangeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ConfigurationPage.NicknameChangeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ConfigurationPage.UnregisterActivity"
+            android:exported="false" />
+        <activity
             android:name=".User_SignPage.StartPage"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.NoActionBar">

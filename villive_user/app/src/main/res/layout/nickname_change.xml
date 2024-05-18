@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".ConfigurationPage.NicknameChangeActivity"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/view_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@android:color/black"
+        android:layout_below="@+id/toolbar"/>
+
+    <androidx.appcompat.widget.Toolbar
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:text="@string/setting_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            android:textColor="#000000"
+            android:textStyle="bold" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="29dp"
+        android:layout_marginTop="40dp"
+        android:text="@string/nickname"
+        android:textColor="@color/black"
+        android:textSize="17sp" />
+
+
+    <EditText
+        android:id="@+id/editTextNickname"
+        android:layout_width="360dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:autofillHints="@string/nickname1"
+        android:backgroundTint="#BDBDBD"
+        android:textColor="@color/black"
+        android:ems="10"
+        android:hint="@string/nickname1"
+        android:textColorHint="@color/real_dark_gray"
+        android:inputType="textPassword" />
+
+
+
+    <Button
+        android:id="@+id/buttonCheck"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center"
+        android:background="@drawable/button_unregister_background"
+        android:textColor="@color/black"
+        android:textSize="17sp"
+        android:contentDescription="@string/nickname3"
+        android:text="@string/nickname3" />
+
+</LinearLayout>

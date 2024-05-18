@@ -62,7 +62,7 @@
         </FrameLayout>
 
             <Button
-                android:id="@+id/ibtn_set_profile"
+                android:id="@+id/ibtn_change_nickname"
                 android:layout_width="380dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center"
@@ -89,21 +89,6 @@
                 android:fontFamily="@font/gmarketsansttfmedium"
                 android:textColor="#6A6A6A"
                 />
-
-            <Button
-                android:id="@+id/ibtn_set_noti"
-                android:layout_width="380dp"
-                android:layout_height="60dp"
-                android:layout_marginTop="10dp"
-                android:layout_gravity="center"
-                android:background="@drawable/gray_outline_rectangle"
-                android:contentDescription="@string/setting_description3"
-                android:text="@string/setting_description3"
-                android:textSize="20sp"
-                android:gravity="center"
-                android:fontFamily="@font/gmarketsansttfmedium"
-                android:textColor="#6A6A6A"/>
-
 
             <Button
                 android:id="@+id/ibtn_logout"
