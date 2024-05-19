@@ -21,18 +21,37 @@
         tools:ignore="MissingConstraints">
 
         <TextView
+            android:id="@+id/tv_comment_nickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="64dp"
+            android:fontFamily="@font/gmarketsansttfmedium"
+            android:text="닉네임"
+            android:textColor="@color/black"
+
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
             android:id="@+id/tv_comment_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="32dp"
+            android:layout_marginBottom="40dp"
             android:text="댓글 내용"
             android:textColor="@color/black"
             android:textSize="16sp"
+            android:fontFamily="@font/gmarketsansttflight"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_comment_nickname" />
 
         <TextView
             android:id="@+id/tv_comment_time"
@@ -41,12 +60,14 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            android:text="댓글 시간"
-            android:textColor="#888888"
-            android:textSize="12sp"
+            android:text="게시 시각"
+            android:textColor="#636363"
+            android:textSize="14sp"
+            android:fontFamily="@font/gmarketsansttflight"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_comment_content" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
