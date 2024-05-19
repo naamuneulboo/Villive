@@ -47,29 +47,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_titlte" />
 
-        <TextView
-            android:id="@+id/tv_nickname"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:text="익명/프로필"
-            android:textColor="@color/black"
-            android:fontFamily="@font/gmarketsansttflight"
-            android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_write" />
 
-        <TextView
-            android:id="@+id/tv_write_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:text="작성 시간"
-            android:fontFamily="@font/gmarketsansttflight"
-            android:textColor="@color/black"
-            android:textSize="12sp"
-            app:layout_constraintStart_toEndOf="@+id/tv_nickname"
-            app:layout_constraintTop_toTopOf="@+id/tv_nickname" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

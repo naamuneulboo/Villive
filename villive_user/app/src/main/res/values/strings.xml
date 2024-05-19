@@ -40,6 +40,7 @@
     <string name="community_complain">민원 게시판</string>
     <string name="community_share">나눔 게시판</string>
     <string name="community_club">동호회 게시판</string>
+    <string name="community_post">게시글</string>
 
     <string name="description_group">입주민들과 함께하는 자유 게시판</string>
     <string name="description_purchase">입주민들과 함께 구매하고 절약해요 !</string>

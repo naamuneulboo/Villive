@@ -7,101 +7,100 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF"
     tools:context=".Community_Write.Post_Complain"
-    android:orientation="vertical"
-    android:layout_marginTop="20dp">
+    android:orientation="vertical" >
 
-        <FrameLayout
-            android:layout_width="match_parent"
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/logo_view"
+            android:layout_width="150dp"
             android:layout_height="80dp"
-            tools:ignore="MissingConstraints">
+            android:contentDescription="@string/trim"
+            android:src="@drawable/villive_logo" />
 
-            <ImageView
-                android:id="@+id/logo_view"
-                android:layout_width="150dp"
-                android:layout_height="80dp"
-                android:contentDescription="@string/trim"
-                android:src="@drawable/villive_logo" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginStart="155dp"
+            android:layout_marginTop="25dp"
+            android:backgroundTint="#454040"
+            android:text="@string/write_post"
+            android:textColor="#FF454040"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+    </FrameLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_marginStart="155dp"
-                android:layout_marginTop="25dp"
-                android:backgroundTint="#454040"
-                android:text="@string/write_post"
-                android:textColor="#FF454040"
-                android:textSize="24sp"
-                android:textStyle="bold" />
-        </FrameLayout>
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:text="@string/add_post_description5"
+        android:textColor="@color/black" />
 
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_gravity="center"
-                android:text="@string/add_post_description5"
-                android:textColor="@color/black" />
+    <TextView
+        android:id="@+id/complain_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_gravity="center"
+        android:text="@string/add_complain_post"
+        android:textSize="12sp"
+        android:textColor="@color/black" />
 
-            <TextView
-                android:id="@+id/complain_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_gravity="center"
-                android:text="@string/add_complain_post"
-                android:textSize="12sp"
-                android:textColor="@color/black" />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="10dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="80dp">
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
+        <TextView
+            android:id="@+id/complain_kind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_complain_kind"
+            android:textSize="16sp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/black" />
+
+        <Spinner
+            android:id="@+id/sp_item"
+            android:layout_width="150dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="110dp"
             android:layout_marginTop="10dp"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="80dp">
+            android:textColor="@color/black"
+            android:theme="@style/SpinnerTheme"
+            style="@style/SpinnerTextStyle"
+            android:background="@drawable/rectangle_dark_green"
+            tools:ignore="MissingConstraints" />
 
-            <TextView
-                android:id="@+id/complain_kind"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/add_complain_kind"
-                android:textSize="16sp"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="20dp"
-                android:textColor="@color/black" />
+    </FrameLayout>
 
-            <Spinner
-                android:id="@+id/sp_item"
-                android:layout_width="150dp"
-                android:layout_height="48dp"
-                android:layout_marginStart="110dp"
-                android:layout_marginTop="10dp"
-                android:textColor="@color/black"
-                android:theme="@style/SpinnerTheme"
-                style="@style/SpinnerTextStyle"
-                android:background="@drawable/rectangle_dark_green"
-                tools:ignore="MissingConstraints" />
-
-        </FrameLayout>
-
-            <EditText
-                android:id="@+id/et_post_title"
-                android:layout_width="380dp"
-                android:layout_height="60dp"
-                android:layout_marginTop="10dp"
-                android:layout_gravity="center"
-                android:autofillHints="@string/add_post_description_fill_title"
-                android:background="@drawable/rectangle_little_green"
-                android:backgroundTint="#C0DFC3"
-                android:ems="10"
-                android:paddingStart="10dp"
-                android:textColor="@color/black"
-                android:gravity="start|center_vertical"
-                android:hint="@string/add_post_description_fill_title"
-                android:inputType="textMultiLine"
-                android:textColorHint="@color/dark_gray"
-                tools:ignore="RtlSymmetry" />
+    <EditText
+        android:id="@+id/et_post_title"
+        android:layout_width="380dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:autofillHints="@string/add_post_description_fill_title"
+        android:background="@drawable/rectangle_little_green"
+        android:backgroundTint="#C0DFC3"
+        android:ems="10"
+        android:paddingStart="10dp"
+        android:textColor="@color/black"
+        android:gravity="start|center_vertical"
+        android:hint="@string/add_post_description_fill_title"
+        android:inputType="textMultiLine"
+        android:textColorHint="@color/dark_gray"
+        tools:ignore="RtlSymmetry" />
 
     <EditText
         android:id="@+id/et_post_write"
@@ -123,57 +122,57 @@
         tools:ignore="RtlSymmetry" />
 
     <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="-16dp"
-            tools:layout_editor_absoluteY="480dp">
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="-16dp"
+        tools:layout_editor_absoluteY="480dp">
 
-            <Button
-                android:id="@+id/btn_add_post"
-                android:layout_width="200dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:background="@drawable/rectangle_yellow"
-                android:text="@string/add_post"
-                android:textColor="@color/black" />
-        </FrameLayout>
+        <Button
+            android:id="@+id/btn_add_post"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:background="@drawable/rectangle_yellow"
+            android:text="@string/add_post"
+            android:textColor="@color/black" />
+    </FrameLayout>
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="20dp"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="580dp">
-
-
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:layout_gravity="center"
-                android:textSize="12sp"
-                android:text="@string/add_post_description" />
-        </FrameLayout>
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="20dp"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="580dp">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="580dp">
 
 
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:layout_gravity="center"
-                android:textSize="12sp"
-                android:text="@string/add_post_description9" />
-        </FrameLayout>
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:layout_gravity="center"
+            android:textSize="12sp"
+            android:text="@string/add_post_description" />
+    </FrameLayout>
 
-    </LinearLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="580dp">
+
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:layout_gravity="center"
+            android:textSize="12sp"
+            android:text="@string/add_post_description9" />
+    </FrameLayout>
+
+</LinearLayout>
