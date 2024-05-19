@@ -42,7 +42,6 @@ class Community_Content : AppCompatActivity() {
         val writeTime = intent.getStringExtra("write_time")
 
 
-
         // 뷰에 데이터 설정
         findViewById<TextView>(R.id.tv_content_title).text = title
         findViewById<TextView>(R.id.tv_post_content).text = write
@@ -57,7 +56,7 @@ class Community_Content : AppCompatActivity() {
 
 
 
-        // 공감 버튼 클릭 리스너 설정
+        // 공감 버튼
         val btnGongGam = findViewById<Button>(R.id.btn_gong_gam)
         btnGongGam.setOnClickListener {
             toggleGongGam() // 공감 버튼 클릭 시 상태를 토글하는 함수 호출
@@ -65,7 +64,7 @@ class Community_Content : AppCompatActivity() {
 
 
 
-        // 댓글 추가 버튼 클릭 리스너 설정
+        // 댓글 추가
         findViewById<ImageButton>(R.id.ibtn_add_comment).setOnClickListener {
             addComment()
         }
@@ -82,9 +81,12 @@ class Community_Content : AppCompatActivity() {
             commentList.add(comment)
             commentAdapter.notifyItemInserted(commentList.size - 1)
             etComment.text.clear()
+
+            // 댓글 추가 후 해당 위치로 스크롤 (아직 미완)
+            val rvComments = findViewById<RecyclerView>(R.id.rv_posts_group)
+            rvComments.scrollToPosition(commentList.size - 1)
         }
     }
-
 
     private fun toggleGongGam() {
         // 현재 공감 상태에 따라 동작 결정
@@ -94,37 +96,37 @@ class Community_Content : AppCompatActivity() {
             increaseGongGamCount()
         }
 
-        // 공감 버튼 클릭 상태를 반전
+        // 공감 버튼 클릭 상태 반전
         isGongGamClicked = !isGongGamClicked
     }
 
     private fun increaseGongGamCount() {
-        // 현재 공감 수 가져오기
+        // 현재 공감 수
         val tvGongGamCount = findViewById<TextView>(R.id.tv_gonggam_count)
         val currentCountText = tvGongGamCount.text.toString()
-        val currentCount = currentCountText.split(" ")[0].toInt()
+        val currentCount = if (currentCountText.split(" ").isNotEmpty()) currentCountText.split(" ")[0].toInt() else 0
 
-        // 공감 수 증가하여 텍스트 설정
+        // 공감 수 증가하
         val newCount = currentCount + 1
         tvGongGamCount.text = "$newCount 공감"
 
-        // 공감 수가 0이 아닌 경우 TextView 표시
+        // 공감 수가 0이 아닌 경우 text 표시
         if (newCount > 0) {
             tvGongGamCount.visibility = View.VISIBLE
         }
     }
 
     private fun decreaseGongGamCount() {
-        // 현재 공감 수 가져오기
+        // 현재 공감 수
         val tvGongGamCount = findViewById<TextView>(R.id.tv_gonggam_count)
         val currentCountText = tvGongGamCount.text.toString()
-        val currentCount = currentCountText.split(" ")[0].toInt()
+        val currentCount = if (currentCountText.split(" ").isNotEmpty()) currentCountText.split(" ")[0].toInt() else 0
 
-        // 공감 수 감소하여 텍스트 설정
+        // 공감 수 감소
         val newCount = currentCount - 1
         tvGongGamCount.text = "$newCount 공감"
 
-        // 공감 수가 0인 경우 TextView 숨기기
+        // 공감 수가 0인 경우 text 숨기기
         if (newCount == 0) {
             tvGongGamCount.visibility = View.INVISIBLE
         }
