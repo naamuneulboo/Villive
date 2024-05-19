@@ -34,6 +34,7 @@
     <string name="log_in">로그인</string>
 
     <string name="community">게시판</string>
+    <string name="community_post">게시글</string>
     <string name="community_group">자유 게시판</string>
     <string name="community_purchase">공동구매 게시판</string>
     <string name="community_complain">민원 게시판</string>
