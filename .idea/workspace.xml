@@ -162,26 +162,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="49dc9a04-b9ae-4551-9034-a4dde2c0c86a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Post_model_adapter/Complain.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Post_model_adapter/ComplainAdapter.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/villive_user/app/src/main/res/layout/recycler_post_complain_column.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Community/Community_Complain.kt" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Community/Community_Complain.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/res/layout/community.xml" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/res/layout/community.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/res/layout/community_club.xml" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/res/layout/community_club.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Community/Complain_status.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/HomeFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/HomeFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Post_model_adapter/Complain.kt" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Post_model_adapter/Complain.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Post_model_adapter/ComplainAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Post_model_adapter/ComplainAdapter.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/res/layout/community_complain.xml" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/res/layout/community_complain.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/res/layout/community_complain_status.xml" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/res/layout/community_complain_status.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/res/layout/community_content.xml" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/res/layout/community_content.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/res/layout/community_group.xml" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/res/layout/community_group.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/res/layout/community_purchase.xml" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/res/layout/community_purchase.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/res/layout/community_share.xml" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/res/layout/community_share.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/res/layout/post_club.xml" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/res/layout/post_club.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/res/layout/post_complain.xml" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/res/layout/post_complain.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/res/layout/post_group.xml" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/res/layout/post_group.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/res/layout/post_purchase.xml" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/res/layout/post_purchase.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/res/layout/post_share.xml" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/res/layout/post_share.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/res/layout/recycler_comment_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/res/layout/recycler_comment_item.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/res/layout/recycler_post_column.xml" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/res/layout/recycler_post_column.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/res/layout/community_complain_status.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/res/layout/recycler_post_complain_column.xml" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/res/layout/recycler_post_complain_column.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/res/values/colors.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

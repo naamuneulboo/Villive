@@ -7,16 +7,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.LinearLayout
-import android.widget.Spinner
 import android.widget.TextView
-import androidx.lifecycle.findViewTreeViewModelStoreOwner
 import com.example.villive.Community.Community
-import com.example.villive.Community.Community_Purchase
-import com.example.villive.Community.Complain_status
+import com.example.villive.Community.Community_Complain
 import com.example.villive.Community_Write.Post_Complain
 import java.text.SimpleDateFormat
 import java.util.Calendar
@@ -111,7 +107,7 @@ class HomeFragment : Fragment() {
 
 
         qucik_complain_status.setOnClickListener {
-            val intent = Intent(activity, Complain_status::class.java)
+            val intent = Intent(activity, Community_Complain::class.java)
             startActivity(intent)
         }
 

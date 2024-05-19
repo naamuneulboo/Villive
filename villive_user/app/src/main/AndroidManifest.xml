@@ -47,9 +47,6 @@
             android:name=".Community_Write.Post_Group"
             android:exported="false" />
         <activity
-            android:name=".Community.Complain_status"
-            android:exported="false" />
-        <activity
             android:name=".Community.Community_Purchase"
             android:exported="false" />
         <activity
