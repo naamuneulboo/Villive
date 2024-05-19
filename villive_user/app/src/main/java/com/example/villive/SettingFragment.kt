@@ -37,6 +37,8 @@ class SettingFragment : Fragment() {
         logout.setOnClickListener {
             val intent = Intent(activity, user_LogIn::class.java)
             startActivity(intent)
+            // 로그아웃 시 뒤로가기 버튼 눌러도 안되게 초기화 해야할듯 단순히 view만 교체하는게 아니라
+
         }
 
         withdraw.setOnClickListener {

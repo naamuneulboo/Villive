@@ -31,6 +31,9 @@ class Car_Registration  : AppCompatActivity() {
                     }
                     .show()
             }
+
+            //이미 입력된 정보에 한해 입력 제한 코드 추가 else if
+
             else{
                 val message = ("차량 번호 : $car_num \n 입력하신 정보가 맞습니까?")
                 AlertDialog.Builder(this)
