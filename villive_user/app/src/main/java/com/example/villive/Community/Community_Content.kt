@@ -1,6 +1,7 @@
 package com.example.villive.Community
 
 import android.app.Activity
+import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -8,18 +9,15 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.villive.Community_Write.Post_Edit_Post
 import com.example.villive.Post_model_adapter.CommentAdapter
 import com.example.villive.Post_model_adapter.Comment
+import com.example.villive.Post_model_adapter.PostAdapter
 
 import com.example.villive.R
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -30,6 +28,7 @@ class Community_Content : AppCompatActivity() {
     private lateinit var commentAdapter: CommentAdapter
     private val commentList = ArrayList<Comment>()
     private var isGongGamClicked = false // 공감 버튼 클릭 상태를 추적하는 변수
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,7 +41,7 @@ class Community_Content : AppCompatActivity() {
         val writeTime = intent.getStringExtra("write_time")
 
 
-        // 뷰에 데이터 설정
+         // 뷰에 데이터 설정
         findViewById<TextView>(R.id.tv_content_title).text = title
         findViewById<TextView>(R.id.tv_post_content).text = write
         findViewById<TextView>(R.id.tv_post_nickname).text = nickname
@@ -69,7 +68,37 @@ class Community_Content : AppCompatActivity() {
             addComment()
         }
 
+        val editButton = findViewById<ImageButton>(R.id.ibtn_content_edit)
+        editButton.setOnClickListener {
+            showEditDeleteDialog()
+        }
+    }
 
+    private fun showEditDeleteDialog() {
+        val options = arrayOf("게시글 수정", "게시글 삭제")
+        val builder = AlertDialog.Builder(this)
+        builder.setItems(options) { dialog, which ->
+            when (which) {
+                0 -> editPost() // 게시글 수정
+                1 -> deletePost() // 게시글 삭제
+            }
+        }
+        builder.show()
+    }
+
+    private fun editPost() {
+        val intent = Intent(this, Post_Edit_Post::class.java)
+        intent.putExtra("title", findViewById<TextView>(R.id.tv_content_title).text.toString())
+        intent.putExtra("write", findViewById<TextView>(R.id.tv_post_content).text.toString())
+        startActivityForResult(intent, REQUEST_EDIT_POST)
+    }
+
+    private fun deletePost() {
+        // 게시글 삭제
+    }
+
+    companion object {
+        const val REQUEST_EDIT_POST = 1
     }
 
     private fun addComment() {
@@ -106,7 +135,7 @@ class Community_Content : AppCompatActivity() {
         val currentCountText = tvGongGamCount.text.toString()
         val currentCount = if (currentCountText.split(" ").isNotEmpty()) currentCountText.split(" ")[0].toInt() else 0
 
-        // 공감 수 증가하
+        // 공감 수 증가
         val newCount = currentCount + 1
         tvGongGamCount.text = "$newCount 공감"
 
@@ -132,5 +161,18 @@ class Community_Content : AppCompatActivity() {
         }
     }
 
+    // 게시글 수정 시 수정 내용 반영되는 부분
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == REQUEST_EDIT_POST && resultCode == Activity.RESULT_OK) {
+            val newTitle = data?.getStringExtra("new_title")
+            val newWrite = data?.getStringExtra("new_write")
+
+            findViewById<TextView>(R.id.tv_content_title).text = newTitle
+            findViewById<TextView>(R.id.tv_post_content).text = newWrite
+
+
+        }
+    }
 
 }

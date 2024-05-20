@@ -51,6 +51,7 @@
     <string name="complain_status">민원처리 현황</string>
 
     <string name="write_post">게시글 작성</string>
+    <string name="edit_post">게시글 수정</string>
     <string name="add_post_description">상대방을 비방하거나 욕설이 포함된 게시글을 작성하는 경우</string>
     <string name="add_post_description9">게시판 이용이 제한될 수 있습니다.</string>
     <string name="add_post">게시글 등록</string>

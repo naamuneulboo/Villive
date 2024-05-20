@@ -13,9 +13,12 @@
         android:theme="@style/Theme.AppCompat.NoActionBar"
         tools:targetApi="31">
         <activity
+            android:name=".Community_Write.Post_Edit_Post"
+            android:exported="false" />
+        <activity
             android:name=".Community.Community_Content"
             android:exported="false"
-            android:windowSoftInputMode="adjustResize"/>
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Car_Registration"
             android:exported="false" />
