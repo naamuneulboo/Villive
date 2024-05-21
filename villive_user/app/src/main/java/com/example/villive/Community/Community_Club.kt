@@ -32,7 +32,6 @@ class Community_Club : AppCompatActivity() {
             Posts("공모전","같이해요","가연","12:04"),
             Posts("정원꾸미기","같이해요","가연","13:47"),
             Posts("클라이밍","같이해요","가연","13:55"),
-
             )
 
         val rv_post = findViewById<RecyclerView>(R.id.rv_posts_club)

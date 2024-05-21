@@ -1,4 +1,4 @@
-package com.example.villive
+package com.example.villive.Management
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,6 +9,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.TextView
+import com.example.villive.R
 
 class cost_frag : Fragment() {
 

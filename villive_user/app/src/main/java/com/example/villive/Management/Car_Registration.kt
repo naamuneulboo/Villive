@@ -1,14 +1,12 @@
-package com.example.villive
+package com.example.villive.Management
 
-import ManagementFragment
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
-import androidx.activity.ComponentActivity
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.FragmentTransaction
+import com.example.villive.R
 
 
 class Car_Registration  : AppCompatActivity() {

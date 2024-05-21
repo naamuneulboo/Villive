@@ -16,7 +16,7 @@
             android:name=".Community.Community_Content"
             android:exported="false" />
         <activity
-            android:name=".Car_Registration"
+            android:name=".Management.Car_Registration"
             android:exported="false" />
         <activity
             android:name=".User_SignPage.user_LogIn"
@@ -75,6 +75,8 @@
         <activity
             android:name=".ConfigurationPage.UnregisterActivity"
             android:exported="false" />
+        <activity android:name=".Alarm.Alarm"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -91,7 +93,7 @@
             android:label="@string/title_activity_setting"
             android:theme="@style/Theme.Villive" />
         <activity
-            android:name=".ManagementActivity"
+            android:name=".Management.ManagementActivity"
             android:exported="false"
             android:label="@string/title_activity_management"
             android:theme="@style/Theme.Villive" />

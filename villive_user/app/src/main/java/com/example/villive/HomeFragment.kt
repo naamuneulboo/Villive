@@ -14,6 +14,7 @@ import android.widget.LinearLayout
 import android.widget.Spinner
 import android.widget.TextView
 import androidx.lifecycle.findViewTreeViewModelStoreOwner
+import com.example.villive.Alarm.Alarm
 import com.example.villive.Community.Community
 import com.example.villive.Community.Community_Purchase
 import com.example.villive.Community.Complain_status
@@ -81,6 +82,10 @@ class HomeFragment : Fragment() {
         val qucik_complain_status=view.findViewById<Button>(R.id.btn_go_complain)
 
 
+        alarm_button.setOnClickListener {
+            val intent = Intent(activity, Alarm::class.java)
+            startActivity(intent)
+        }
 
         // 항목이 자동으로 선택되게 아직 못함
         fun navigateToPostComplain(selectedItem: String) {
