@@ -80,4 +80,11 @@
     <string name="setting_description6">세대 호수</string>
     <string name="setting_PIPP">개인정보 처리 방침</string>
     <string name="title_activity_car_registration">car_registration</string>
+
+    <!--for Retrofit test-->
+    <string name="form_ID">id</string>
+    <string name="form_password">password</string>
+    <string name="form_name">name</string>
+    <string name="form_nickname">nickname</string>
+    <string name="button_save_user">save</string>
 </resources>

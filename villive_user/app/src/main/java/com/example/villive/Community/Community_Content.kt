@@ -15,7 +15,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.villive.Community_Write.Post_Edit_Post
 import com.example.villive.Post_model_adapter.CommentAdapter
 import com.example.villive.Post_model_adapter.Comment
-import com.example.villive.Post_model_adapter.PostAdapter
 
 import com.example.villive.R
 import java.text.SimpleDateFormat
