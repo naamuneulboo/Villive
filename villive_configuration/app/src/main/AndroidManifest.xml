@@ -33,7 +33,7 @@
             android:name=".Community_Write.Post_Club"
             android:exported="false" />
         <activity
-            android:name=".Community_Write.Post_Share"
+            android:name=".Community_Write.com.example.villive.Community_Write.Post_Share"
             android:exported="false" />
         <activity
             android:name=".Community_Write.Post_Complain"

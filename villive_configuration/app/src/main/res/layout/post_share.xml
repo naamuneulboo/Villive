@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    tools:context=".Community_Write.Post_Share">
+    tools:context=".Community_Write.com.example.villive.Community_Write.Post_Share">
 
     <LinearLayout
         android:layout_width="match_parent"

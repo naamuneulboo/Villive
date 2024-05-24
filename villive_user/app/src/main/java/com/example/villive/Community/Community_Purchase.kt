@@ -6,7 +6,6 @@ import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.villive.Community_Write.Post_Club
 import com.example.villive.Community_Write.Post_Purchase
 import com.example.villive.Post_model_adapter.PostsAdapter
 import com.example.villive.R
