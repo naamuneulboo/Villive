@@ -9,7 +9,7 @@ import retrofit2.http.GET
 
 interface ComplainResponseDtoAPI {
 
-    @GET("/complain/") // 다 갖고 오기
+    @GET("/complain/") // 민원 내용 다 가져오기
     fun getAllComplainResponseDto(): Call<List<ComplainResponseDto>>
 
 }

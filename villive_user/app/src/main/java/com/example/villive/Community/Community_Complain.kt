@@ -10,6 +10,7 @@ import com.example.villive.Community_Write.Post_Club
 import com.example.villive.Community_Write.Post_Complain
 import com.example.villive.R
 import com.example.villive.Retrofit.ComplainResponseDtoAPI
+import com.example.villive.Retrofit.PostsResponseDtoAPI
 import com.example.villive.Retrofit.RetrofitService
 import com.example.villive.model.ComplainResponseDto
 import retrofit2.Call
@@ -27,8 +28,12 @@ class Community_Complain : AppCompatActivity() {
         recyclerView = findViewById(R.id.recycler_view)
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-        val retrofitService = RetrofitService()
-        val complainResponseDtoAPI = retrofitService.retrofit.create(ComplainResponseDtoAPI::class.java)
+
+
+        // Retrofit 객체 가져오기
+        val retrofit = RetrofitService.getService()
+        val complainResponseDtoAPI = retrofit.create(ComplainResponseDtoAPI::class.java)
+
 
         val call = complainResponseDtoAPI.getAllComplainResponseDto()
         call.enqueue(object : Callback<List<ComplainResponseDto>> {

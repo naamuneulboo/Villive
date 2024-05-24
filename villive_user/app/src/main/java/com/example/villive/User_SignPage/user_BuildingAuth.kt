@@ -1,115 +1,90 @@
 package com.example.villive.User_SignPage
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.example.villive.MainActivity
 import com.example.villive.R
-import com.example.villive.Retrofit.BuildingCodeAPI
+import com.example.villive.model.BuildingCodeRequestDto
+import com.example.villive.Retrofit.BuildingCodeRequestDtoAPI
 import com.example.villive.Retrofit.RetrofitService
-import com.example.villive.model.BuildingCode
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.util.logging.Level
-import java.util.logging.Logger
 
 class user_BuildingAuth : AppCompatActivity() {
+    private val retrofitService = RetrofitService.getService()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.user_building_auth)
 
+        val villCode = findViewById<EditText>(R.id.et_vill_code)
+        val villNum = findViewById<EditText>(R.id.et_vill_num)
+        val goAuth = findViewById<Button>(R.id.btn_to_auth)
 
-        val inputEditID = findViewById<EditText>(R.id.et_vill_code)
-        val inputEditPassword = findViewById<EditText>(R.id.et_vill_num)
 
-        val buttonSave = findViewById<Button>(R.id.btn_to_auth)
 
-        // 레트로핏 객체
-        val retrofitService = RetrofitService()
-        val buildingCodeAPI = retrofitService.retrofit.create(BuildingCodeAPI::class.java)
+        // Retrofit 객체 생성
+        val buildingCodeRequestDtoAPI = retrofitService.create(BuildingCodeRequestDtoAPI::class.java)
 
-        buttonSave.setOnClickListener {
-            val address = inputEditID.text.toString().trim()
-            val building_code = inputEditPassword.text.toString().trim()
+        goAuth.setOnClickListener {
+            val address = villCode.text.toString()
+            val building_code = villNum.text.toString()
 
-            if (address.isEmpty()&&building_code.isEmpty()) {
-                // 건물 코드를 입력하지 않은 경우
-                showErrorMessage("모든 필드를 입력해주세요!")
-            } else if(address.isEmpty()){
-                showErrorMessage("세대 호수를 입력하세요!")
-            }else if(building_code.isEmpty()){
-                showErrorMessage("건물 코드를 입력하세요!")
-            }else{
+            // 건물인증 요청 데이터 생성
+            val buildingCodeRequestDto = BuildingCodeRequestDto().apply {
+                this.address = address
+                this.building_code = building_code
+            }
 
-                val buildingCode = BuildingCode().apply {
-                    this.address = address
-                    this.building_code = building_code
-                }
-
-                buildingCodeAPI.addinfo(buildingCode).enqueue(object : Callback<BuildingCode> {
-
-                    override fun onResponse(call: Call<BuildingCode>, response: Response<BuildingCode>) {
+            // 건물인증 요청 API 호출
+            buildingCodeRequestDtoAPI.addinfo(buildingCodeRequestDto).enqueue(object : Callback<Unit> {
+                    override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
                         if (response.isSuccessful) {
-                            Toast.makeText(this@user_BuildingAuth, "Building Auth Success", Toast.LENGTH_LONG).show()
-
-                            // 건물 코드 입력 후 확인 누르면 로그인 창으로 이동할 수 있게
                             showConfirmationDialog()
                         } else {
-                            val errorBody = response.errorBody()?.string()
-                            Toast.makeText(this@user_BuildingAuth, "Building Auth failed: ${response.code()} - $errorBody", Toast.LENGTH_LONG).show()
-                            Logger.getLogger(user_BuildingAuth::class.java.name)
-                                .log(Level.SEVERE, "Error occurred: ${response.code()} - $errorBody")
 
+                            showErrorDialog()
                         }
                     }
 
-                    override fun onFailure(call: Call<BuildingCode>, t: Throwable) {
-                        Toast.makeText(this@user_BuildingAuth, "Network Error", Toast.LENGTH_LONG)
-                            .show()
-                        Logger.getLogger(user_BuildingAuth::class.java.name)
-                            .log(Level.SEVERE, "Network Error occurred", t)
+                    override fun onFailure(call: Call<Unit>, t: Throwable) {
+                        showNetworkErrorDialog()
                     }
                 })
-
-            }
-
-
-
-
-
-
-
-
-
         }
-
     }
-
-    private fun showErrorMessage(message: String) {
-        val builder = AlertDialog.Builder(this)
-        builder.setMessage(message)
-            .setPositiveButton("확인", null)
-            .show()
-    }
-
 
     private fun showConfirmationDialog() {
-        val builder = AlertDialog.Builder(this)
-        builder.setMessage("건물 인증이 완료되었습니다!\n로그인 화면으로 이동하시겠습니까?")
-            .setPositiveButton("예") { dialog, _ ->
-                // 예 -> 회원가입 창으로 이동
-                val intent = Intent(this@user_BuildingAuth, user_LogIn::class.java)
-                startActivity(intent)
-                // 이동 시 건물 인증 창은 필요 x
+        AlertDialog.Builder(this)
+            .setMessage("건물 인증이 완료되었습니다. 메인 화면으로 이동합니다.")
+            .setPositiveButton("네") { _, _ ->
+                startActivity(Intent(this, MainActivity::class.java))
+                finish()
+            }
+            .setNegativeButton("아니오") { _, _ ->
+                startActivity(Intent(this, StartPage::class.java))
                 finish()
             }
             .show()
     }
 
+    private fun showErrorDialog() {
+        AlertDialog.Builder(this)
+            .setMessage("건물 인증에 실패했습니다.")
+            .setPositiveButton("확인") { _, _ -> }
+            .show()
+    }
+
+    private fun showNetworkErrorDialog() {
+        AlertDialog.Builder(this)
+            .setMessage("네트워크 오류가 발생했습니다.")
+            .setPositiveButton("확인") { _, _ -> }
+            .show()
+    }
 }

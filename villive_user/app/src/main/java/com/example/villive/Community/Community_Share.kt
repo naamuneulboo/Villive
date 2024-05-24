@@ -28,8 +28,10 @@ class Community_Share : AppCompatActivity() {
         recyclerView = findViewById(R.id.rv_posts_share)
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-        val retrofitService = RetrofitService()
-        val postsResponseDtoAPI = retrofitService.retrofit.create(PostsResponseDtoAPI::class.java)
+        // Retrofit 객체 가져오기
+        val retrofit = RetrofitService.getService()
+        val postsResponseDtoAPI = retrofit.create(PostsResponseDtoAPI::class.java)
+
 
         val call = postsResponseDtoAPI.getAllPostsResponseDto()
         call.enqueue(object : Callback<List<PostsResponseDto>> {
