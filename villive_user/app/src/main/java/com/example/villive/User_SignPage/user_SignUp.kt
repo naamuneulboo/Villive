@@ -16,7 +16,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class user_SignUp : AppCompatActivity() {
-    private val retrofitService = RetrofitService.getService()
+    private val retrofitService = RetrofitService.getService(this)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.user_sign_up)

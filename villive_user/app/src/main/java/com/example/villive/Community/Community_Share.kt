@@ -29,7 +29,7 @@ class Community_Share : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
 
         // Retrofit 객체 가져오기
-        val retrofit = RetrofitService.getService()
+        val retrofit = RetrofitService.getService(this)
         val postsResponseDtoAPI = retrofit.create(PostsResponseDtoAPI::class.java)
 
 

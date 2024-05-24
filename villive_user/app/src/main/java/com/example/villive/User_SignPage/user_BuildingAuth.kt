@@ -3,6 +3,7 @@ package com.example.villive.User_SignPage
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -16,9 +17,11 @@ import com.example.villive.Retrofit.RetrofitService
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import retrofit2.Retrofit
 
 class user_BuildingAuth : AppCompatActivity() {
-    private val retrofitService = RetrofitService.getService()
+    private lateinit var retrofitService: Retrofit
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.user_building_auth)
@@ -27,9 +30,8 @@ class user_BuildingAuth : AppCompatActivity() {
         val villNum = findViewById<EditText>(R.id.et_vill_num)
         val goAuth = findViewById<Button>(R.id.btn_to_auth)
 
-
-
         // Retrofit 객체 생성
+        retrofitService = RetrofitService.getService(this)
         val buildingCodeRequestDtoAPI = retrofitService.create(BuildingCodeRequestDtoAPI::class.java)
 
         goAuth.setOnClickListener {
@@ -37,26 +39,24 @@ class user_BuildingAuth : AppCompatActivity() {
             val building_code = villNum.text.toString()
 
             // 건물인증 요청 데이터 생성
-            val buildingCodeRequestDto = BuildingCodeRequestDto().apply {
-                this.address = address
-                this.building_code = building_code
-            }
+            val buildingCodeRequestDto = BuildingCodeRequestDto(address, building_code)
 
             // 건물인증 요청 API 호출
             buildingCodeRequestDtoAPI.addinfo(buildingCodeRequestDto).enqueue(object : Callback<Unit> {
-                    override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
-                        if (response.isSuccessful) {
-                            showConfirmationDialog()
-                        } else {
-
-                            showErrorDialog()
-                        }
+                override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
+                    if (response.isSuccessful) {
+                        showConfirmationDialog()
+                    } else {
+                        Log.e("BuildingAuth", "Error: ${response.errorBody()?.string()}")
+                        showErrorDialog()
                     }
+                }
 
-                    override fun onFailure(call: Call<Unit>, t: Throwable) {
-                        showNetworkErrorDialog()
-                    }
-                })
+                override fun onFailure(call: Call<Unit>, t: Throwable) {
+                    Log.e("BuildingAuth", "Network error", t)
+                    showNetworkErrorDialog()
+                }
+            })
         }
     }
 
