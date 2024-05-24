@@ -9,6 +9,11 @@
     android:background="#FFFFFF"
     android:orientation="vertical">
 
+
+
+
+
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="80dp"
@@ -44,6 +49,9 @@
 
     </FrameLayout>
 
+
+
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -61,10 +69,11 @@
                 android:background="@drawable/post_background_rectangle"
                 android:layout_marginStart="5dp"
                 android:layout_marginEnd="5dp"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                tools:ignore="MissingConstraints">
 
                 <TextView
-                    android:id="@+id/tv_content_title"
+                    android:id="@+id/post_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/gmarketsansttfmedium"
@@ -74,15 +83,16 @@
                     android:paddingBottom="10dp"
                     android:text="게시글 제목"
                     android:textColor="@color/black"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     tools:ignore="RtlSymmetry" />
 
+
                 <TextView
-                    android:id="@+id/tv_post_content"
+                    android:id="@+id/post_contents"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
-                    android:textSize="17sp"
+                    android:textSize="16sp"
                     android:paddingStart="20dp"
                     android:paddingBottom="15dp"
                     android:paddingTop="10dp"
@@ -91,36 +101,49 @@
                     android:text="게시글 내용"
                     tools:ignore="RtlSymmetry" />
 
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:paddingBottom="10dp">
+                    android:paddingTop="5dp"
+                    android:paddingBottom="15dp">
 
                     <TextView
-                        android:id="@+id/tv_post_nickname"
+                        android:id="@+id/post_writer"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
-                        android:textSize="15sp"
+                        android:textSize="14sp"
                         android:layout_marginStart="20dp"
                         android:fontFamily="@font/gmarketsansttflight"
-                        android:text="닉네임"
+                        android:text="게시글 작성자"
                         tools:ignore="RtlSymmetry" />
 
                     <TextView
-                        android:id="@+id/tv_post_time"
+                        android:id="@+id/post_create_date"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/gmarketsansttflight"
                         android:text="게시 시각"
                         android:layout_marginStart="20dp"
                         android:textColor="@color/black"
-                        android:textSize="15sp"
+                        android:textSize="12sp"
+                        tools:ignore="RtlSymmetry" />
+
+                    <TextView
+                        android:id="@+id/post_id"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/gmarketsansttflight"
+                        android:text="게시글 id (확인용 나중에 지울거임)"
+                        android:layout_marginStart="20dp"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
                         tools:ignore="RtlSymmetry" />
 
                 </LinearLayout>
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -153,7 +176,6 @@
                         tools:ignore="RtlSymmetry" />
 
                 </LinearLayout>
-
             </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
@@ -164,6 +186,7 @@
         </LinearLayout>
 
     </ScrollView>
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -195,5 +218,6 @@
             android:background="@drawable/add_comment" />
 
     </LinearLayout>
+
 
 </LinearLayout>

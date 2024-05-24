@@ -1,9 +1,13 @@
 package com.example.villive.Community
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.villive.Community_Write.Post_Club
+import com.example.villive.Community_Write.Post_Complain
 import com.example.villive.R
 import com.example.villive.Retrofit.ComplainResponseDtoAPI
 import com.example.villive.Retrofit.RetrofitService
@@ -43,5 +47,12 @@ class Community_Complain : AppCompatActivity() {
                 // Handle failure
             }
         })
+
+        val write_post = findViewById<Button>(R.id.btn_write_post)
+
+        write_post.setOnClickListener {
+            val intent = Intent(this, Post_Complain::class.java)
+            startActivity(intent)
+        }
     }
 }
