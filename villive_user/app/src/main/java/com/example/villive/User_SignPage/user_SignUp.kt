@@ -5,95 +5,85 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.example.villive.R
+import com.example.villive.Retrofit.RetrofitService
+import com.example.villive.Retrofit.SignUpRequestDtoAPI
+import com.example.villive.model.SignUpRequestDto
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class user_SignUp : AppCompatActivity() {
+    private val retrofitService = RetrofitService.getService()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.user_sign_up)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
 
-        val btnSignUp = findViewById<Button>(R.id.btn_sign_up)
-        btnSignUp.setOnClickListener {
+        val inputEditID = findViewById<EditText>(R.id.et_id)
+        val inputEditPassword = findViewById<EditText>(R.id.et_pw)
+        val inputEditName = findViewById<EditText>(R.id.et_name)
+        val inputEditNickname = findViewById<EditText>(R.id.et_nickname)
+        val inputPasswordCheck = findViewById<EditText>(R.id.et_pw_check)
+        val buttonSave = findViewById<Button>(R.id.btn_sign_up)
 
-            val etName = findViewById<EditText>(R.id.et_name)
-            val etNickname = findViewById<EditText>(R.id.et_nickname)
+        // Retrofit 객체 생성
+        val signUpRequestDtoAPI = retrofitService.create(SignUpRequestDtoAPI::class.java)
 
-            val etId = findViewById<EditText>(R.id.et_id)
-            val etPw = findViewById<EditText>(R.id.et_pw)
-            val etPwCheck = findViewById<EditText>(R.id.et_pw_check)
 
-            val name = etName.text.toString()
-            val nickname = etNickname.text.toString()
+        buttonSave.setOnClickListener {
+            val member_id = inputEditID.text.toString()
+            val password = inputEditPassword.text.toString()
+            val name = inputEditName.text.toString()
+            val nickname = inputEditNickname.text.toString()
 
-            val id = etId.text.toString()
-            val pw = etPw.text.toString()
-            val pwCheck = etPwCheck.text.toString()
-
-            // 공백
-            if (id.trim().isEmpty() || pw.trim().isEmpty() || pwCheck.trim().isEmpty() || name.trim().isEmpty() || nickname.trim().isEmpty()) {
-                // 공백이 있을 경우
-                Toast.makeText(this, "모든 필드는 공백일 수 없습니다.", Toast.LENGTH_SHORT).show()
+            // 비밀번호 확인
+            val passwordCheck = inputPasswordCheck.text.toString()
+            if (password != passwordCheck) {
+                Toast.makeText(this, "비밀번호가 일치하지 않습니다.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            // 아이디 유효성 검사: 영어 6~10자리
-            val idPattern = Regex("[a-zA-Z0-9]{6,12}")
-            if (!idPattern.matches(id)) {
-                // 유효하지 않을 경우
-                Toast.makeText(this, "아이디는 영어와 숫자를 포함한 6~12자리여야 합니다.", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
+            // 회원가입 요청 데이터 생성
+            val signUpRequestDto = SignUpRequestDto().apply {
+                this.member_id = member_id
+                this.password = password
+                this.name = name
+                this.nickname = nickname
             }
 
-            // 비밀번호 유효성 검사: 영어와 특수문자 포함 8~12자리
-            val pwPattern = Regex("(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9])(?=\\S+$).{8,12}")
-            if (!pwPattern.matches(pw)) {
-                // 유효하지 않을 경우
-                Toast.makeText(this, "비밀번호는 영어와 특수문자를 포함한 8~12자리여야 합니다.", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
+            // 회원가입 요청
+            signUpRequestDtoAPI.join(signUpRequestDto).enqueue(object : Callback<Unit> {
+                override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
+                    if (response.isSuccessful) {
+                        Toast.makeText(this@user_SignUp, "회원가입 성공", Toast.LENGTH_LONG).show()
+                        // 회원가입 성공 후의 처리
 
-            // 비밀번호 확인란과 일치하는지 확인
-            if (pw != pwCheck) {
-                // 비밀번호 확인이 일치하지 않는 경우
-                Toast.makeText(this, "비밀번호와 비밀번호 확인이 일치하지 않습니다.", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
+                        // 건물 인증 페이지로 이동
+                        showConfirmationDialog()
+                    } else {
+                        Toast.makeText(this@user_SignUp, "회원가입 실패", Toast.LENGTH_LONG).show()
+                        // 회원가입 실패 후의 처리
+                    }
+                }
 
-            // 닉네임 중복 여부
-
-
-            // 모든 유효성 검사를 통과한 경우 회원가입 완료 다이얼로그 표시
-            showConfirmationDialog()
-
-
-
-
+                override fun onFailure(call: Call<Unit>, t: Throwable) {
+                    Toast.makeText(this@user_SignUp, "네트워크 오류", Toast.LENGTH_LONG).show()
+                    // 네트워크 오류 시의 처리
+                }
+            })
         }
     }
 
     private fun showConfirmationDialog() {
-        val builder = AlertDialog.Builder(this)
-        builder.setMessage("회원가입이 완료되었습니다!\n건물코드 인증 화면으로 이동하시겠습니까?")
+        val builder = AlertDialog.Builder(this@user_SignUp)
+        builder.setMessage("회원가입이 완료되었습니다!\n로그인 화면으로 이동하시겠습니까?")
             .setPositiveButton("예") { dialog, which ->
-                // "예"를 선택한 경우 로그인 화면으로 이동
-                // 이때 db에 쏙쏙 하면 될듯 ?!
-                val intent = Intent(this@user_SignUp, user_BuildingAuth::class.java)
+                val intent = Intent(this@user_SignUp, user_LogIn::class.java)
                 startActivity(intent)
-                // 더이상 회원가입 창은 필요 없으니 finish
                 finish()
             }
             .show()
     }
-
 }

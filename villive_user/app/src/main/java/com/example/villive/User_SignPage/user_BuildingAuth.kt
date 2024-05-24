@@ -1,87 +1,90 @@
 package com.example.villive.User_SignPage
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.text.InputFilter
-import android.text.Spanned
 import android.widget.Button
 import android.widget.EditText
-import androidx.activity.enableEdgeToEdge
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import com.example.villive.MainActivity
 import com.example.villive.R
+import com.example.villive.model.BuildingCodeRequestDto
+import com.example.villive.Retrofit.BuildingCodeRequestDtoAPI
+import com.example.villive.Retrofit.RetrofitService
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class user_BuildingAuth : AppCompatActivity() {
+    private val retrofitService = RetrofitService.getService()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.user_building_auth)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
 
-        val toAuth = findViewById<Button>(R.id.btn_to_auth)
-        val vill_code = findViewById<EditText>(R.id.et_vill_code)
-        val vill_num=findViewById<EditText>(R.id.et_vill_num)
+        val villCode = findViewById<EditText>(R.id.et_vill_code)
+        val villNum = findViewById<EditText>(R.id.et_vill_num)
+        val goAuth = findViewById<Button>(R.id.btn_to_auth)
 
-        toAuth.setOnClickListener {
-            val vCode = vill_code.text.toString().trim()
-            val vNum=vill_num.text.toString().trim()
 
-            if (vCode.isEmpty()&&vNum.isEmpty()) {
-                // 건물 코드를 입력하지 않은 경우
-                showErrorMessage("모든 필드를 입력해주세요!")
-            } else if(vNum.isEmpty()){
-                showErrorMessage("세대 호수를 입력하세요!")
-            }else if(vCode.isEmpty()){
-                showErrorMessage("건물 코드를 입력하세요!")
-            }else{
-                // 건물 코드 입력 후 확인 누르면 로그인 창으로 이동할 수 있게
-                showConfirmationDialog()
+
+        // Retrofit 객체 생성
+        val buildingCodeRequestDtoAPI = retrofitService.create(BuildingCodeRequestDtoAPI::class.java)
+
+        goAuth.setOnClickListener {
+            val address = villCode.text.toString()
+            val building_code = villNum.text.toString()
+
+            // 건물인증 요청 데이터 생성
+            val buildingCodeRequestDto = BuildingCodeRequestDto().apply {
+                this.address = address
+                this.building_code = building_code
             }
-        }
-    }
-        private fun showErrorMessage(message: String) {
-            val builder = AlertDialog.Builder(this)
-            builder.setMessage(message)
-                .setPositiveButton("확인", null)
-                .show()
-        }
 
-        private fun showConfirmationDialog() {
-            val builder = AlertDialog.Builder(this)
-            builder.setMessage("건물 인증이 완료되었습니다!\n로그인 화면으로 이동하시겠습니까?")
-                .setPositiveButton("예") { dialog, _ ->
-                    // 예 -> 회원가입 창으로 이동
-                    val intent = Intent(this@user_BuildingAuth, user_LogIn::class.java)
-                    startActivity(intent)
-                    // 이동 시 건물 인증 창은 필요 x
-                    finish()
+            // 건물인증 요청 API 호출
+            buildingCodeRequestDtoAPI.addinfo(buildingCodeRequestDto).enqueue(object : Callback<Unit> {
+                override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
+                    if (response.isSuccessful) {
+                        showConfirmationDialog()
+                    } else {
+
+                        showErrorDialog()
+                    }
                 }
-                .show()
-        }
 
-    /*class NoSpaceFilter : InputFilter {
-        override fun filter(
-            source: CharSequence?,
-            start: Int,
-            end: Int,
-            dest: Spanned?,
-            dstart: Int,
-            dend: Int
-        ): CharSequence? {
-            // 공백 포함 확인
-            if (source != null && source.toString().contains(" ")) {
-                // 공백 포함 -> 빈 문자열 반환
-                return ""
-            }
-            // 공백 포함 x -> 입력
-            return null
+                override fun onFailure(call: Call<Unit>, t: Throwable) {
+                    showNetworkErrorDialog()
+                }
+            })
         }
-    }*/
-
     }
+
+    private fun showConfirmationDialog() {
+        AlertDialog.Builder(this)
+            .setMessage("건물 인증이 완료되었습니다. 메인 화면으로 이동합니다.")
+            .setPositiveButton("네") { _, _ ->
+                startActivity(Intent(this, MainActivity::class.java))
+                finish()
+            }
+            .setNegativeButton("아니오") { _, _ ->
+                startActivity(Intent(this, StartPage::class.java))
+                finish()
+            }
+            .show()
+    }
+
+    private fun showErrorDialog() {
+        AlertDialog.Builder(this)
+            .setMessage("건물 인증에 실패했습니다.")
+            .setPositiveButton("확인") { _, _ -> }
+            .show()
+    }
+
+    private fun showNetworkErrorDialog() {
+        AlertDialog.Builder(this)
+            .setMessage("네트워크 오류가 발생했습니다.")
+            .setPositiveButton("확인") { _, _ -> }
+            .show()
+    }
+}

@@ -29,6 +29,9 @@ class Post_Group : AppCompatActivity() {
         btnAddPost.setOnClickListener {
             val PostTitle = findViewById<EditText>(R.id.et_post_title).text.toString()
             val PostWrite = findViewById<EditText>(R.id.et_post_write).text.toString()
+            val group ="자유"
+            // 게시글 쓰기에 카테고리 선택하는거 넣으면 게시판 나눈 의미가 없는거같아서
+            // 게시글 등록 버튼 누르면 "자유" 텍스트가 category에 지정되게 하는것도 괜찮을 듯 ..!
 
             if (PostTitle.isEmpty() || PostWrite.isEmpty()) {
                 // 제목 또는 내용이 공백인 경우 다이얼로그 표시
@@ -43,7 +46,8 @@ class Post_Group : AppCompatActivity() {
                 // 제목과 내용이 모두 채워져 있는 경우 다이얼로그 표시
                 val message = buildString {
                     append("제목: $PostTitle\n")
-                    append("내용: $PostWrite")
+                    append("내용: $PostWrite\n")
+                    append("게시판 유형: $group")
                 }
                 AlertDialog.Builder(this)
                     .setMessage(message)

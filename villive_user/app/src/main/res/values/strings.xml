@@ -93,4 +93,10 @@
     <string name="unregister1">비밀번호 입력</string>
     <string name="unregister2">탈퇴하기</string>
 
+    <!--for Retrofit test-->
+    <string name="form_ID">id</string>
+    <string name="form_password">password</string>
+    <string name="form_name">name</string>
+    <string name="form_nickname">nickname</string>
+    <string name="button_save_user">save</string>
 </resources>
