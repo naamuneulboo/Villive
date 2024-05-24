@@ -3,6 +3,7 @@ package com.example.villive.User_SignPage
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -17,63 +18,59 @@ import com.example.villive.Retrofit.LogInRequestDtoAPI
 import com.example.villive.Retrofit.RetrofitService
 import com.example.villive.Retrofit.SignUpRequestDtoAPI
 import com.example.villive.model.LogInRequestDto
+import com.example.villive.model.LoginResponse
 import com.example.villive.model.SignUpRequestDto
+import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import retrofit2.Retrofit
 
 class user_LogIn : AppCompatActivity() {
-    private val retrofitService = RetrofitService.getService()
+    private lateinit var retrofitService: Retrofit
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.user_log_in)
 
-
-        val password = findViewById<EditText>(R.id.et_login_id)
-        val member_id = findViewById<EditText>(R.id.et_login_pw)
+        val member_id = findViewById<EditText>(R.id.et_login_id)
+        val password = findViewById<EditText>(R.id.et_login_pw)
         val goLogin = findViewById<Button>(R.id.btn_login)
 
         // Retrofit 객체 생성
+        retrofitService = RetrofitService.getService(this)
         val logInRequestDtoAPI = retrofitService.create(LogInRequestDtoAPI::class.java)
 
-
-
         goLogin.setOnClickListener {
-
-            val member_id = member_id.text.toString()
-            val password = password.text.toString()
+            val memberId = member_id.text.toString()
+            val pwd = password.text.toString()
 
             // 로그인 요청 데이터 생성
-            val logInRequestDto = LogInRequestDto().apply {
-                this.password = password
-                this.member_id = member_id
-            }
+            val logInRequestDto = LogInRequestDto(memberId, pwd)
 
             // 로그인 요청
-            logInRequestDtoAPI.login(logInRequestDto).enqueue(object : Callback<Unit> {
-                override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
-                    if (response.isSuccessful) {
-                        Toast.makeText(this@user_LogIn, "로그인 성공", Toast.LENGTH_LONG).show()
-                        // 회원가입 성공 후의 처리
-
-                        // 토큰을 저장
-                        val token = response.headers()["Authorization"]
+            logInRequestDtoAPI.login(logInRequestDto).enqueue(object : Callback<ResponseBody> {
+                override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+                    if (response.isSuccessful && response.body() != null) {
+                        val token = response.body()?.string()
+                        Log.d("LoginActivity", "Received Token: $token")
                         saveToken(token)
+
+                        Toast.makeText(this@user_LogIn, "로그인 성공", Toast.LENGTH_LONG).show()
 
                         // 건물 인증 페이지로 이동
                         showConfirmationDialog()
                     } else {
-                        Toast.makeText(this@user_LogIn, "로그인 실패", Toast.LENGTH_LONG).show()
-                        // 회원가입 실패 후의 처리
+                        Toast.makeText(this@user_LogIn, "로그인 실패: ${response.message()}", Toast.LENGTH_LONG).show()
+                        Log.e("LoginActivity", "Response failed: ${response.errorBody()?.string()}")
                     }
                 }
 
-                override fun onFailure(call: Call<Unit>, t: Throwable) {
-                    Toast.makeText(this@user_LogIn, "네트워크 오류", Toast.LENGTH_LONG).show()
-                    // 네트워크 오류 시의 처리
+                override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                    Toast.makeText(this@user_LogIn, "네트워크 오류: ${t.message}", Toast.LENGTH_LONG).show()
+                    Log.e("LoginActivity", "Network error", t)
                 }
             })
-
         }
     }
 
@@ -87,10 +84,17 @@ class user_LogIn : AppCompatActivity() {
             }
             .show()
     }
+
     private fun saveToken(token: String?) {
-        val sharedPreferences = getSharedPreferences("auth", Context.MODE_PRIVATE)
-        val editor = sharedPreferences.edit()
-        editor.putString("token", token)
-        editor.apply()
+        if (token != null) {
+            val sharedPreferences = getSharedPreferences("auth", Context.MODE_PRIVATE)
+            val editor = sharedPreferences.edit()
+            editor.putString("token", token)
+            editor.apply()
+        } else {
+            Toast.makeText(this, "토큰 저장 실패", Toast.LENGTH_SHORT).show()
+        }
     }
 }
+
+

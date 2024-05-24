@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.villive.Community_Write.Post_Club
@@ -29,7 +30,7 @@ class Community_Club : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
 
         // Retrofit 객체 가져오기
-        val retrofit = RetrofitService.getService()
+        val retrofit = RetrofitService.getService(this) // 여기에서 context 전달
         val postsResponseDtoAPI = retrofit.create(PostsResponseDtoAPI::class.java)
 
         val call = postsResponseDtoAPI.getAllPostsResponseDto()

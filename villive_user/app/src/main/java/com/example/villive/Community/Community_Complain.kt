@@ -31,7 +31,7 @@ class Community_Complain : AppCompatActivity() {
 
 
         // Retrofit 객체 가져오기
-        val retrofit = RetrofitService.getService()
+        val retrofit = RetrofitService.getService(this)
         val complainResponseDtoAPI = retrofit.create(ComplainResponseDtoAPI::class.java)
 
 
