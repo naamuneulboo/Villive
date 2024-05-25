@@ -8,6 +8,6 @@ import retrofit2.http.Body
 import retrofit2.http.POST
 
 interface ComplainRequestDtoAPI {
-    @POST("/complain/add")
+    @POST("/complain/add")  // 민원 등록
     fun add(@Body complainRequestDto: ComplainRequestDto ): Call<ResponseBody>
 }

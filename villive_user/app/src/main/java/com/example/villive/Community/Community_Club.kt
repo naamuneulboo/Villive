@@ -3,12 +3,11 @@ package com.example.villive.Community
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
-import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.villive.Community_Write.Post_Club
+import com.example.villive.Community_Write.Post_Detail_View
 import com.example.villive.Post_model_adapter.PostsAdapter
 import com.example.villive.R
 import com.example.villive.Retrofit.PostsResponseDtoAPI
@@ -49,11 +48,7 @@ class Community_Club : AppCompatActivity() {
                 postsAdapter.setOnItemClickListener(object : PostsAdapter.OnItemClickListener {
                     override fun onItemClick(post: PostsResponseDto) {
                         val intent = Intent(this@Community_Club, Post_Detail_View::class.java).apply {
-                            putExtra("POST_ID", post.id)
-                            putExtra("POST_TITLE", post.title)
-                            putExtra("POST_CONTENTS", post.contents)
-                            putExtra("POST_WRITER", post.writer)
-                            putExtra("POST_CREATE_DATE", post.createDate)
+                            putExtra("POST_ID", post.id.toString()) // 게시글의 ID를 전달
                         }
                         startActivity(intent)
                     }

@@ -18,9 +18,12 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31" >
         <activity
-            android:name=".Community.Post_Detail_View"
+            android:name=".Community_Write.Post_Edit_View"
+            android:exported="false" />
+        <activity
+            android:name=".Community_Write.Post_Detail_View"
             android:exported="false"
-            android:windowSoftInputMode="adjustResize"/>
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".User_SignPage.user_LogIn"
             android:exported="false" />
