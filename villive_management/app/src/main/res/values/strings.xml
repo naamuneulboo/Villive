@@ -26,7 +26,7 @@
     <string name="add_notice">공지사항 등록</string>
     <string name="add_notice_text1">메인화면 상단에 노출시킬 공지사항을 입력하세요.</string>
     <string name="add_notice_text2">내용을 입력하세요.</string>
-    <string name="add_notice_text3">등록 시 기존에 노출되어있던 공지사항은\n\t\t\t\t공지사항 내역으로 이동됩니다.</string>
+    <string name="add_notice_text3">등록 시 기존에 노출되어있던 공지사항은\n\t\t\t\t공지사항 목록으로 이동됩니다.</string>
 
     <string name="main_mgmt_page">관리인 페이지</string>
     <string name="main_mgmt_tanent">세입자 관리</string>
@@ -54,5 +54,15 @@
     <string name="usage_month">월 :</string>
     <string name="usage_item">항목 :</string>
     <string name="usage_text">모두 삭제</string>
+
+    <string name="notice1">공지사항</string>
+    <string name="notice2">공지사항 목록</string>
+    <string name="notice3">공지사항 작성</string>
+    <string name="notice4">공지사항이 등록되었습니다.</string>
+    <string name="notice5">공지사항을 삭제하시겠습니까?</string>
+
+    <string name="add_post_description_fill_title">제목을 입력하세요.</string>
+    <string name="add_post_description_fill_text">내용을 입력하세요.</string>
+
 
 </resources>

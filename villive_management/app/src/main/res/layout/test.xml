@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MGMT_main.AddNotice_history"
+    android:background="#FFFFFF">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        tools:ignore="MissingConstraints">
+
+            <ImageView
+                android:id="@+id/logo_view"
+                android:layout_width="150dp"
+                android:layout_height="80dp"
+                android:contentDescription="@string/trim"
+                android:src="@drawable/villive_logo" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginStart="155dp"
+                android:layout_marginTop="25dp"
+                android:backgroundTint="#454040"
+                android:text="@string/notice3"
+                android:textColor="#FF454040"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewPager"
+                android:layout_width="match_parent"
+                android:layout_height="550dp"
+                android:layout_marginTop="80dp"
+                android:background="#FFFFFF"
+                tools:ignore="MissingClass" />
+
+        </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="630dp">
+
+        <android.widget.Button
+            android:id="@+id/btn_notice_post"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/st_round_rectangle"
+            android:backgroundTint="#FFF099"
+            android:text="@string/notice3"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:layout_gravity="center"/>
+
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
