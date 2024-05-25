@@ -156,33 +156,7 @@
 
     </FrameLayout>
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="370dp">
 
-        <ImageButton
-            android:id="@+id/ibtn_noti_set"
-            android:layout_width="380dp"
-            android:layout_height="60dp"
-            android:layout_gravity="center"
-            android:background="@drawable/gray_outline_rectangle"
-            android:contentDescription="@string/notification_setting"
-            android:text="@string/notification_setting" />
-
-        <TextView
-            android:id="@+id/textView13"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/notification_setting"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="@color/real_dark_gray" />
-
-    </FrameLayout>
 
     <FrameLayout
         android:layout_width="match_parent"

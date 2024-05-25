@@ -31,7 +31,6 @@ public class Settings extends AppCompatActivity {
         ImageButton change_pw = findViewById(R.id.ibtn_change_pw);
         ImageButton add_vill = findViewById(R.id.ibtn_add_vill);
         ImageButton change_vill = findViewById(R.id.ibtn_change_vill);
-        ImageButton noti_set = findViewById(R.id.ibtn_noti_set);
         ImageButton logout = findViewById(R.id.ibtn_logout);
         ImageButton rm_member = findViewById(R.id.ibtn_rm_member);
         Button pipp = findViewById(R.id.btn_PIPP);
