@@ -79,6 +79,7 @@ class HomeFragment : Fragment() {
 
 
         // 항목이 자동으로 선택되게 아직 못함
+        // 왜갑자기 난리인지 알아보기
         fun navigateToPostComplain(selectedItem: String) {
             val intent = Intent(activity, Post_Complain::class.java)
             intent.putExtra("selectedItem", selectedItem)
@@ -86,23 +87,23 @@ class HomeFragment : Fragment() {
         }
 
         quick_machine.setOnClickListener {
-            navigateToPostComplain("기계 고장")
+            navigateToPostComplain("기계고장")
         }
 
         quick_public.setOnClickListener {
-            navigateToPostComplain("공동 시설")
+            navigateToPostComplain("공동시설")
         }
 
         quick_env.setOnClickListener {
-            navigateToPostComplain("환경 개선")
+            navigateToPostComplain("환경개선")
         }
 
         quick_talk.setOnClickListener {
-            navigateToPostComplain("건의 사항")
+            navigateToPostComplain("건의사항")
         }
 
         quick_etc.setOnClickListener {
-            navigateToPostComplain("기타 민원")
+            navigateToPostComplain("기타")
         }
 
 

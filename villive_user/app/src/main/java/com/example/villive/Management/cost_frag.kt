@@ -1,4 +1,4 @@
-package com.example.villive
+package com.example.villive.Management
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,6 +9,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.TextView
+import com.example.villive.R
 
 class cost_frag : Fragment() {
 
@@ -31,7 +32,7 @@ class cost_frag : Fragment() {
         val waterState = view.findViewById<TextView>(R.id.water_state_tx)
         val powerState = view.findViewById<TextView>(R.id.power_state_tx)
         val mgState = view.findViewById<TextView>(R.id.mg_state_tx)
-        
+
         val monthDefaultSign =view.findViewById<View>(R.id.month_default)
         val waterDefaultSign =view.findViewById<View>(R.id.water_default)
         val powerDefaultSign =view.findViewById<View>(R.id.power_default)

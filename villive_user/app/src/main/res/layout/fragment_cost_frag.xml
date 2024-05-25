@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".cost_frag"
+    tools:context=".Management.cost_frag"
     android:background="@color/white"
     android:orientation="vertical">
 
@@ -90,7 +90,7 @@
             android:textColor="@color/black"
             android:gravity="center"
             android:textSize="18sp"
-           />
+            />
 
         <View
             android:id="@+id/month_default"

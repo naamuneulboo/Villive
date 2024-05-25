@@ -9,6 +9,6 @@ import retrofit2.http.Body
 import retrofit2.http.POST
 
 interface LogInRequestDtoAPI {
-    @POST("/member/login")
+    @POST("/member/login")  // 사용자 로그인
     fun login(@Body logInRequestDto: LogInRequestDto): Call<ResponseBody>
 }

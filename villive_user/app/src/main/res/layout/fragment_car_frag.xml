@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".car_frag"
+    tools:context=".Management.car_frag"
     android:orientation="vertical"
     android:background="@color/white">
 
@@ -20,7 +20,7 @@
         android:textSize="22sp"
         android:textColor="@color/black"
         android:gravity="center"
-        /> 
+        />
 
     <FrameLayout
         android:layout_width="350dp"
@@ -30,12 +30,12 @@
         android:background="@drawable/st_round_rectangle"
         android:backgroundTint="#D0F6DC">
 
-    <Button
-        android:layout_width="350dp"
-        android:layout_height="80dp"
-        android:background="@drawable/st_round_rectangle"
-        android:alpha="0"
-        />
+        <Button
+            android:layout_width="350dp"
+            android:layout_height="80dp"
+            android:background="@drawable/st_round_rectangle"
+            android:alpha="0"
+            />
 
         <TextView
             android:layout_width="220dp"

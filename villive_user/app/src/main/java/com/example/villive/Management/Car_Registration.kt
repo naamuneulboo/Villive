@@ -1,14 +1,12 @@
-package com.example.villive
+package com.example.villive.Management
 
-import ManagementFragment
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
-import androidx.activity.ComponentActivity
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.FragmentTransaction
+import com.example.villive.R
 
 
 class Car_Registration  : AppCompatActivity() {
@@ -31,6 +29,9 @@ class Car_Registration  : AppCompatActivity() {
                     }
                     .show()
             }
+
+            //이미 입력된 정보에 한해 입력 제한 코드 추가 else if
+
             else{
                 val message = ("차량 번호 : $car_num \n 입력하신 정보가 맞습니까?")
                 AlertDialog.Builder(this)
@@ -42,7 +43,7 @@ class Car_Registration  : AppCompatActivity() {
                         dialog.dismiss()
                     }
                     .show()
-                }
+            }
 
         }
 

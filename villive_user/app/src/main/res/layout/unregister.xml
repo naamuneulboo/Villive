@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ConfigurationPage.UnregisterActivity"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="80dp"
+            android:id="@+id/logo_view"
+            android:src="@drawable/villive_logo"
+            />
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginLeft="155dp"
+            android:text="회원탈퇴"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            />
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/text_ex1"
+        android:layout_width="355dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center"
+        android:text="탈퇴 시 개인정보, 활동 기록은 모두 삭제되며, \n 복구할 수 없습니다."
+        android:textColor="@color/black"
+        android:fontFamily="@font/gmarketsansttflight"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:gravity="center"/>
+
+    <View
+        android:id="@+id/view_toolbar"
+        android:layout_width="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:layout_height="1dp"
+        android:background="@android:color/black"
+        android:layout_below="@+id/toolbar"/>
+
+    <TextView
+        android:id="@+id/text_ex2"
+        android:layout_width="355dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/gmarketsansttflight"
+        android:text="위의 내용을 확인하였고, \n 탈퇴 완료 시 내용에 동의합니다."
+        android:gravity="center"/>
+
+
+    <EditText
+        android:id="@+id/editTextPassword"
+        android:layout_width="360dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="50dp"
+        android:paddingLeft="10dp"
+        android:layout_gravity="center"
+        android:autofillHints="@string/pw"
+        android:background="@drawable/rectangle_yellow"
+        android:textColor="@color/black"
+        android:ems="10"
+        android:hint="@string/unregister1"
+        android:textColorHint="@color/real_dark_gray"
+        android:inputType="textPassword" />
+
+
+    <Button
+        android:id="@+id/buttonUnregister"
+        android:layout_width="250dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center"
+        android:background="@drawable/rounded_rectangle"
+        android:backgroundTint="#DFF8E1"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:text="@string/unregister2" />
+
+</LinearLayout>
