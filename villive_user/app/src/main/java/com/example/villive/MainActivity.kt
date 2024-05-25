@@ -1,5 +1,6 @@
 package com.example.villive
 
+import CalendarFragment
 import com.example.villive.Management.ManagementFragment
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -25,9 +26,9 @@ class MainActivity : AppCompatActivity() {
                         }
 
                         R.id.navigation_chatting -> {
-                            val chattingFragment = ChattingFragment()
+                            val calendarFragment = CalendarFragment()
                             supportFragmentManager.beginTransaction()
-                                .replace(R.id.fl_container, chattingFragment).commit()
+                                .replace(R.id.fl_container, calendarFragment).commit()
                         }
 
                         R.id.navigation_management -> {

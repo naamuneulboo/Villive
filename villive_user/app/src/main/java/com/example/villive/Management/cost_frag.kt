@@ -60,10 +60,11 @@ class cost_frag : Fragment() {
                         mgCost.setText("150,000")
 
                         monthState.setText("납부")
-                        waterState.setText("납부")
+                        waterState.setText("미납")
                         powerState.setText("미납")
                         mgState.setText("납부")
 
+                        waterDefaultSign.visibility=View.VISIBLE
                         powerDefaultSign.visibility=View.VISIBLE
                     }
 
@@ -75,8 +76,10 @@ class cost_frag : Fragment() {
 
                         monthState.setText("납부")
                         waterState.setText("납부")
-                        powerState.setText("납부")
+                        powerState.setText("미납")
                         mgState.setText("납부")
+
+                        powerDefaultSign.visibility=View.VISIBLE
 
                     }
 
@@ -96,6 +99,18 @@ class cost_frag : Fragment() {
                         monthCost.setText("350,000")
                         waterCost.setText("6,790")
                         powerCost.setText("48,090")
+                        mgCost.setText("150,000")
+
+                        monthState.setText("납부")
+                        waterState.setText("납부")
+                        powerState.setText("납부")
+                        mgState.setText("납부")
+                    }
+
+                    4 -> {
+                        monthCost.setText("350,000")
+                        waterCost.setText("12,900")
+                        powerCost.setText("32,080")
                         mgCost.setText("150,000")
 
                         monthState.setText("납부")

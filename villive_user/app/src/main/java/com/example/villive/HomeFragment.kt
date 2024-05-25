@@ -67,8 +67,6 @@ class HomeFragment : Fragment() {
             startActivity(intent)
         }
 
-
-        val alarm_button = view.findViewById<ImageButton>(R.id.noti_button)
         val quick_machine = view.findViewById<Button>(R.id.btn_quick_machine)
         val quick_public = view.findViewById<Button>(R.id.btn_quick_public)
         val quick_env = view.findViewById<Button>(R.id.btn_quick_env)

@@ -79,10 +79,10 @@
             android:name=".Community.Community"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".User_SignPage.StartPage"
             android:exported="false" />
         <activity
-            android:name=".User_SignPage.StartPage"
+            android:name=".MainActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.NoActionBar" >
             <intent-filter>
@@ -92,14 +92,17 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".Management.Car_Registration"
+            android:exported="false"/>
+        <activity
             android:name=".SettingActivity"
             android:exported="false"
             android:label="@string/title_activity_setting"
             android:theme="@style/Theme.Villive" />
         <activity
-            android:name=".ChattingActivity"
+            android:name=".Calendar.CalendarActivity"
             android:exported="false"
-            android:label="@string/title_activity_chatting"
+            android:label="CalendarActivity"
             android:theme="@style/Theme.Villive" />
         <activity
             android:name=".HomeActivity"

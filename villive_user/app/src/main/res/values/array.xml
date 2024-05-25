@@ -2,6 +2,7 @@
 <resources>
 
     <string-array name="itemList">
+        <item>5월</item>
         <item>4월</item>
         <item>3월</item>
         <item>2월</item>

@@ -11,10 +11,10 @@
 
     <item
         android:id="@+id/navigation_chatting"
-        android:title="Chatting"
+        android:title="Calender"
         android:enabled="true"
         app:showAsAction="ifRoom"
-        android:icon="@drawable/baseline_chat_24"/>
+        android:icon="@drawable/baseline_calendar"/>
 
     <item
         android:id="@+id/navigation_management"

@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ChattingFragment"
     android:background="@color/white"
     android:orientation="vertical">
 
@@ -20,11 +19,11 @@
             />
 
         <TextView
-            android:layout_width="100dp"
+            android:layout_width="120dp"
             android:layout_height="50dp"
             android:layout_marginTop="30dp"
             android:layout_marginLeft="155dp"
-            android:text="Chat"
+            android:text="Calender"
             android:textColor="@color/black"
             android:textSize="25sp"
             android:textStyle="bold"
@@ -32,14 +31,18 @@
 
     </FrameLayout>
 
+    <CalendarView
+        android:id="@+id/calendarView"
+        android:layout_width="395dp"
+        android:layout_height="335dp"
+        android:background="@drawable/calendar" />
+
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/chatting_list"
-        android:layout_width="0dp"
+        android:id="@+id/cl_recycler"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_weight="1"
+       />
 
 
 </LinearLayout>
