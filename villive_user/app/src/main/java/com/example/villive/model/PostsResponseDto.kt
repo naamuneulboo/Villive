@@ -10,7 +10,8 @@ data class PostsResponseDto(
     var modifiedDate: String? = null,
     var postsLikeCnt: Int? = null,
     var postsLikeCheck: Boolean? = null,
-    var category: Category? = null
+    var category: Category? = null,
+    val commentList: List<CommentResponseDto>?=null
 ) {
     enum class Category {
         단체, 공동구매, 민원, 나눔, 동호회

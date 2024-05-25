@@ -20,11 +20,6 @@
           <theme>@style/Theme.AppCompat.NoActionBar</theme>
         </config>
       </layout>
-      <layout url="file://$PROJECT_DIR$/villive_user/app/src/main/res/layout/chatting_progress.xml">
-        <config>
-          <theme>@style/Theme.AppCompat.NoActionBar</theme>
-        </config>
-      </layout>
       <layout url="file://$PROJECT_DIR$/villive_user/app/src/main/res/layout/community.xml">
         <config>
           <theme>@style/Theme.AppCompat.NoActionBar</theme>
@@ -95,12 +90,22 @@
           <theme>@style/Theme.AppCompat.NoActionBar</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/villive_user/app/src/main/res/layout/item_comment.xml">
+        <config>
+          <theme>@style/Theme.AppCompat.NoActionBar</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/villive_user/app/src/main/res/layout/item_complain_response.xml">
         <config>
           <theme>@style/Theme.AppCompat.NoActionBar</theme>
         </config>
       </layout>
       <layout url="file://$PROJECT_DIR$/villive_user/app/src/main/res/layout/item_event.xml">
+        <config>
+          <theme>@style/Theme.AppCompat.NoActionBar</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/villive_user/app/src/main/res/layout/item_post_response.xml">
         <config>
           <theme>@style/Theme.AppCompat.NoActionBar</theme>
         </config>
@@ -126,6 +131,16 @@
         </config>
       </layout>
       <layout url="file://$PROJECT_DIR$/villive_user/app/src/main/res/layout/post_complain.xml">
+        <config>
+          <theme>@style/Theme.AppCompat.NoActionBar</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/villive_user/app/src/main/res/layout/post_detail_view.xml">
+        <config>
+          <theme>@style/Theme.AppCompat.NoActionBar</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/villive_user/app/src/main/res/layout/post_edit_view.xml">
         <config>
           <theme>@style/Theme.AppCompat.NoActionBar</theme>
         </config>
@@ -207,37 +222,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="49dc9a04-b9ae-4551-9034-a4dde2c0c86a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Calendar/C_event.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Calendar/CalendarActivity.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Calendar/EventAdapter.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/villive_user/app/src/main/res/drawable/baseline_calendar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/villive_user/app/src/main/res/drawable/calendar.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/villive_user/app/src/main/res/drawable/calendar_background.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/villive_user/app/src/main/res/drawable/cl_event.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/villive_user/app/src/main/res/layout/item_event.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Post_model_adapter/CommentAdapter.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Retrofit/MsgResponseDtoAPI.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/model/CommentRequestDto.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/model/CommentResponseDto.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/model/MsgResponseDto.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/villive_user/app/src/main/res/drawable/baseline_delete_24.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/villive_user/app/src/main/res/drawable/baseline_sentiment_very_satisfied_24.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/villive_user/app/src/main/res/layout/item_comment.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/villive_user/app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/build.gradle.kts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Alarm/AlarmFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Alarm/AlarmFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/ChattingActivity.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/ChattingFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Calendar/CalendarFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/HomeActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/HomeActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/HomeFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/HomeFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Management/cost_frag.kt" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Management/cost_frag.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/SettingActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/SettingActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/res/drawable/baseline_chat_24.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/res/drawable/baseline_mark_chat_unread_24.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/res/layout/chatting.xml" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/res/layout/calendar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/res/layout/chatting_progress.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/res/layout/home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/res/layout/home.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/res/layout/unregister.xml" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/res/layout/unregister.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/res/menu/bottom_menu.xml" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/res/menu/bottom_menu.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/res/values/array.xml" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/res/values/array.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/res/values/style.xml" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/res/values/style.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/res/values/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/res/values/themes.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/villive_user/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Community_Write/Post_Detail_View.kt" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Community_Write/Post_Detail_View.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Community_Write/Post_Edit_View.kt" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Community_Write/Post_Edit_View.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/model/PostsResponseDto.kt" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/model/PostsResponseDto.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/res/layout/post_detail_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/res/layout/post_detail_view.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/res/layout/post_edit_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/res/layout/post_edit_view.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -247,7 +247,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\Hyeon\.android\avd\Pixel_3a_API_34_extension_level_7_x86_64.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[DeviceId(pluginId=PhysicalDevice, isTemplate=false, identifier=serial=RF9N7074B0A)]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$/villive_user">
       <ProjectState />
@@ -294,9 +294,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="resourceFile" />
-        <option value="layoutResourceFile" />
         <option value="Class" />
+        <option value="layoutResourceFile" />
+        <option value="resourceFile" />
         <option value="Kotlin Class" />
       </list>
     </option>
@@ -315,23 +315,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Android App.app.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "RunOnceActivity.readMode.enableVisualFormatting": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "cf.first.check.clang-format": "false",
-    "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Hyeon/Documents/GitHub/Villive/villive_user/app/src/main/res/drawable",
-    "settings.editor.selected.configurable": "project.propVCSSupport.Mappings"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Android App.app.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Hyeon/Documents/GitHub/Villive/villive_user/app/src/main/res/drawable&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.Mappings&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Hyeon\Documents\GitHub\Villive\villive_user\app\src\main\res\drawable" />
