@@ -1,5 +1,6 @@
 package com.example.villive.Community_Write
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -27,23 +28,34 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class Post_Detail_View : AppCompatActivity(), CommentAdapter.OnItemDeleteClickListener {
+
+    // 게시글 내용
     private lateinit var titleTextView: TextView
     private lateinit var contentsTextView: TextView
     private lateinit var writerTextView: TextView
     private lateinit var createDateTextView: TextView
-    private lateinit var postId: String // 게시글의 ID를 저장하기 위한 변수
+
+    // 게시글의 ID 저장
+    private lateinit var postId: String
+
+    // 공감
     private lateinit var gongGam: Button
     private lateinit var gongGamCount: TextView
+    private lateinit var likeEmoji: ImageView
+    private var postsLikeCheck = false
+
+    // 댓글
     private lateinit var commentAdapter: CommentAdapter
     private lateinit var etAddComment: EditText
     private lateinit var ibtnAddComment: ImageButton
-    private lateinit var rvPostsGroup: RecyclerView
-    private lateinit var ibtn_content_menu:ImageButton
-    private lateinit var likeEmoji: ImageView
+    private lateinit var rvComments: RecyclerView
     private val commentList = mutableListOf<CommentResponseDto>()
 
-    private var postsLikeCheck = false // 현재 공감 상태를 저장하는 변수
+    // 게시글 수정 / 삭제 메뉴
+    private lateinit var ibtn_content_menu:ImageButton
 
+
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.post_detail_view)
@@ -62,7 +74,7 @@ class Post_Detail_View : AppCompatActivity(), CommentAdapter.OnItemDeleteClickLi
         // 뷰 초기화
         etAddComment = findViewById(R.id.et_add_comment)
         ibtnAddComment = findViewById(R.id.ibtn_add_comment)
-        rvPostsGroup = findViewById(R.id.rv_posts_group)
+        rvComments = findViewById(R.id.rv_comments)
 
         // Intent로부터 게시글의 ID를 가져옴
         postId = intent.getStringExtra("POST_ID").toString()
@@ -71,15 +83,12 @@ class Post_Detail_View : AppCompatActivity(), CommentAdapter.OnItemDeleteClickLi
         commentAdapter = CommentAdapter(commentList)
         // 액티비티가 삭제 이벤트를 처리할 수 있도록 리스너 설정
         commentAdapter.setOnDeleteClickListener(this)
-        rvPostsGroup.apply {
+        rvComments.apply {
             adapter = commentAdapter
             layoutManager = LinearLayoutManager(this@Post_Detail_View)
         }
 
         getPostDetails()
-
-
-
 
         // 공감 버튼에 클릭 리스너 추가
         gongGam.setOnClickListener {
@@ -173,23 +182,21 @@ class Post_Detail_View : AppCompatActivity(), CommentAdapter.OnItemDeleteClickLi
             override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
                 if (response.isSuccessful) {
                     // 공감 요청 성공 시 처리
-                    // 적절한 메시지를 사용자에게 보여줍니다.
                     Toast.makeText(this@Post_Detail_View, "게시글에 공감했습니다!", Toast.LENGTH_SHORT).show()
                     // 공감이 성공하면 게시글을 다시 불러옴
                     getPostDetails()
                 } else {
-                    // 공감 요청 실패 시 처리
-                    // 실패 메시지 등을 사용자에게 표시하거나 필요한 경우 추가적인 작업을 수행합니다.
+                    // 실패 시 처리
                 }
             }
 
             override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
-                // 통신 실패 시 처리
-                // 예를 들어, 네트워크 오류 메시지를 사용자에게 표시하거나 다시 시도할 것인지 묻는 등의 작업을 수행할 수 있습니다.
+                // 실패 시 처리
             }
         })
     }
 
+    // 게시글 삭제 확인
     private fun showDeleteConfirmationDialog() {
         val builder = AlertDialog.Builder(this)
         builder.setTitle("게시글 삭제")
@@ -204,6 +211,7 @@ class Post_Detail_View : AppCompatActivity(), CommentAdapter.OnItemDeleteClickLi
         dialog.show()
     }
 
+    // 게시글 삭제 요청 수행
     private fun deletePost() {
         val retrofit = RetrofitService.getService(this)
         val msgResponseDtoAPI = retrofit.create(MsgResponseDtoAPI::class.java)
@@ -251,6 +259,7 @@ class Post_Detail_View : AppCompatActivity(), CommentAdapter.OnItemDeleteClickLi
         finish()
     }
 
+    // 댓글 등록 요청 수행
     private fun addComment(content: String) {
         val retrofit = RetrofitService.getService(this)
         val msgResponseDtoAPI = retrofit.create(MsgResponseDtoAPI::class.java)
@@ -262,6 +271,7 @@ class Post_Detail_View : AppCompatActivity(), CommentAdapter.OnItemDeleteClickLi
                     // 성공적으로 댓글이 추가된 경우 RecyclerView에 추가
                     val addedComment = response.body()
                     addedComment?.let {
+
                         commentList.add(it)
                         commentAdapter.notifyDataSetChanged()
 
@@ -269,17 +279,17 @@ class Post_Detail_View : AppCompatActivity(), CommentAdapter.OnItemDeleteClickLi
                         etAddComment.text.clear()
                     }
                 } else {
-                    // 댓글 추가에 실패한 경우에 대한 처리
-                    // 실패 메시지 등을 사용자에게 표시하거나 필요한 경우 추가적인 작업을 수행합니다.
+                    // 댓글 추가 실패 시
                 }
             }
 
             override fun onFailure(call: Call<CommentResponseDto>, t: Throwable) {
-                // 통신 실패 시 처리
-                // 예를 들어, 네트워크 오류 메시지를 사용자에게 표시하거나 다시 시도할 것인지 묻는 등의 작업을 수행할 수 있습니다.
+                // 실패 시 처리
             }
         })
     }
+
+    // 게시글 상세 정보
     private fun getPostDetails() {
         val retrofit = RetrofitService.getService(this)
         val postsResponseDtoAPI = retrofit.create(PostsResponseDtoAPI::class.java)
@@ -325,7 +335,7 @@ class Post_Detail_View : AppCompatActivity(), CommentAdapter.OnItemDeleteClickLi
         })
     }
 
-    // 댓글 삭제 메서드
+    // 댓글 삭제 확인
     private fun deleteCommentWithConfirmation(commentId: Long) {
         val builder = AlertDialog.Builder(this)
         builder.setTitle("댓글 삭제")
@@ -342,7 +352,7 @@ class Post_Detail_View : AppCompatActivity(), CommentAdapter.OnItemDeleteClickLi
     }
 
 
-    // 댓글 삭제 메서드
+    // 댓글 삭제 수행
     private fun deleteComment(commentId: Long) {
         val retrofit = RetrofitService.getService(this)
         val msgResponseDtoAPI = retrofit.create(MsgResponseDtoAPI::class.java)
@@ -350,7 +360,7 @@ class Post_Detail_View : AppCompatActivity(), CommentAdapter.OnItemDeleteClickLi
         msgResponseDtoAPI.deleteComment(postId.toLong(), commentId).enqueue(object : Callback<ResponseBody> {
             override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
                 if (response.isSuccessful) {
-                    // 삭제 성공 시 처리
+                    // 삭제 성공
                     val alertDialog = AlertDialog.Builder(this@Post_Detail_View).create()
                     alertDialog.setTitle("삭제 성공")
                     alertDialog.setMessage("댓글이 성공적으로 삭제되었습니다.")
@@ -361,7 +371,7 @@ class Post_Detail_View : AppCompatActivity(), CommentAdapter.OnItemDeleteClickLi
                     }
                     alertDialog.show()
                 } else {
-                    // 삭제 실패 시 처리
+                    // 삭제 실패
                     val alertDialog = AlertDialog.Builder(this@Post_Detail_View).create()
                     alertDialog.setTitle("삭제 실패")
                     alertDialog.setMessage("댓글 삭제에 실패했습니다. 다시 시도해주세요.")
@@ -375,7 +385,7 @@ class Post_Detail_View : AppCompatActivity(), CommentAdapter.OnItemDeleteClickLi
             }
 
             override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
-                // 삭제 실패 시 처리
+                // 삭제 실패
                 val alertDialog = AlertDialog.Builder(this@Post_Detail_View).create()
                 alertDialog.setTitle("삭제 실패")
                 alertDialog.setMessage("댓글 삭제 중 오류가 발생했습니다. 네트워크 상태를 확인하고 다시 시도해주세요.")
@@ -387,9 +397,9 @@ class Post_Detail_View : AppCompatActivity(), CommentAdapter.OnItemDeleteClickLi
         })
     }
 
-    // 댓글 삭제 이벤트 처리
+    // 댓글 삭제 리스너
     override fun onDeleteClick(commentId: Long) {
-        // 댓글 삭제 요청 처리
+        // 댓글 삭제 요청
         deleteCommentWithConfirmation(commentId)
     }
 
