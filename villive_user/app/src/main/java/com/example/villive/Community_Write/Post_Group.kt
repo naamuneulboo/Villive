@@ -26,7 +26,7 @@ class Post_Group : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.post_share)
+        setContentView(R.layout.post_group)
 
         // Retrofit 객체 생성
         apiService = RetrofitService.getService(this).create(PostsRequestDtoAPI::class.java)

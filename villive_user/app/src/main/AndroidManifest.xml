@@ -59,7 +59,7 @@
             android:name=".User_SignPage.user_SignUp"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".User_SignPage.StartPage"
             android:exported="false" />
         <activity
             android:name=".Community_Write.Post_Club"
@@ -95,7 +95,7 @@
             android:name=".Community.Community"
             android:exported="false" />
         <activity
-            android:name=".User_SignPage.StartPage"
+            android:name=".MainActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>

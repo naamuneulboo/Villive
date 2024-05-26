@@ -9,8 +9,10 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.villive.Community.Community
 import com.example.villive.R
 import com.example.villive.Retrofit.PostsRequestDtoAPI
+import com.example.villive.Retrofit.PostsResponseDtoAPI
 import com.example.villive.Retrofit.RetrofitService
 import com.example.villive.model.PostsRequestDto
+import com.example.villive.model.PostsResponseDto
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
@@ -75,12 +77,43 @@ class Post_Edit_View : AppCompatActivity() {
         val builder = AlertDialog.Builder(this)
         builder.setMessage("게시글이 성공적으로 수정되었습니다.")
             .setPositiveButton("예") { dialog, which ->
+                // 수정된 게시글 내용을 다시 불러오기
+                getPostDetails()
                 // Community 화면으로 이동
                 val intent = Intent(this, Community::class.java)
                 startActivity(intent)
                 finish()
             }
             .show()
+    }
+
+    private fun getPostDetails() {
+        val postId = intent.getStringExtra("POST_ID")
+
+        val retrofit = RetrofitService.getService(this)
+        val postsResponseDtoAPI = retrofit.create(PostsResponseDtoAPI::class.java)
+
+        // 게시글 상세 정보 요청
+        postId?.let {
+            postsResponseDtoAPI.getPostById(it.toLong()).enqueue(object : Callback<PostsResponseDto> {
+                override fun onResponse(call: Call<PostsResponseDto>, response: Response<PostsResponseDto>) {
+                    if (response.isSuccessful) {
+                        val post = response.body()
+                        post?.let {
+                            // 게시글 데이터를 화면에 표시
+                            editTitleEditText.setText(it.title)
+                            editContentEditText.setText(it.contents)
+                        }
+                    } else {
+                        // 실패 시 처리
+                    }
+                }
+
+                override fun onFailure(call: Call<PostsResponseDto>, t: Throwable) {
+                    // 실패 시 처리
+                }
+            })
+        }
     }
 
     private fun showFailureDialog() {

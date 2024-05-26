@@ -23,20 +23,19 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class Post_Detail_View : AppCompatActivity() {
+class Post_Detail_View : AppCompatActivity(), CommentAdapter.OnItemDeleteClickListener {
     private lateinit var titleTextView: TextView
     private lateinit var contentsTextView: TextView
     private lateinit var writerTextView: TextView
     private lateinit var createDateTextView: TextView
     private lateinit var postId: String // 게시글의 ID를 저장하기 위한 변수
-    private lateinit var contentEdit: ImageButton
-    private lateinit var contentDelete: ImageButton
     private lateinit var gongGam: Button
     private lateinit var gongGamCount: TextView
     private lateinit var commentAdapter: CommentAdapter
     private lateinit var etAddComment: EditText
     private lateinit var ibtnAddComment: ImageButton
     private lateinit var rvPostsGroup: RecyclerView
+    private lateinit var ibtn_content_menu:ImageButton
     private val commentList = mutableListOf<CommentResponseDto>()
 
     private var postsLikeCheck = false // 현재 공감 상태를 저장하는 변수
@@ -49,9 +48,9 @@ class Post_Detail_View : AppCompatActivity() {
         contentsTextView = findViewById(R.id.post_contents)
         writerTextView = findViewById(R.id.post_writer)
         createDateTextView = findViewById(R.id.post_create_date)
-        contentEdit = findViewById(R.id.ibtn_content_edit)
-        contentDelete = findViewById(R.id.ibtn_content_delete)
+
         gongGam = findViewById(R.id.btn_gong_gam)
+        ibtn_content_menu =findViewById(R.id.ibtn_content_menu)
 
         // 뷰 초기화
         etAddComment = findViewById(R.id.et_add_comment)
@@ -63,6 +62,8 @@ class Post_Detail_View : AppCompatActivity() {
 
         // 댓글 목록을 표시할 RecyclerView 설정
         commentAdapter = CommentAdapter(commentList)
+        // 액티비티가 삭제 이벤트를 처리할 수 있도록 리스너 설정
+        commentAdapter.setOnDeleteClickListener(this)
         rvPostsGroup.apply {
             adapter = commentAdapter
             layoutManager = LinearLayoutManager(this@Post_Detail_View)
@@ -84,20 +85,34 @@ class Post_Detail_View : AppCompatActivity() {
                     writerTextView.text = post?.writer
                     createDateTextView.text = post?.createDate
 
-                    // contentEdit 버튼 클릭 시 수정 액티비티로 이동
-                    contentEdit.setOnClickListener {
-                        val intent = Intent(this@Post_Detail_View, Post_Edit_View::class.java).apply {
-                            putExtra("POST_ID", postId)
-                            putExtra("POST_TITLE", titleTextView.text.toString()) // 게시글 제목 전달
-                            putExtra("POST_CONTENTS", contentsTextView.text.toString()) // 게시글 내용 전달
-                        }
-                        startActivity(intent)
+                    // ibtn_content_menu 클릭 이벤트 처리
+                    ibtn_content_menu.setOnClickListener {
+                        val options = arrayOf("수정", "삭제")
+                        AlertDialog.Builder(this@Post_Detail_View)
+                            .setTitle("게시글 수정 또는 삭제")
+                            .setItems(options) { _, which ->
+                                when (which) {
+                                    0 -> {
+                                        // 수정을 선택한 경우
+                                        val intent = Intent(this@Post_Detail_View, Post_Edit_View::class.java).apply {
+                                            putExtra("POST_ID", postId)
+                                            putExtra("POST_TITLE", titleTextView.text.toString()) // 게시글 제목 전달
+                                            putExtra("POST_CONTENTS", contentsTextView.text.toString()) // 게시글 내용 전달
+                                        }
+                                        startActivity(intent)
+                                    }
+                                    1 -> {
+                                        // 삭제를 선택한 경우
+                                        showDeleteConfirmationDialog()
+                                    }
+                                }
+                            }
+                            .setNegativeButton("취소") { dialog, _ ->
+                                dialog.dismiss()
+                            }
+                            .show()
                     }
 
-                    // contentDelete 버튼 클릭 시 삭제 다이얼로그 표시
-                    contentDelete.setOnClickListener {
-                        showDeleteConfirmationDialog()
-                    }
 
                     // 댓글 추가 버튼 클릭 시 동작 설정
                     ibtnAddComment.setOnClickListener {
@@ -243,6 +258,74 @@ class Post_Detail_View : AppCompatActivity() {
                 // 실패 시 처리
             }
         })
+    }
+
+    // 댓글 삭제 메서드
+    private fun deleteCommentWithConfirmation(commentId: Long) {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("댓글 삭제")
+        builder.setMessage("정말로 이 댓글을 삭제하시겠습니까?")
+        builder.setPositiveButton("삭제") { _, _ ->
+            // 댓글 삭제 요청 처리
+            deleteComment(commentId)
+        }
+        builder.setNegativeButton("취소") { dialog, _ ->
+            dialog.dismiss()
+        }
+        val dialog = builder.create()
+        dialog.show()
+    }
+
+
+    // 댓글 삭제 메서드
+    private fun deleteComment(commentId: Long) {
+        val retrofit = RetrofitService.getService(this)
+        val msgResponseDtoAPI = retrofit.create(MsgResponseDtoAPI::class.java)
+
+        msgResponseDtoAPI.deleteComment(postId.toLong(), commentId).enqueue(object : Callback<ResponseBody> {
+            override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+                if (response.isSuccessful) {
+                    // 삭제 성공 시 처리
+                    val alertDialog = AlertDialog.Builder(this@Post_Detail_View).create()
+                    alertDialog.setTitle("삭제 성공")
+                    alertDialog.setMessage("댓글이 성공적으로 삭제되었습니다.")
+                    alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "확인") { dialog, _ ->
+                        dialog.dismiss()
+                        // 댓글 목록 갱신
+                        getPostDetails()
+                    }
+                    alertDialog.show()
+                } else {
+                    // 삭제 실패 시 처리
+                    val alertDialog = AlertDialog.Builder(this@Post_Detail_View).create()
+                    alertDialog.setTitle("삭제 실패")
+                    alertDialog.setMessage("댓글 삭제에 실패했습니다. 다시 시도해주세요.")
+                    alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "확인") { dialog, _ ->
+                        dialog.dismiss()
+                        // 댓글 목록 갱신
+                        getPostDetails()
+                    }
+                    alertDialog.show()
+                }
+            }
+
+            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                // 삭제 실패 시 처리
+                val alertDialog = AlertDialog.Builder(this@Post_Detail_View).create()
+                alertDialog.setTitle("삭제 실패")
+                alertDialog.setMessage("댓글 삭제 중 오류가 발생했습니다. 네트워크 상태를 확인하고 다시 시도해주세요.")
+                alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "확인") { dialog, _ ->
+                    dialog.dismiss()
+                }
+                alertDialog.show()
+            }
+        })
+    }
+
+    // 댓글 삭제 이벤트 처리
+    override fun onDeleteClick(commentId: Long) {
+        // 댓글 삭제 요청 처리
+        deleteCommentWithConfirmation(commentId)
     }
 
 

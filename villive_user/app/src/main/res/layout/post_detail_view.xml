@@ -40,23 +40,6 @@
             android:textStyle="bold" />
 
 
-        <ImageButton
-            android:id="@+id/ibtn_content_edit"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginEnd="65dp"
-            android:layout_gravity="end"
-            android:background="@drawable/baseline_edit_24" />
-
-        <ImageButton
-            android:id="@+id/ibtn_content_delete"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginEnd="25dp"
-            android:layout_gravity="end"
-            android:background="@drawable/baseline_delete_24" />
 
     </FrameLayout>
 
@@ -83,19 +66,39 @@
                 android:orientation="vertical"
                 tools:ignore="MissingConstraints">
 
-                <TextView
-                    android:id="@+id/post_title"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/gmarketsansttfmedium"
-                    android:paddingStart="20dp"
-                    android:paddingTop="20dp"
-                    android:paddingEnd="20dp"
-                    android:paddingBottom="10dp"
-                    android:text="게시글 제목"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
-                    tools:ignore="RtlSymmetry" />
+                    android:orientation="horizontal"
+                    android:paddingTop="5dp"
+                    android:gravity="end">
+
+                    <TextView
+                        android:id="@+id/post_title"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/gmarketsansttfmedium"
+                        android:paddingStart="20dp"
+                        android:paddingTop="20dp"
+                        android:paddingEnd="20dp"
+                        android:paddingBottom="10dp"
+                        android:text="게시글 제목"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        tools:ignore="RtlSymmetry" />
+
+                    <ImageButton
+                        android:id="@+id/ibtn_content_menu"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="end|center_vertical"
+                        android:layout_marginEnd="12dp"
+                        android:background="@drawable/baseline_more_vert_24" />
+
+
+                </LinearLayout>
+
 
 
                 <TextView
@@ -141,8 +144,6 @@
                         android:textColor="@color/black"
                         android:textSize="12sp"
                         tools:ignore="RtlSymmetry" />
-
-
 
                 </LinearLayout>
                 <LinearLayout

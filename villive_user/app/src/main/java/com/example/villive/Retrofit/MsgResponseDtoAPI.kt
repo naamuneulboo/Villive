@@ -21,9 +21,6 @@ interface MsgResponseDtoAPI {
     fun addComment(@Path("id") postId: Long, @Body comment: CommentRequestDto): Call<CommentResponseDto>
 
     @DELETE("/posts/comment/{postId}/{commentId}")
-    fun deleteComment(
-        @Path("postId") postId: Long,
-        @Path("commentId") commentId: Long
-    ): Call<ResponseBody>
+    fun deleteComment(@Path("postId") postId: Long, @Path("commentId") commentId: Long): Call<ResponseBody>
 }
 
