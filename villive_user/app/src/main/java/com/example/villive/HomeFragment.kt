@@ -67,6 +67,7 @@ class HomeFragment : Fragment() {
             startActivity(intent)
         }
 
+
         val quick_machine = view.findViewById<Button>(R.id.btn_quick_machine)
         val quick_public = view.findViewById<Button>(R.id.btn_quick_public)
         val quick_env = view.findViewById<Button>(R.id.btn_quick_env)
@@ -76,13 +77,7 @@ class HomeFragment : Fragment() {
 
 
 
-        // 항목이 자동으로 선택되게 아직 못함
-        // 왜갑자기 난리인지 알아보기
-        fun navigateToPostComplain(selectedItem: String) {
-            val intent = Intent(activity, Post_Complain::class.java)
-            intent.putExtra("selectedItem", selectedItem)
-            startActivity(intent)
-        }
+
 
         quick_machine.setOnClickListener {
             navigateToPostComplain("기계고장")
@@ -115,6 +110,12 @@ class HomeFragment : Fragment() {
 
     }
 
+    private fun navigateToPostComplain(selectedItem: String) {
+        val intent = Intent(activity, Post_Complain::class.java)
+        // 선택된 항목을 인텐트에 추가합니다.
+        intent.putExtra("selectedItem", selectedItem)
+        startActivity(intent)
+    }
 
 
 

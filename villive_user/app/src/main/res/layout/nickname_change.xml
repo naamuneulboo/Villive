@@ -59,7 +59,7 @@
         android:hint="@string/nickname1"
         android:paddingLeft="10dp"
         android:textColorHint="@color/real_dark_gray"
-        android:inputType="textPassword" />
+        android:inputType="text" />
 
 
 

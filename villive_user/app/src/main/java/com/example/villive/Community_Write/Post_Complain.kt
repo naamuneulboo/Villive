@@ -33,6 +33,13 @@ class Post_Complain : AppCompatActivity() {
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, complainTypes)
         spinnerComplainType.adapter = adapter
 
+        // 전달받은 항목을 읽어와서 스피너에서 선택
+        val selectedItem = intent.getStringExtra("selectedItem")
+        val position = complainTypes.indexOf(selectedItem)
+        if (position != -1) {
+            spinnerComplainType.setSelection(position)
+        }
+
         // 버튼 클릭 리스너 설정
         btnAddComplain.setOnClickListener {
             val title = etComplainTitle.text.toString().trim()

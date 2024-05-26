@@ -1,74 +1,70 @@
 package com.example.villive.ConfigurationPage
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.view.MenuItem
-import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import com.example.villive.R
-import com.example.villive.User_SignPage.user_SignUp
-
+import com.example.villive.Retrofit.DeleteMemRequestDtoAPI
+import com.example.villive.Retrofit.RetrofitService
+import com.example.villive.User_SignPage.StartPage
+import com.example.villive.model.DeleteMemRequestDto
+import okhttp3.ResponseBody
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class UnregisterActivity : AppCompatActivity() {
+    private lateinit var deleteMemRequestAPI: DeleteMemRequestDtoAPI
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.unregister)
-        initializeComponents()
 
-        val tb = findViewById<View>(R.id.toolbar) as Toolbar
-        setSupportActionBar(tb) // 액티비티의 Appbar로 지정
-        val actionBar = supportActionBar // 앱바 제어를 위한 툴바 액세스
-        actionBar!!.setDisplayHomeAsUpEnabled(true) // 앱바에 뒤로가기 버튼 만들기
-        actionBar.setDisplayShowTitleEnabled(false) // 기존 title 숨김
-    }
+        deleteMemRequestAPI = RetrofitService.getService(this).create(DeleteMemRequestDtoAPI::class.java)
 
-    //앱바(App Bar)에 표시된 액션 또는 오버플로우 메뉴가 선택되면 액티비티의 onOptionsItemSelected() 메서드 호출
-    @SuppressLint("NonConstantResourceId")
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            android.R.id.home -> {
-                finish()
-                true
-            }
-
-            else -> super.onOptionsItemSelected(item)
-        }
-    }
-
-    fun initializeComponents() {
-        val editPw = findViewById<EditText>(R.id.editTextPassword)
         val btnUnregister = findViewById<Button>(R.id.buttonUnregister)
-
         btnUnregister.setOnClickListener {
-            val pw = editPw.text.toString()
+            val editPw = findViewById<EditText>(R.id.editTextPassword)
+            val pw = editPw.text.toString().trim()
 
-            if (pw.trim().isEmpty()) {
-                // 공백이 있을 경우
+            if (pw.isEmpty()) {
                 Toast.makeText(this, "비밀번호를 입력해주세요.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            showConfirmationDialog()
+            // 회원 탈퇴 요청 보내기
+            val deleteMemRequestDto = DeleteMemRequestDto(pw)
+            deleteMember(deleteMemRequestDto)
         }
     }
 
-    private fun showConfirmationDialog() {
-        val builder = AlertDialog.Builder(this)
-        builder.setMessage("회원탈퇴를 하시겠습니까?\n회원탈퇴 시 복구할 수 없습니다.")
-            .setPositiveButton("예") { dialog, which ->
-                // "예"를 선택한 경우 회원가입 화면으로 이동
-                // db에서 유저 삭제
-                val intent = Intent(this, user_SignUp::class.java)
-                startActivity(intent)
-                // 회원탈퇴화면 finish
-                finish()
+    private fun deleteMember(deleteMemRequestDto: DeleteMemRequestDto) {
+        val call = deleteMemRequestAPI.deleteMember(deleteMemRequestDto)
+        call.enqueue(object : Callback<ResponseBody> {
+            override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+                if (response.isSuccessful) {
+                    // 회원 탈퇴 성공 시
+                    Toast.makeText(this@UnregisterActivity, "회원 탈퇴가 완료되었습니다.", Toast.LENGTH_SHORT).show()
+                    moveToStartPage()
+                } else {
+                    // 서버 응답 실패 시
+                    Toast.makeText(this@UnregisterActivity, "서버 오류가 발생했습니다.", Toast.LENGTH_SHORT).show()
+                }
             }
-            .show()
+
+            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                // 통신 실패 시 처리
+                Toast.makeText(this@UnregisterActivity, "네트워크 오류가 발생했습니다.", Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
+
+    private fun moveToStartPage() {
+        val intent = Intent(this, StartPage::class.java)
+        startActivity(intent)
+        finish()
     }
 }

@@ -222,22 +222,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="49dc9a04-b9ae-4551-9034-a4dde2c0c86a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Post_model_adapter/CommentAdapter.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Retrofit/MsgResponseDtoAPI.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/model/CommentRequestDto.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/model/CommentResponseDto.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/model/MsgResponseDto.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/villive_user/app/src/main/res/drawable/baseline_delete_24.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/villive_user/app/src/main/res/drawable/baseline_sentiment_very_satisfied_24.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/villive_user/app/src/main/res/layout/item_comment.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Retrofit/DeleteMemRequestDtoAPI.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Retrofit/UpdateNicknameDtoAPI.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Retrofit/UpdatePwdRequestDtoAPI.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/model/DeleteMemRequestDto.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/villive_user/app/src/main/res/drawable/baseline_favorite_24.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/villive_user/app/src/main/res/drawable/baseline_more_vert_24.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Community_Write/Post_Club.kt" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Community_Write/Post_Club.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Community_Write/Post_Complain.kt" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Community_Write/Post_Complain.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Community_Write/Post_Detail_View.kt" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Community_Write/Post_Detail_View.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Community_Write/Post_Edit_View.kt" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Community_Write/Post_Edit_View.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/model/PostsResponseDto.kt" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/model/PostsResponseDto.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Community_Write/Post_Group.kt" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Community_Write/Post_Group.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Community_Write/Post_Purchase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Community_Write/Post_Purchase.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/ConfigurationPage/NicknameChangeActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/ConfigurationPage/NicknameChangeActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/ConfigurationPage/PasswordChangeActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/ConfigurationPage/PasswordChangeActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/ConfigurationPage/UnregisterActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/ConfigurationPage/UnregisterActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Post_model_adapter/CommentAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Post_model_adapter/CommentAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Retrofit/MsgResponseDtoAPI.kt" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Retrofit/MsgResponseDtoAPI.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/res/layout/item_comment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/res/layout/item_comment.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/res/layout/nickname_change.xml" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/res/layout/nickname_change.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/res/layout/post_detail_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/res/layout/post_detail_view.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/res/layout/post_edit_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/res/layout/post_edit_view.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

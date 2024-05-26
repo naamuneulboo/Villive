@@ -19,4 +19,7 @@ interface MsgResponseDtoAPI {
 
     @POST("/posts/comment/{id}")  // 게시글에 댓글 달기
     fun addComment(@Path("id") postId: Long, @Body comment: CommentRequestDto): Call<CommentResponseDto>
+
+    @DELETE("/posts/comment/{postId}/{commentId}")  // 댓글 삭제
+    fun deleteComment(@Path("postId") postId: Long, @Path("commentId") commentId: Long): Call<ResponseBody>
 }

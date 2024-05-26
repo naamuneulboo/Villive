@@ -1,5 +1,6 @@
 package com.example.villive
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -13,6 +14,7 @@ import com.example.villive.ConfigurationPage.UnregisterActivity
 import com.example.villive.User_SignPage.user_LogIn
 
 class SettingFragment : Fragment() {
+    @SuppressLint("MissingInflatedId")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -36,10 +38,10 @@ class SettingFragment : Fragment() {
 
         logout.setOnClickListener {
             val intent = Intent(activity, user_LogIn::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
-            // 로그아웃 시 뒤로가기 버튼 눌러도 안되게 초기화 해야할듯 단순히 view만 교체하는게 아니라
-
         }
+
 
         withdraw.setOnClickListener {
             val intent = Intent(activity, UnregisterActivity::class.java)
