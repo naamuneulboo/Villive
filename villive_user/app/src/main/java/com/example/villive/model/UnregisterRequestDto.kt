@@ -1,6 +1,6 @@
 package com.example.villive.model
 
 
-data class DeleteMemRequestDto(
+data class UnregisterRequestDto(
     val password: String?=null
 )

@@ -21,6 +21,15 @@
             android:name=".Community_Write.Post_Edit_View"
             android:exported="false" />
         <activity
+            android:name=".ConfigurationPage.NicknameChangeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ConfigurationPage.PasswordChangeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ConfigurationPage.UnregisterActivity"
+            android:exported="false" />
+        <activity
             android:name=".Community_Write.Post_Detail_View"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
