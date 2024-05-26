@@ -2,10 +2,13 @@ package com.example.villive.Community_Write
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -36,6 +39,7 @@ class Post_Detail_View : AppCompatActivity(), CommentAdapter.OnItemDeleteClickLi
     private lateinit var ibtnAddComment: ImageButton
     private lateinit var rvPostsGroup: RecyclerView
     private lateinit var ibtn_content_menu:ImageButton
+    private lateinit var likeEmoji: ImageView
     private val commentList = mutableListOf<CommentResponseDto>()
 
     private var postsLikeCheck = false // 현재 공감 상태를 저장하는 변수
@@ -48,6 +52,9 @@ class Post_Detail_View : AppCompatActivity(), CommentAdapter.OnItemDeleteClickLi
         contentsTextView = findViewById(R.id.post_contents)
         writerTextView = findViewById(R.id.post_writer)
         createDateTextView = findViewById(R.id.post_create_date)
+        gongGamCount = findViewById(R.id.tv_gonggam_count)
+
+        likeEmoji = findViewById(R.id.like_emoji)
 
         gongGam = findViewById(R.id.btn_gong_gam)
         ibtn_content_menu =findViewById(R.id.ibtn_content_menu)
@@ -70,6 +77,27 @@ class Post_Detail_View : AppCompatActivity(), CommentAdapter.OnItemDeleteClickLi
         }
 
         getPostDetails()
+
+
+
+
+        // 공감 버튼에 클릭 리스너 추가
+        gongGam.setOnClickListener {
+            if (postsLikeCheck) {
+                // 이미 공감한 경우
+                // ImageView를 보이도록 설정
+                likeEmoji.visibility = View.VISIBLE
+                // 공감 취소 요청 보내기
+                likePost()
+            } else {
+                // 공감하지 않은 경우
+                // ImageView를 숨기도록 설정
+                likeEmoji.visibility = View.INVISIBLE
+                // 게시글 공감 요청 보내기
+                likePost()
+            }
+        }
+
 
         // 게시글의 ID를 사용하여 서버에서 해당하는 게시글의 상세 정보를 가져옴
         val retrofit = RetrofitService.getService(this)
@@ -114,6 +142,7 @@ class Post_Detail_View : AppCompatActivity(), CommentAdapter.OnItemDeleteClickLi
                     }
 
 
+
                     // 댓글 추가 버튼 클릭 시 동작 설정
                     ibtnAddComment.setOnClickListener {
                         val commentContent = etAddComment.text.toString().trim()
@@ -133,6 +162,32 @@ class Post_Detail_View : AppCompatActivity(), CommentAdapter.OnItemDeleteClickLi
         })
 
 
+    }
+
+    // 게시글 공감 요청 보내기
+    private fun likePost() {
+        val retrofit = RetrofitService.getService(this)
+        val msgResponseDtoAPI = retrofit.create(MsgResponseDtoAPI::class.java)
+
+        msgResponseDtoAPI.likePost(postId.toLong()).enqueue(object : Callback<ResponseBody> {
+            override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+                if (response.isSuccessful) {
+                    // 공감 요청 성공 시 처리
+                    // 적절한 메시지를 사용자에게 보여줍니다.
+                    Toast.makeText(this@Post_Detail_View, "게시글에 공감했습니다!", Toast.LENGTH_SHORT).show()
+                    // 공감이 성공하면 게시글을 다시 불러옴
+                    getPostDetails()
+                } else {
+                    // 공감 요청 실패 시 처리
+                    // 실패 메시지 등을 사용자에게 표시하거나 필요한 경우 추가적인 작업을 수행합니다.
+                }
+            }
+
+            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                // 통신 실패 시 처리
+                // 예를 들어, 네트워크 오류 메시지를 사용자에게 표시하거나 다시 시도할 것인지 묻는 등의 작업을 수행할 수 있습니다.
+            }
+        })
     }
 
     private fun showDeleteConfirmationDialog() {
@@ -241,12 +296,22 @@ class Post_Detail_View : AppCompatActivity(), CommentAdapter.OnItemDeleteClickLi
                         writerTextView.text = it.writer
                         createDateTextView.text = it.createDate
                         postsLikeCheck = it.postsLikeCheck ?: false
+                        gongGamCount.text = it.postsLikeCnt.toString()
 
                         // 댓글 목록을 가져와서 commentList에 추가
                         it.commentList?.let { comments ->
                             commentList.clear()
                             commentList.addAll(comments)
                             commentAdapter.notifyDataSetChanged()
+                        }
+
+                        // postsLikeCheck 상태에 따라서 like_emoji ImageView의 가시성 설정
+                        if (postsLikeCheck) {
+                            // 이미 공감한 경우
+                            likeEmoji.visibility = View.VISIBLE
+                        } else {
+                            // 공감하지 않은 경우
+                            likeEmoji.visibility = View.INVISIBLE
                         }
                     }
                 } else {

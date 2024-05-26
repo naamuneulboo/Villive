@@ -177,7 +177,19 @@
                         android:textSize="15sp"
                         tools:ignore="RtlSymmetry" />
 
+                    <ImageView
+                        android:id="@+id/like_emoji"
+                        android:layout_width="20dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="10dp"
+                        android:visibility="invisible"
+                        app:srcCompat="@drawable/baseline_favorite_24" />
+
+
+
                 </LinearLayout>
+
             </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
