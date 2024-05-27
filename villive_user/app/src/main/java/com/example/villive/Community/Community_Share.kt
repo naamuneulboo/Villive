@@ -66,6 +66,7 @@ class Community_Share : AppCompatActivity() {
         write_post.setOnClickListener {
             val intent = Intent(this, Post_Share::class.java)
             startActivity(intent)
+            finish()
         }
     }
 }

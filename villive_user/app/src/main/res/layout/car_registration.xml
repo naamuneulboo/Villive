@@ -30,24 +30,24 @@
 
     </FrameLayout>
 
-<EditText
-    android:id="@+id/et_car_num"
-    android:layout_marginTop="50dp"
-    android:layout_width="350dp"
-    android:layout_height="80dp"
-    android:layout_gravity="center"
-    android:background="@drawable/rounded_rectangle"
-    android:backgroundTint="#E6FFEE"
-    android:hint="차량 번호를 입력해주세요."
-    android:fontFamily="@font/gmarketsansttflight"
-    android:autofillHints="차량번호"
-    android:textColorHint="@color/black"
-    android:textColor="@color/black"
-    android:gravity="center"
-    android:textSize="30sp"
-    android:elevation="10dp"
-    android:inputType="text"
-    />
+    <EditText
+        android:id="@+id/et_car_num"
+        android:layout_marginTop="50dp"
+        android:layout_width="350dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center"
+        android:background="@drawable/rounded_rectangle"
+        android:backgroundTint="#E6FFEE"
+        android:hint="차량 번호를 입력해주세요."
+        android:fontFamily="@font/gmarketsansttflight"
+        android:autofillHints="차량번호"
+        android:textColorHint="@color/black"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:textSize="30sp"
+        android:elevation="10dp"
+        android:inputType="text"
+        />
 
     <Button
         android:id="@+id/btn_registration"

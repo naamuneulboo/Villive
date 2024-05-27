@@ -65,6 +65,7 @@ class Community_Club : AppCompatActivity() {
         write_post.setOnClickListener {
             val intent = Intent(this, Post_Club::class.java)
             startActivity(intent)
+            finish()
         }
     }
 }

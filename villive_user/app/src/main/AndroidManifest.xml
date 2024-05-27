@@ -27,6 +27,9 @@
             android:name=".ConfigurationPage.NicknameChangeActivity"
             android:exported="false" />
         <activity
+            android:name=".Calendar.CalendarActivity"
+            android:exported="false" />
+        <activity
             android:name=".Alarm.Alarm"
             android:exported="false" />
         <activity
@@ -38,7 +41,6 @@
         <activity
             android:name=".Alarm.Notice_Alarm"
             android:exported="false" />
-
         <activity
             android:name=".Community_Write.Post_Detail_View"
             android:exported="false"

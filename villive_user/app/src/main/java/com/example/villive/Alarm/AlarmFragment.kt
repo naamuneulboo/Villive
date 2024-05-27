@@ -40,6 +40,7 @@ class AlarmFragment : Fragment() {
 
         return view
     }
+    //뷰페이저 어댑터 다른 파일로 생성
 
     private inner class ViewPagerAdapter(fa: Fragment) : FragmentStateAdapter(fa) {
         override fun getItemCount(): Int = NUM_PAGES

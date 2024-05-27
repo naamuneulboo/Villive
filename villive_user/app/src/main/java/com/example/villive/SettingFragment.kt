@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.appcompat.app.AlertDialog
 import com.example.villive.ConfigurationPage.PasswordChangeActivity
 import com.example.villive.ConfigurationPage.NicknameChangeActivity
 import com.example.villive.ConfigurationPage.UnregisterActivity
@@ -37,9 +38,20 @@ class SettingFragment : Fragment() {
         }
 
         logout.setOnClickListener {
-            val intent = Intent(activity, user_LogIn::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-            startActivity(intent)
+            // AlertDialog를 생성하여 로그아웃 여부를 묻는다
+            val builder = AlertDialog.Builder(requireContext())
+            builder.setTitle("로그아웃")
+                .setMessage("로그아웃 하시겠습니까?")
+                .setPositiveButton("네") { dialog, _ ->
+                    // "네"를 선택하면 로그아웃 처리를 한다
+                    performLogout()
+                    dialog.dismiss()
+                }
+                .setNegativeButton("아니오") { dialog, _ ->
+                    // "아니오"를 선택하면 대화상자를 닫는다
+                    dialog.dismiss()
+                }
+                .show()
         }
 
 
@@ -49,5 +61,11 @@ class SettingFragment : Fragment() {
         }
 
         return view
+    }
+
+    private fun performLogout() {
+        val intent = Intent(activity, user_LogIn::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        startActivity(intent)
     }
 }

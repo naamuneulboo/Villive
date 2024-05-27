@@ -66,6 +66,7 @@ class Community_Purchase : AppCompatActivity() {
         write_post.setOnClickListener {
             val intent = Intent(this, Post_Purchase::class.java)
             startActivity(intent)
+            finish()
         }
     }
 }

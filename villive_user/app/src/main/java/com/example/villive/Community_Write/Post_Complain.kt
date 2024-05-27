@@ -1,8 +1,11 @@
 package com.example.villive.Community_Write
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import com.example.villive.Community.Community_Club
+import com.example.villive.Community.Community_Complain
 import com.example.villive.R
 import com.example.villive.Retrofit.ComplainRequestDtoAPI
 import com.example.villive.Retrofit.RetrofitService
@@ -65,6 +68,8 @@ class Post_Complain : AppCompatActivity() {
                     // 게시글 등록 성공 시 사용자에게 알림
                     Toast.makeText(this@Post_Complain, "민원 게시글이 등록되었습니다.", Toast.LENGTH_SHORT).show()
                     finish() // 액티비티 종료
+                    val intent = Intent(this@Post_Complain, Community_Complain::class.java)
+                    startActivity(intent)
                 } else {
                     // 게시글 등록 실패 시 사용자에게 알림
                     Toast.makeText(this@Post_Complain, "민원 게시글 등록에 실패했습니다.", Toast.LENGTH_SHORT).show()

@@ -8,7 +8,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.example.villive.Community.Community
@@ -68,7 +67,6 @@ class HomeFragment : Fragment() {
         }
 
 
-        val alarm_button = view.findViewById<ImageButton>(R.id.noti_button)
         val quick_machine = view.findViewById<Button>(R.id.btn_quick_machine)
         val quick_public = view.findViewById<Button>(R.id.btn_quick_public)
         val quick_env = view.findViewById<Button>(R.id.btn_quick_env)
