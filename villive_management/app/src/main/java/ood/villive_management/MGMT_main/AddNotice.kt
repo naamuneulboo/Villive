@@ -1,5 +1,7 @@
 package ood.villive_management.MGMT_main
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -8,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.villive.Retrofit.RetrofitService
 import okhttp3.ResponseBody
 import ood.villive_management.Model.NoticeRequestDto
+import ood.villive_management.Model.NoticeResponseDto
 import ood.villive_management.R
 import ood.villive_management.Retrofit.NoticeRequestDtoAPI
 import retrofit2.Call
@@ -65,5 +68,7 @@ class AddNotice : AppCompatActivity() {
                 }
             })
         }
+
+
 
 }

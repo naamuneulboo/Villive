@@ -64,5 +64,8 @@
     <string name="add_post_description_fill_title">제목을 입력하세요.</string>
     <string name="add_post_description_fill_text">내용을 입력하세요.</string>
 
-
+    <string name="id">아이디</string>
+    <string name="pw">비밀번호</string>
+    <string name="log_in">로그인</string>
+    
 </resources>

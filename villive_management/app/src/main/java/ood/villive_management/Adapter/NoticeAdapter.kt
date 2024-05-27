@@ -8,19 +8,18 @@ import androidx.recyclerview.widget.RecyclerView
 import ood.villive_management.Model.NoticeResponseDto
 import ood.villive_management.R
 
-class NoticeAdapter(private val noticeList: List<NoticeResponseDto>) :
-    RecyclerView.Adapter<NoticeAdapter.NoticeViewHolder>() {
+class NoticeAdapter(private val noticeList: MutableList<NoticeResponseDto>) : RecyclerView.Adapter<NoticeAdapter.NoticeViewHolder>() {
 
     // 인터페이스 정의
-    interface OnItemClickListener {
-        fun onItemClick(post: NoticeResponseDto)
+    interface OnDeleteClickListener {
+        fun onDeleteClick(post: NoticeResponseDto)
     }
 
     // 클릭 리스너 변수 선언
-    private var onItemClickListener: OnItemClickListener? = null
+    private var onDeleteClickListener: OnDeleteClickListener? = null
 
-    fun setOnItemClickListener(listener: OnItemClickListener) {
-        this.onItemClickListener = listener
+    fun setOnDeleteClickListener(listener: OnDeleteClickListener) {
+        this.onDeleteClickListener = listener
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoticeViewHolder {
@@ -37,18 +36,23 @@ class NoticeAdapter(private val noticeList: List<NoticeResponseDto>) :
         holder.createDate.text = currentItem.createDate
 
         holder.itemView.setOnClickListener {
-            onItemClickListener?.onItemClick(currentItem) // 클릭 시 인터페이스 콜백 호출
+            onDeleteClickListener?.onDeleteClick(currentItem) // 클릭 시 인터페이스 콜백 호출
         }
     }
 
     override fun getItemCount() = noticeList.size
 
     // 뷰홀더 클래스
-    class NoticeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class NoticeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val title: TextView = itemView.findViewById(R.id.title)
         val contents: TextView = itemView.findViewById(R.id.contents)
         val writer: TextView = itemView.findViewById(R.id.writer)
         val createDate: TextView = itemView.findViewById(R.id.createDate)
+    }
+
+    fun addNotice(notice: NoticeResponseDto) {
+        noticeList.add(notice)
+        notifyItemInserted(noticeList.size - 1)
     }
 
 }
