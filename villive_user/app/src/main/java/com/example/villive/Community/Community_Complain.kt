@@ -58,6 +58,7 @@ class Community_Complain : AppCompatActivity() {
         write_post.setOnClickListener {
             val intent = Intent(this, Post_Complain::class.java)
             startActivity(intent)
+            finish()
         }
     }
 }

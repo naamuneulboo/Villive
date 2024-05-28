@@ -84,7 +84,7 @@ class PasswordChangeActivity : AppCompatActivity() {
 
     private fun showConfirmationDialog() {
         val builder = AlertDialog.Builder(this)
-        builder.setMessage("비밀번호 변경이 완료되었습니다.")
+        builder.setMessage("비밀번호 변경이 완료되었습니다.\n로그인 페이지로 이동합니다.")
             .setPositiveButton("확인") { dialog, which ->
                 // 확인 선택 시 로그아웃 처리 및 앱의 시작 화면으로 이동
                 logoutAndRedirectToLogin()
@@ -94,9 +94,6 @@ class PasswordChangeActivity : AppCompatActivity() {
     }
 
     private fun logoutAndRedirectToLogin() {
-        // SharedPreferences에서 토큰을 삭제
-        // 토큰 삭제하고 새 거 줘야되는거같음
-        // 아니그게문제가아니고 변경한 비번으로 로그인이 안됨
         val sharedPreferences = getSharedPreferences("auth", Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
         editor.remove("token")
