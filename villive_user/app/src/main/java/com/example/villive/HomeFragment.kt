@@ -14,6 +14,7 @@ import android.widget.TextView
 import com.example.villive.Community.Community
 import com.example.villive.Community.Community_Complain
 import com.example.villive.Community_Write.Post_Complain
+import com.example.villive.Notice.NoticeList
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date
@@ -28,8 +29,6 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-
 
         val calendar = Calendar.getInstance()
 
@@ -59,6 +58,13 @@ class HomeFragment : Fragment() {
 
         view.findViewById<TextView>(R.id.date_tv).text = currentDateInfo
         view.findViewById<TextView>(R.id.event_tv).text = eventList[eventText] + " 배출일"
+
+        val noticeLayout = view.findViewById<LinearLayout>(R.id.notice_lo)
+
+        noticeLayout.setOnClickListener {
+            val intent = Intent(activity, NoticeList::class.java)
+            startActivity(intent)
+        }
 
         val boardLayout = view.findViewById<LinearLayout>(R.id.board_lo)
 

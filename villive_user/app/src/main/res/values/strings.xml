@@ -100,4 +100,6 @@
     <string name="form_name">name</string>
     <string name="form_nickname">nickname</string>
     <string name="button_save_user">save</string>
+
+    <string name="notice1">공지사항 목록</string>
 </resources>

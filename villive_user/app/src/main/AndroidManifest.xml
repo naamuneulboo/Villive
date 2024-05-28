@@ -88,6 +88,9 @@
             android:name=".Community.Community"
             android:exported="false" />
         <activity
+            android:name=".Notice.NoticeList"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="false" />
         <activity
