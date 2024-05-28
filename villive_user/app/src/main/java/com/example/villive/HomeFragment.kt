@@ -8,13 +8,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.FrameLayout
 import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.villive.Building_Issue.Building_Issue
+import com.example.villive.Building_Issue.IssueAdapter
 import com.example.villive.Community.Community
 import com.example.villive.Community.Community_Complain
 import com.example.villive.Community_Write.Post_Complain
+import com.example.villive.Community_Write.Post_Detail_View
 import com.example.villive.Notice.NoticeList
 import com.example.villive.Retrofit.NoticeResponseDtoAPI
 import com.example.villive.Retrofit.PostsResponseDtoAPI
@@ -33,6 +38,10 @@ class HomeFragment : Fragment() {
 
     private val eventList = arrayListOf("캔/병", "일반", "음식물", "종이","플라스틱")
 
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var issueAdapter: IssueAdapter
+    private lateinit var postsResponseDtoAPI: PostsResponseDtoAPI
+
     @SuppressLint("MissingInflatedId")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,7 +50,20 @@ class HomeFragment : Fragment() {
 
         fetchPostsData()
         fetchNoticeData()
-     
+
+
+        val view = inflater.inflate(R.layout.home, container, false)
+
+
+        recyclerView = view.findViewById(R.id.rv_posts_club)
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+
+
+        val retrofit = RetrofitService.getService(requireContext())
+        postsResponseDtoAPI = retrofit.create(PostsResponseDtoAPI::class.java)
+
+        getAllPosts()
+
 
         val calendar = Calendar.getInstance()
 
@@ -65,7 +87,7 @@ class HomeFragment : Fragment() {
         }
 
         val currentDateInfo: String = getCurrentDateTime() + dayOfWeekString
-        val view = inflater.inflate(R.layout.home, container, false)
+
 
         val eventText = dayOfYear%eventList.size
 
@@ -79,7 +101,7 @@ class HomeFragment : Fragment() {
             startActivity(intent)
         }
 
-        val issueLayout = view.findViewById<LinearLayout>(R.id.issue_lo)
+        val issueLayout = view.findViewById<FrameLayout>(R.id.go_issue)
 
         issueLayout.setOnClickListener {
             val intent = Intent(activity, Building_Issue::class.java)
@@ -143,7 +165,7 @@ class HomeFragment : Fragment() {
         startActivity(intent)
     }
 
-    // 서버에서 공지사항 데이터 가져와서 설정하는 함수
+    // 공지사항 !
     private fun fetchNoticeData() {
         val retrofit = RetrofitService.getService(requireContext())
         val service = retrofit.create(NoticeResponseDtoAPI::class.java)
@@ -187,7 +209,7 @@ class HomeFragment : Fragment() {
     }
 
 
-    // 서버에서 게시글 데이터 가져와서 설정하는 함수
+    // 게시글
     private fun fetchPostsData() {
         val retrofit = RetrofitService.getService(requireContext())
         val service = retrofit.create(PostsResponseDtoAPI::class.java)
@@ -216,48 +238,79 @@ class HomeFragment : Fragment() {
         })
     }
 
-    private fun setTopTwoPosts(posts: List<PostsResponseDto>) {
-        if (posts.size >= 2) {
-            val post1 = posts[0]
-            val post2 = posts[1]
-
-            view?.let {
-                it.findViewById<TextView>(R.id.issue_category1).text = post1.category.toString()
-                it.findViewById<TextView>(R.id.issue_title1).text = post1.title
-                it.findViewById<TextView>(R.id.issue_contents1).text = post1.contents
-            }
-
-            view?.let {
-                it.findViewById<TextView>(R.id.issue_category2).text = post2.category.toString()
-                it.findViewById<TextView>(R.id.issue_title2).text = post2.title
-                it.findViewById<TextView>(R.id.issue_contents2).text = post2.contents
-            }
-        }
-    }
 
 
-    // 서버에서 게시글 데이터 가져와서 설정하는 함수
-    private fun fetchIssueData() {
-        val retrofit = RetrofitService.getService(requireContext())
-        val service = retrofit.create(PostsResponseDtoAPI::class.java)
 
-        service.getAllPostsResponseDto().enqueue(object : Callback<List<PostsResponseDto>> {
+
+    private fun getAllPosts() {
+        val call = postsResponseDtoAPI.getAllPostsResponseDto()
+        call.enqueue(object : Callback<List<PostsResponseDto>> {
             override fun onResponse(call: Call<List<PostsResponseDto>>, response: Response<List<PostsResponseDto>>) {
-                if (response.isSuccessful) {
-                    val posts = response.body()
-                    posts?.let { postsList ->
-                        setTopTwoPosts(postsList)
-                    }
-                } else {
-                    // 서버 오류 등의 처리
+                if (!response.isSuccessful) {
+                    return
                 }
+
+                val postIds = response.body()?.map { it.id } ?: return
+                getPostDetails(postIds)
             }
 
             override fun onFailure(call: Call<List<PostsResponseDto>>, t: Throwable) {
-                // 네트워크 오류 등의 처리
+                // Handle failure
             }
         })
     }
 
+    // 우리건물이슈
+    private fun getPostDetails(postIds: List<Long?>) {
+        val postsDetails = mutableListOf<PostsResponseDto>()
+        var processedCount = 0
+
+        postIds.forEach { id ->
+            id?.let {
+                postsResponseDtoAPI.getPostById(it).enqueue(object : Callback<PostsResponseDto> {
+                    override fun onResponse(call: Call<PostsResponseDto>, response: Response<PostsResponseDto>) {
+                        if (response.isSuccessful) {
+                            response.body()?.let { postDetail ->
+                                if (postDetail.postsLikeCnt ?: 0 >= 10) {  // 필터링 조건 추가
+                                    postsDetails.add(postDetail)
+                                }
+                            }
+                        }
+                        processedCount++
+                        if (processedCount == postIds.size) {
+                            updateRecyclerView(postsDetails)
+                        }
+                    }
+
+                    override fun onFailure(call: Call<PostsResponseDto>, t: Throwable) {
+                        processedCount++
+                        if (processedCount == postIds.size) {
+                            updateRecyclerView(postsDetails)
+                        }
+                    }
+                })
+            } ?: run {
+                processedCount++
+                if (processedCount == postIds.size) {
+                    updateRecyclerView(postsDetails)
+                }
+            }
+        }
+    }
+
+    private fun updateRecyclerView(postsDetails: List<PostsResponseDto>) {
+        issueAdapter = IssueAdapter(postsDetails)
+        recyclerView.adapter = issueAdapter
+
+        issueAdapter.setOnItemClickListener(object : IssueAdapter.OnItemClickListener {
+            override fun onItemClick(post: PostsResponseDto) {
+                val intent = Intent(requireActivity(), Post_Detail_View::class.java).apply {
+                    putExtra("POST_ID", post.id.toString())
+                }
+                startActivity(intent)
+
+            }
+        })
+    }
 
 }
