@@ -94,10 +94,10 @@
             android:name=".Notice.NoticeList"
             android:exported="false" />
         <activity
-            android:name=".User_SignPage.StartPage"
+            android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".User_SignPage.StartPage"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>

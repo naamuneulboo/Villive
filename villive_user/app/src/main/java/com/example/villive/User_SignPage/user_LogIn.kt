@@ -38,6 +38,20 @@ class user_LogIn : AppCompatActivity() {
         val password = findViewById<EditText>(R.id.et_login_pw)
         val goLogin = findViewById<Button>(R.id.btn_login)
 
+        val noHangulRegex = Regex("[^ㄱ-ㅎㅏ-ㅣ가-힣]+")
+
+        val noHangulFilter = InputFilter { source, start, end, dest, dstart, dend ->
+            if (source != null && !source.toString().matches(noHangulRegex)) {
+                ""
+            } else {
+                null
+            }
+        }
+
+        member_id.filters = arrayOf(noHangulFilter)
+        password.filters = arrayOf(noHangulFilter)
+
+
         // 스페이스 입력 비활
         val noSpaceFilter = InputFilter { source, start, end, dest, dstart, dend ->
             for (i in start until end) {
