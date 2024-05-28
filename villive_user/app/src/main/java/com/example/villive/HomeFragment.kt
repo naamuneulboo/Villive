@@ -16,10 +16,18 @@ import com.example.villive.Community.Community
 import com.example.villive.Community.Community_Complain
 import com.example.villive.Community_Write.Post_Complain
 import com.example.villive.Notice.NoticeList
+import com.example.villive.Retrofit.NoticeResponseDtoAPI
+import com.example.villive.Retrofit.PostsResponseDtoAPI
+import com.example.villive.Retrofit.RetrofitService
+import com.example.villive.model.NoticeResponseDto
+import com.example.villive.model.PostsResponseDto
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date
 import java.util.Locale
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class HomeFragment : Fragment() {
 
@@ -30,6 +38,10 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        fetchPostsData()
+        fetchNoticeData()
+     
 
         val calendar = Calendar.getInstance()
 
@@ -131,6 +143,121 @@ class HomeFragment : Fragment() {
         startActivity(intent)
     }
 
+    // 서버에서 공지사항 데이터 가져와서 설정하는 함수
+    private fun fetchNoticeData() {
+        val retrofit = RetrofitService.getService(requireContext())
+        val service = retrofit.create(NoticeResponseDtoAPI::class.java)
+
+        service.getAllNoticeResponseDto().enqueue(object : Callback<List<NoticeResponseDto>> {
+            override fun onResponse(call: Call<List<NoticeResponseDto>>, response: Response<List<NoticeResponseDto>>) {
+                if (response.isSuccessful) {
+                    val notices = response.body()
+                    notices?.let { noticeList ->
+                        if (noticeList.isNotEmpty()) {
+                            // 첫 번째 공지사항 설정
+                            view?.let {
+                                it.findViewById<TextView>(R.id.notice_title).text = noticeList[0].title
+                                it.findViewById<TextView>(R.id.notice_contents).text = noticeList[0].contents
+                            }
+                        }
+                    }
+
+                } else {
+                    // 서버 오류 등의 처리
+                }
+            }
+
+            override fun onFailure(call: Call<List<NoticeResponseDto>>, t: Throwable) {
+                // 네트워크 오류 등의 처리
+            }
+        })
+    }
+
+
+    private fun setFirstIssueData(view: View, post: PostsResponseDto) {
+        view.findViewById<TextView>(R.id.recent_category1).text = post.category.toString()
+        view.findViewById<TextView>(R.id.recent_title1).text = post.title
+        view.findViewById<TextView>(R.id.recent_contents1).text = post.contents
+    }
+
+    private fun setSecondIssueData(view: View, post: PostsResponseDto) {
+        view.findViewById<TextView>(R.id.recent_category2).text = post.category.toString()
+        view.findViewById<TextView>(R.id.recent_title2).text = post.title
+        view.findViewById<TextView>(R.id.recent_contents2).text = post.contents
+    }
+
+
+    // 서버에서 게시글 데이터 가져와서 설정하는 함수
+    private fun fetchPostsData() {
+        val retrofit = RetrofitService.getService(requireContext())
+        val service = retrofit.create(PostsResponseDtoAPI::class.java)
+
+        service.getAllPostsResponseDto().enqueue(object : Callback<List<PostsResponseDto>> {
+            override fun onResponse(call: Call<List<PostsResponseDto>>, response: Response<List<PostsResponseDto>>) {
+                if (response.isSuccessful) {
+                    val posts = response.body()
+                    posts?.let { postsList ->
+                        if (postsList.size >= 2) {
+                            // 첫 번째 게시글 설정
+                            view?.let { setFirstIssueData(it, postsList[0]) }
+                            // 두 번째 게시글 설정
+                            view?.let { setSecondIssueData(it, postsList[1]) }
+                        }
+                    }
+
+                } else {
+                    // 서버 오류 등의 처리
+                }
+            }
+
+            override fun onFailure(call: Call<List<PostsResponseDto>>, t: Throwable) {
+                // 네트워크 오류 등의 처리
+            }
+        })
+    }
+
+    private fun setTopTwoPosts(posts: List<PostsResponseDto>) {
+        if (posts.size >= 2) {
+            val post1 = posts[0]
+            val post2 = posts[1]
+
+            view?.let {
+                it.findViewById<TextView>(R.id.issue_category1).text = post1.category.toString()
+                it.findViewById<TextView>(R.id.issue_title1).text = post1.title
+                it.findViewById<TextView>(R.id.issue_contents1).text = post1.contents
+            }
+
+            view?.let {
+                it.findViewById<TextView>(R.id.issue_category2).text = post2.category.toString()
+                it.findViewById<TextView>(R.id.issue_title2).text = post2.title
+                it.findViewById<TextView>(R.id.issue_contents2).text = post2.contents
+            }
+        }
+    }
+
+
+    // 서버에서 게시글 데이터 가져와서 설정하는 함수
+    private fun fetchIssueData() {
+        val retrofit = RetrofitService.getService(requireContext())
+        val service = retrofit.create(PostsResponseDtoAPI::class.java)
+
+        service.getAllPostsResponseDto().enqueue(object : Callback<List<PostsResponseDto>> {
+            override fun onResponse(call: Call<List<PostsResponseDto>>, response: Response<List<PostsResponseDto>>) {
+                if (response.isSuccessful) {
+                    val posts = response.body()
+                    posts?.let { postsList ->
+                        setTopTwoPosts(postsList)
+                    }
+                } else {
+                    // 서버 오류 등의 처리
+                }
+            }
+
+            override fun onFailure(call: Call<List<PostsResponseDto>>, t: Throwable) {
+                // 네트워크 오류 등의 처리
+            }
+        })
+    }
 
 
 }

@@ -130,16 +130,62 @@
 
                     </FrameLayout>
 
-                    <androidx.viewpager.widget.ViewPager
-                        android:id="@+id/notice_viewPager"
-                        android:layout_width="320dp"
-                        android:layout_height="60dp"
-                        android:layout_marginLeft="14dp"
-                        android:layout_marginTop="10dp"
-                        android:background="@drawable/rounded_rectangle"
-                        android:backgroundTint="#DDF2DF"
-                        >
-                    </androidx.viewpager.widget.ViewPager>
+
+                        <LinearLayout
+                            android:id="@+id/notice_viewPager"
+                            android:layout_width="320dp"
+                            android:layout_height="60dp"
+                            android:background="@drawable/rounded_rectangle"
+                            android:backgroundTint="#DDF2DF"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginLeft="14dp"
+                            android:orientation="vertical"
+                            >
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            >
+
+                            <ImageView
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:layout_marginLeft="10dp"
+                                android:paddingTop="10dp"
+                                android:src="@drawable/baseline_face_retouching_natural_24"
+                                />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="40dp"
+                                android:layout_marginTop="2dp"
+                                android:text="제목1"
+                                android:paddingRight="20dp"
+                                android:id="@+id/notice_title"
+                                android:fontFamily="@font/gmarketsansttflight"
+                                android:textColor="@color/black"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                android:paddingTop="10dp"
+                                />
+                            <!-- 위 TextView에 사용자 이름 받아오기 -->
+
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="40dp"
+                            android:layout_marginTop="2dp"
+                            android:text="내용1"
+                            android:textSize="11sp"
+                            android:id="@+id/notice_contents"
+                            android:fontFamily="@font/gmarketsansttflight"
+                            android:textColor="@color/black"
+                            />
+
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -176,15 +222,18 @@
                         >
 
                         <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="20dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
-                            android:text="자유게시판"
+                            android:text="카테고리1"
+                            android:fontFamily="@font/gmarketsansttfmedium"
+                            android:id="@+id/recent_category1"
                             android:textColor="@color/black"
                             android:textSize="12sp"
                             android:textStyle="bold"
-
+                            android:paddingBottom="5dp"
+                            android:paddingLeft="5dp"
                             />
 
                         <FrameLayout
@@ -200,11 +249,14 @@
                                 />
 
                             <TextView
-                                android:layout_width="150dp"
-                                android:layout_height="15dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
                                 android:layout_marginLeft="40dp"
                                 android:layout_marginTop="2dp"
-                                android:text=""
+                                android:text="제목1"
+                                android:paddingRight="20dp"
+                                android:id="@+id/recent_title1"
+                                android:fontFamily="@font/gmarketsansttflight"
                                 android:textColor="@color/black"
                                 android:textSize="12sp"
                                 android:textStyle="bold"
@@ -214,24 +266,18 @@
                         </FrameLayout>
 
                         <TextView
-                            android:layout_width="280dp"
-                            android:layout_height="45dp"
-                            android:layout_marginLeft="20dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:layout_marginLeft="40dp"
                             android:layout_marginTop="2dp"
-                            android:text=""
+                            android:text="내용1"
+                            android:textSize="11sp"
+                            android:id="@+id/recent_contents1"
+                            android:fontFamily="@font/gmarketsansttflight"
                             android:textColor="@color/black"
                             />
                         <!-- 위 TextView에 게시글 내용 받아오기  내용 많으면 줄이기 -->
 
-                        <TextView
-                            android:layout_width="30dp"
-                            android:layout_height="10dp"
-                            android:layout_marginLeft="280dp"
-                            android:text=""
-                            android:textColor="@color/black"
-                            android:textSize="8sp"
-                            />
-                        <!-- 위 TextView에 게시글 작성 날짜 받아오기 -->
 
                     </LinearLayout>
 
@@ -247,16 +293,19 @@
                         >
 
                         <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="20dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
-                            android:text="중고/공구"
+                            android:text="카테고리2"
+                            android:fontFamily="@font/gmarketsansttfmedium"
+                            android:id="@+id/recent_category2"
                             android:textColor="@color/black"
                             android:textSize="12sp"
                             android:textStyle="bold"
+                            android:paddingBottom="5dp"
+                            android:paddingLeft="5dp"
                             />
-
                         <FrameLayout
                             android:layout_width="match_parent"
                             android:layout_height="20dp"
@@ -270,11 +319,14 @@
                                 />
 
                             <TextView
-                                android:layout_width="150dp"
-                                android:layout_height="15dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
                                 android:layout_marginLeft="40dp"
                                 android:layout_marginTop="2dp"
-                                android:text=""
+                                android:text="제목2"
+                                android:paddingRight="20dp"
+                                android:id="@+id/recent_title2"
+                                android:fontFamily="@font/gmarketsansttflight"
                                 android:textColor="@color/black"
                                 android:textSize="12sp"
                                 android:textStyle="bold"
@@ -284,24 +336,18 @@
                         </FrameLayout>
 
                         <TextView
-                            android:layout_width="280dp"
-                            android:layout_height="45dp"
-                            android:layout_marginLeft="20dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:layout_marginLeft="40dp"
                             android:layout_marginTop="2dp"
-                            android:text=""
+                            android:text="내용2"
+                            android:textSize="11sp"
+                            android:id="@+id/recent_contents2"
+                            android:fontFamily="@font/gmarketsansttflight"
                             android:textColor="@color/black"
                             />
                         <!-- 위 TextView에 게시글 내용 받아오기  내용 많으면 줄이기 -->
 
-                        <TextView
-                            android:layout_width="30dp"
-                            android:layout_height="10dp"
-                            android:layout_marginLeft="280dp"
-                            android:text=""
-                            android:textColor="@color/black"
-                            android:textSize="8sp"
-                            />
-                        <!-- 위 TextView에 게시글 작성 날짜 받아오기 -->
 
                     </LinearLayout>
 
@@ -349,6 +395,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="15dp"
+                            android:id="@+id/issue_category1"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="2dp"
                             android:text=""
@@ -376,6 +423,7 @@
                                 android:layout_marginLeft="40dp"
                                 android:layout_marginTop="2dp"
                                 android:text=""
+                                android:id="@+id/issue_title1"
                                 android:textColor="@color/black"
                                 android:textSize="12sp"
                                 android:textStyle="bold"
@@ -390,6 +438,7 @@
                             android:layout_marginLeft="20dp"
                             android:layout_marginTop="2dp"
                             android:text=""
+                            android:id="@+id/issue_contents1"
                             android:textColor="@color/black"
                             />
                         <!-- 위 TextView에 게시글 내용 받아오기  내용 많으면 줄이기 -->
@@ -400,6 +449,7 @@
                             android:layout_marginLeft="320dp"
                             android:layout_marginTop="2dp"
                             android:text=""
+                            android:id="@+id/issue_date1"
                             android:textColor="@color/black"
                             android:textSize="8sp"
                             />
@@ -422,6 +472,7 @@
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="2dp"
                             android:text=""
+                            android:id="@+id/issue_category2"
                             android:textColor="@color/black"
                             android:textSize="12sp"
                             android:textStyle="bold"
@@ -446,6 +497,7 @@
                                 android:layout_marginLeft="40dp"
                                 android:layout_marginTop="2dp"
                                 android:text=""
+                                android:id="@+id/issue_title2"
                                 android:textColor="@color/black"
                                 android:textSize="12sp"
                                 android:textStyle="bold"
@@ -460,6 +512,7 @@
                             android:layout_marginLeft="20dp"
                             android:layout_marginTop="2dp"
                             android:text=""
+                            android:id="@+id/issue_contents2"
                             android:textColor="@color/black"
                             />
                         <!-- 위 TextView에 게시글 내용2  받아오기  내용 많으면 줄이기 -->
@@ -470,6 +523,7 @@
                             android:layout_marginLeft="320dp"
                             android:layout_marginTop="2dp"
                             android:text=""
+                            android:id="@+id/issue_date2"
                             android:textColor="@color/black"
                             android:textSize="8sp"
                             />

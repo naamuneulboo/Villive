@@ -23,7 +23,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="file:/$PROJECT_DIR$/../../android_sdk/icons/material/materialicons/more_vert/baseline_more_vert_24.xml" />
+                                      <entry key="url" value="file:/$PROJECT_DIR$/../../android_sdk/icons/material/materialicons/face_retouching_natural/baseline_face_retouching_natural_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -33,7 +33,7 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputName" value="baseline_more_vert_24" />
+                            <entry key="outputName" value="baseline_face_retouching_natural_24" />
                             <entry key="sourceFile" value="C:\Users\Hyeon\Documents\GitHub\Villive" />
                           </map>
                         </option>
