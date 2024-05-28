@@ -11,6 +11,7 @@ import android.widget.Button
 import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.TextView
+import com.example.villive.Building_Issue.Building_Issue
 import com.example.villive.Community.Community
 import com.example.villive.Community.Community_Complain
 import com.example.villive.Community_Write.Post_Complain
@@ -63,6 +64,13 @@ class HomeFragment : Fragment() {
 
         noticeLayout.setOnClickListener {
             val intent = Intent(activity, NoticeList::class.java)
+            startActivity(intent)
+        }
+
+        val issueLayout = view.findViewById<LinearLayout>(R.id.issue_lo)
+
+        issueLayout.setOnClickListener {
+            val intent = Intent(activity, Building_Issue::class.java)
             startActivity(intent)
         }
 

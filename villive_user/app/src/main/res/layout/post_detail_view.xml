@@ -27,7 +27,6 @@
             android:contentDescription="@string/trim"
             android:src="@drawable/villive_logo_white" />
 
-        <!-- @@게시판 -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="50dp"
@@ -60,7 +59,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/post_background_rectangle"
+                android:background="@drawable/post_background_rectangle_greengreen"
                 android:layout_marginStart="5dp"
                 android:layout_marginEnd="5dp"
                 android:orientation="vertical"
