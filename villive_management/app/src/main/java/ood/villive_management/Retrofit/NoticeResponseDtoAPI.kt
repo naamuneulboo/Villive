@@ -10,6 +10,7 @@ interface NoticeResponseDtoAPI {
 
     @GET("/notice/")
     fun getAllNoticeResponseDto(): Call<List<NoticeResponseDto>>
-    @DELETE("/notice/delete/{noticeid}")
-    fun delete(@Path("id") id: Long): Call<NoticeResponseDto>
+
+    @DELETE("/notice/delete/{noticeId}")
+    fun delete(@Path("noticeId") noticeId: Long): Call<NoticeResponseDto>
 }
