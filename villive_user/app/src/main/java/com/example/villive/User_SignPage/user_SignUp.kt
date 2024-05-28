@@ -2,6 +2,7 @@ package com.example.villive.User_SignPage
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.InputFilter
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -28,6 +29,24 @@ class user_SignUp : AppCompatActivity() {
         val inputPasswordCheck = findViewById<EditText>(R.id.et_pw_check)
         val buttonSave = findViewById<Button>(R.id.btn_sign_up)
 
+        // 스페이스 입력 비활
+        val noSpaceFilter = InputFilter { source, start, end, dest, dstart, dend ->
+            for (i in start until end) {
+                if (Character.isWhitespace(source[i])) {
+                    return@InputFilter ""
+                }
+            }
+            null
+        }
+
+        // EditText에 스페이스 비활 적용
+        inputEditID.filters = arrayOf(noSpaceFilter)
+        inputEditPassword.filters = arrayOf(noSpaceFilter)
+        inputEditName.filters = arrayOf(noSpaceFilter)
+        inputEditNickname.filters = arrayOf(noSpaceFilter)
+        inputPasswordCheck.filters = arrayOf(noSpaceFilter)
+
+
         // Retrofit 객체 생성
         val signUpRequestDtoAPI = retrofitService.create(SignUpRequestDtoAPI::class.java)
 
@@ -37,13 +56,37 @@ class user_SignUp : AppCompatActivity() {
             val password = inputEditPassword.text.toString()
             val name = inputEditName.text.toString()
             val nickname = inputEditNickname.text.toString()
+            val passwordCheck = inputPasswordCheck.text.toString()
+
+            // 공백
+            if (member_id.trim().isEmpty() || password.trim().isEmpty() || name.trim().isEmpty() || nickname.trim().isEmpty() || passwordCheck.trim().isEmpty()) {
+                // 공백이 있을 경우
+                Toast.makeText(this, "모든 필드는 공백일 수 없습니다.", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            // 아이디 유효성 검사: 영어 6~10자리
+            val idPattern = Regex("[a-zA-Z0-9]{6,12}")
+            if (!idPattern.matches(member_id)) {
+                // 유효하지 않을 경우
+                Toast.makeText(this, "아이디는 영어와 숫자를 포함한 6~12자리여야 합니다.", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            // 비밀번호 유효성 검사: 영어와 특수문자 포함 8~12자리
+            val pwPattern = Regex("(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9])(?=\\S+$).{8,12}")
+            if (!pwPattern.matches(password)) {
+                // 유효하지 않을 경우
+                Toast.makeText(this, "비밀번호는 영어와 특수문자를 포함한 8~12자리여야 합니다.", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
 
             // 비밀번호 확인
-            val passwordCheck = inputPasswordCheck.text.toString()
             if (password != passwordCheck) {
                 Toast.makeText(this, "비밀번호가 일치하지 않습니다.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
+
 
             // 회원가입 요청 데이터 생성
             val signUpRequestDto = SignUpRequestDto().apply {

@@ -3,6 +3,7 @@ package com.example.villive.User_SignPage
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.text.InputFilter
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
@@ -36,6 +37,20 @@ class user_LogIn : AppCompatActivity() {
         val member_id = findViewById<EditText>(R.id.et_login_id)
         val password = findViewById<EditText>(R.id.et_login_pw)
         val goLogin = findViewById<Button>(R.id.btn_login)
+
+        // 스페이스 입력 비활
+        val noSpaceFilter = InputFilter { source, start, end, dest, dstart, dend ->
+            for (i in start until end) {
+                if (Character.isWhitespace(source[i])) {
+                    return@InputFilter ""
+                }
+            }
+            null
+        }
+
+        // EditText에 스페이스 비활 적용
+        member_id.filters = arrayOf(noSpaceFilter)
+        password.filters = arrayOf(noSpaceFilter)
 
         // Retrofit 객체 생성
         retrofitService = RetrofitService.getService(this)

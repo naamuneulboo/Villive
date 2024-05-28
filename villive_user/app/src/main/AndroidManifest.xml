@@ -18,6 +18,12 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".Notice.NoticeList"
+            android:exported="false" />
+        <activity
+            android:name=".Building_Issue.Building_Issue"
+            android:exported="false" />
+        <activity
             android:name=".ConfigurationPage.UnregisterActivity"
             android:exported="false" />
         <activity

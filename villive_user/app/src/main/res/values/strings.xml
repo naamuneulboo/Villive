@@ -32,14 +32,15 @@
 
     <string name="sign_in">가입하기</string>
     <string name="log_in">로그인</string>
+    <string name="sign_out">회원탈퇴</string>
 
     <string name="community">게시판</string>
-    <string name="community_post">게시글</string>
     <string name="community_group">자유 게시판</string>
     <string name="community_purchase">공동구매 게시판</string>
     <string name="community_complain">민원 게시판</string>
     <string name="community_share">나눔 게시판</string>
     <string name="community_club">동호회 게시판</string>
+    <string name="community_post">게시글</string>
 
     <string name="description_group">입주민들과 함께하는 자유 게시판</string>
     <string name="description_purchase">입주민들과 함께 구매하고 절약해요 !</string>
@@ -51,7 +52,6 @@
     <string name="complain_status">민원처리 현황</string>
 
     <string name="write_post">게시글 작성</string>
-    <string name="edit_post">게시글 수정</string>
     <string name="add_post_description">상대방을 비방하거나 욕설이 포함된 게시글을 작성하는 경우</string>
     <string name="add_post_description9">게시판 이용이 제한될 수 있습니다.</string>
     <string name="add_post">게시글 등록</string>
@@ -72,7 +72,7 @@
     <string name="add_post_description7">입주민들과 함께 활동하는 동호회 게시판</string>
 
     <string name="setting">Setting</string>
-    <string name="setting_description">프로필 설정</string>
+    <string name="setting_description">닉네임 변경</string>
     <string name="setting_description2">비밀번호 변경</string>
     <string name="setting_description3">알림 설정</string>
     <string name="setting_description4">로그아웃</string>
@@ -80,7 +80,6 @@
     <string name="setting_description6">세대 호수</string>
     <string name="setting_PIPP">개인정보 처리 방침</string>
     <string name="title_activity_car_registration">car_registration</string>
-
 
     <string name="pw_change1">현재 비밀번호</string>
     <string name="pw_change2">새 비밀번호</string>
@@ -93,10 +92,9 @@
 
     <string name="unregister1">비밀번호 입력</string>
     <string name="unregister2">탈퇴하기</string>
+    <string name="edit_post">게시글 수정</string>
 
-    <string name="share_category">나눔</string>
-    <string name="purchase_category">공동구매</string>
-    <string name="free_category">자유</string>
+    <string name="issue_description">우리 건물 이슈를 한눈에 볼 수 있는 공간</string>
 
     <!--for Retrofit test-->
     <string name="form_ID">id</string>
@@ -104,4 +102,6 @@
     <string name="form_name">name</string>
     <string name="form_nickname">nickname</string>
     <string name="button_save_user">save</string>
+
+    <string name="notice1">공지사항 목록</string>
 </resources>

@@ -14,6 +14,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.villive.Community.Community
 import com.example.villive.Post_model_adapter.CommentAdapter
 import com.example.villive.R
 import com.example.villive.Retrofit.MsgResponseDtoAPI
@@ -226,7 +227,7 @@ class Post_Detail_View : AppCompatActivity(), CommentAdapter.OnItemDeleteClickLi
                     alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "확인") { dialog, _ ->
                         dialog.dismiss()
                         // 게시판 화면으로 이동
-                        navigateToBoard()
+                        navigateToCommunityBoard()
                     }
                     alertDialog.show()
                 } else {
@@ -255,7 +256,9 @@ class Post_Detail_View : AppCompatActivity(), CommentAdapter.OnItemDeleteClickLi
         })
     }
 
-    private fun navigateToBoard() {
+    private fun navigateToCommunityBoard() {
+        val intent = Intent(this, Community::class.java)
+        startActivity(intent)
         finish()
     }
 
