@@ -3,6 +3,7 @@ package com.example.villive.User_SignPage
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.text.InputFilter
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
@@ -29,6 +30,34 @@ class user_BuildingAuth : AppCompatActivity() {
         val villCode = findViewById<EditText>(R.id.et_vill_code)
         val villNum = findViewById<EditText>(R.id.et_vill_num)
         val goAuth = findViewById<Button>(R.id.btn_to_auth)
+
+        // 스페이스 입력 비활
+        val noSpaceFilter = InputFilter { source, start, end, dest, dstart, dend ->
+            for (i in start until end) {
+                if (Character.isWhitespace(source[i])) {
+                    return@InputFilter ""
+                }
+            }
+            null
+        }
+
+        // EditText에 스페이스 비활 적용
+        villCode.filters = arrayOf(noSpaceFilter)
+        villNum.filters = arrayOf(noSpaceFilter)
+
+        // 숫자만 입력 가능
+        val numberFilter = InputFilter { source, start, end, dest, dstart, dend ->
+            for (i in start until end) {
+                if (!Character.isDigit(source[i])) {
+                    return@InputFilter ""
+                }
+            }
+            null
+        }
+
+        // EditText에 적용
+        villCode.filters = arrayOf(numberFilter)
+        villNum.filters = arrayOf(numberFilter)
 
         // Retrofit 객체 생성
         retrofitService = RetrofitService.getService(this)
