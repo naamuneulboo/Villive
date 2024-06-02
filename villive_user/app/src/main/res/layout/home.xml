@@ -124,7 +124,7 @@
                             android:layout_marginTop="5dp"
                             android:textColor="@color/black"
                             android:textStyle="bold"
-                            android:textSize="15sp"
+                            android:textSize="16sp"
                             android:text="공지사항"
                             />
 
@@ -164,7 +164,7 @@
                                 android:id="@+id/notice_title"
                                 android:fontFamily="@font/gmarketsansttflight"
                                 android:textColor="@color/black"
-                                android:textSize="12sp"
+                                android:textSize="14sp"
                                 android:textStyle="bold"
                                 android:paddingTop="10dp"
                                 />
@@ -178,7 +178,7 @@
                             android:layout_marginLeft="40dp"
                             android:layout_marginTop="2dp"
                             android:text="내용1"
-                            android:textSize="11sp"
+                            android:textSize="12sp"
                             android:id="@+id/notice_contents"
                             android:fontFamily="@font/gmarketsansttflight"
                             android:textColor="@color/black"
@@ -207,7 +207,7 @@
                         android:text="게시판"
                         android:textColor="@color/black"
                         android:textStyle="bold"
-                        android:textSize="15sp"
+                        android:textSize="16sp"
                         />
 
                     <LinearLayout
@@ -230,8 +230,7 @@
                             android:fontFamily="@font/gmarketsansttfmedium"
                             android:id="@+id/recent_category1"
                             android:textColor="@color/black"
-                            android:textSize="12sp"
-                            android:textStyle="bold"
+                            android:textSize="14sp"
                             android:paddingBottom="5dp"
                             android:paddingLeft="5dp"
                             />
@@ -258,7 +257,7 @@
                                 android:id="@+id/recent_title1"
                                 android:fontFamily="@font/gmarketsansttflight"
                                 android:textColor="@color/black"
-                                android:textSize="12sp"
+                                android:textSize="14sp"
                                 android:textStyle="bold"
                                 />
                             <!-- 위 TextView에 사용자 이름 받아오기 -->
@@ -271,7 +270,7 @@
                             android:layout_marginLeft="40dp"
                             android:layout_marginTop="2dp"
                             android:text="내용1"
-                            android:textSize="11sp"
+                            android:textSize="12sp"
                             android:id="@+id/recent_contents1"
                             android:fontFamily="@font/gmarketsansttflight"
                             android:textColor="@color/black"
@@ -301,8 +300,7 @@
                             android:fontFamily="@font/gmarketsansttfmedium"
                             android:id="@+id/recent_category2"
                             android:textColor="@color/black"
-                            android:textSize="12sp"
-                            android:textStyle="bold"
+                            android:textSize="14sp"
                             android:paddingBottom="5dp"
                             android:paddingLeft="5dp"
                             />
@@ -328,7 +326,7 @@
                                 android:id="@+id/recent_title2"
                                 android:fontFamily="@font/gmarketsansttflight"
                                 android:textColor="@color/black"
-                                android:textSize="12sp"
+                                android:textSize="14sp"
                                 android:textStyle="bold"
                                 />
                             <!-- 위 TextView에 사용자 이름 받아오기 -->
@@ -341,7 +339,7 @@
                             android:layout_marginLeft="40dp"
                             android:layout_marginTop="2dp"
                             android:text="내용2"
-                            android:textSize="11sp"
+                            android:textSize="12sp"
                             android:id="@+id/recent_contents2"
                             android:fontFamily="@font/gmarketsansttflight"
                             android:textColor="@color/black"
@@ -366,20 +364,20 @@
                         android:layout_height="30dp">
 
                         <TextView
-                            android:layout_width="100dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_marginLeft="30dp"
                             android:layout_marginTop="2dp"
                             android:text="우리 건물 이슈"
                             android:textColor="@color/black"
-                            android:textSize="15sp"
+                            android:textSize="16sp"
                             android:textStyle="bold"
                             />
 
                         <ImageView
                             android:layout_width="20dp"
                             android:layout_height="30dp"
-                            android:layout_marginLeft="125dp"
+                            android:layout_marginLeft="135dp"
                             android:src="@drawable/baseline_local_fire_department_24"
                             />
 

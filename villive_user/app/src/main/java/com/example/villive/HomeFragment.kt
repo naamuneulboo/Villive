@@ -21,11 +21,13 @@ import com.example.villive.Community.Community_Complain
 import com.example.villive.Community_Write.Post_Complain
 import com.example.villive.Community_Write.Post_Detail_View
 import com.example.villive.Notice.NoticeList
+import com.example.villive.Retrofit.LogInRequestDtoAPI
 import com.example.villive.Retrofit.NoticeResponseDtoAPI
 import com.example.villive.Retrofit.PostsResponseDtoAPI
 import com.example.villive.Retrofit.RetrofitService
 import com.example.villive.model.NoticeResponseDto
 import com.example.villive.model.PostsResponseDto
+import okhttp3.ResponseBody
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date
@@ -41,6 +43,7 @@ class HomeFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var issueAdapter: IssueAdapter
     private lateinit var postsResponseDtoAPI: PostsResponseDtoAPI
+    private lateinit var loginRequestDtoAPI: LogInRequestDtoAPI
 
     @SuppressLint("MissingInflatedId")
     override fun onCreateView(
@@ -48,6 +51,7 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
+        fetchMemberName()
         fetchPostsData()
         fetchNoticeData()
 
@@ -313,4 +317,23 @@ class HomeFragment : Fragment() {
         })
     }
 
+    private fun fetchMemberName() {
+        val retrofit = RetrofitService.getService(requireContext())
+        loginRequestDtoAPI = retrofit.create(LogInRequestDtoAPI::class.java)
+        loginRequestDtoAPI.getMemberName().enqueue(object : Callback<ResponseBody> {
+            override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+                if (response.isSuccessful) {
+                    val responseBody = response.body()?.string()
+                    // responseBody에서 사용자 이름을 추출하여 TextView에 설정
+                    view?.findViewById<TextView>(R.id.user_text)?.text = "$responseBody 님 반갑습니다!"
+                } else {
+                    // 오류 처리
+                }
+            }
+
+            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                // 네트워크 오류 처리
+            }
+        })
+    }
 }

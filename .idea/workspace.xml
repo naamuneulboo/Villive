@@ -237,11 +237,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="49dc9a04-b9ae-4551-9034-a4dde2c0c86a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/villive_user/app/src/main/res/drawable/baseline_face_retouching_natural_24.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/model/UnregisterRequestDto.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/villive_user/app/src/main/res/drawable/small_favorite.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Community/Community_Club.kt" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Community/Community_Club.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Community/Community_Group.kt" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Community/Community_Group.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Community/Community_Purchase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Community/Community_Purchase.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Community/Community_Share.kt" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Community/Community_Share.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/ConfigurationPage/UnregisterActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/ConfigurationPage/UnregisterActivity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/HomeFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/HomeFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Post_model_adapter/PostsAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Post_model_adapter/PostsAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Retrofit/DeleteMemRequestDtoAPI.kt" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Retrofit/DeleteMemRequestDtoAPI.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Retrofit/LogInRequestDtoAPI.kt" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Retrofit/LogInRequestDtoAPI.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Retrofit/RetrofitService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Retrofit/RetrofitService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/User_SignPage/user_LogIn.kt" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/User_SignPage/user_LogIn.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/model/LoginResponse.kt" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/model/LoginResponse.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/res/layout/home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/res/layout/home.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/res/layout/item_issue.xml" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/res/layout/item_issue.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/res/layout/item_post_response.xml" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/res/layout/item_post_response.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/res/layout/user_log_in.xml" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/res/layout/user_log_in.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -300,9 +313,9 @@
       <list>
         <option value="Class" />
         <option value="Kotlin Interface" />
-        <option value="resourceFile" />
-        <option value="Kotlin Class" />
         <option value="layoutResourceFile" />
+        <option value="Kotlin Class" />
+        <option value="resourceFile" />
       </list>
     </option>
   </component>

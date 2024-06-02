@@ -8,20 +8,14 @@ import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.example.villive.MainActivity
 import com.example.villive.R
 import com.example.villive.Retrofit.LogInRequestDtoAPI
 import com.example.villive.Retrofit.RetrofitService
-import com.example.villive.Retrofit.SignUpRequestDtoAPI
 import com.example.villive.model.LogInRequestDto
 import com.example.villive.model.LoginResponse
-import com.example.villive.model.SignUpRequestDto
-import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -38,7 +32,16 @@ class user_LogIn : AppCompatActivity() {
         val password = findViewById<EditText>(R.id.et_login_pw)
         val goLogin = findViewById<Button>(R.id.btn_login)
 
-        // 스페이스 입력 비활
+        val noHangulRegex = Regex("[^ㄱ-ㅎㅏ-ㅣ가-힣]+")
+
+        val noHangulFilter = InputFilter { source, start, end, dest, dstart, dend ->
+            if (source != null && !source.toString().matches(noHangulRegex)) {
+                ""
+            } else {
+                null
+            }
+        }
+
         val noSpaceFilter = InputFilter { source, start, end, dest, dstart, dend ->
             for (i in start until end) {
                 if (Character.isWhitespace(source[i])) {
@@ -48,11 +51,9 @@ class user_LogIn : AppCompatActivity() {
             null
         }
 
-        // EditText에 스페이스 비활 적용
-        member_id.filters = arrayOf(noSpaceFilter)
-        password.filters = arrayOf(noSpaceFilter)
+        member_id.filters = arrayOf(noHangulFilter, noSpaceFilter)
+        password.filters = arrayOf(noHangulFilter, noSpaceFilter)
 
-        // Retrofit 객체 생성
         retrofitService = RetrofitService.getService(this)
         val logInRequestDtoAPI = retrofitService.create(LogInRequestDtoAPI::class.java)
 
@@ -60,28 +61,34 @@ class user_LogIn : AppCompatActivity() {
             val memberId = member_id.text.toString()
             val pwd = password.text.toString()
 
-            // 로그인 요청 데이터 생성
-            val logInRequestDto = LogInRequestDto(memberId, pwd)
+            val logInRequestDto = LogInRequestDto(member_id = memberId, password = pwd)
 
-            // 로그인 요청
-            logInRequestDtoAPI.login(logInRequestDto).enqueue(object : Callback<ResponseBody> {
-                override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+            logInRequestDtoAPI.login(logInRequestDto).enqueue(object : Callback<LoginResponse> {
+                override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
                     if (response.isSuccessful && response.body() != null) {
-                        val token = response.body()?.string()
+                        val loginResponse = response.body()
+                        val token = loginResponse?.token
+                        val hasBuildingCode = loginResponse?.hasBuildingCode ?: false
+
                         Log.d("LoginActivity", "Received Token: $token")
                         saveToken(token)
 
                         Toast.makeText(this@user_LogIn, "로그인 성공", Toast.LENGTH_LONG).show()
 
-                        // 건물 인증 페이지로 이동
-                        showConfirmationDialog()
+                        if (hasBuildingCode) {
+                            val intent = Intent(this@user_LogIn, MainActivity::class.java)
+                            startActivity(intent)
+                            finish()
+                        } else {
+                            showConfirmationDialog()
+                        }
                     } else {
                         Toast.makeText(this@user_LogIn, "로그인 실패: ${response.message()}", Toast.LENGTH_LONG).show()
                         Log.e("LoginActivity", "Response failed: ${response.errorBody()?.string()}")
                     }
                 }
 
-                override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
                     Toast.makeText(this@user_LogIn, "네트워크 오류: ${t.message}", Toast.LENGTH_LONG).show()
                     Log.e("LoginActivity", "Network error", t)
                 }
@@ -111,4 +118,3 @@ class user_LogIn : AppCompatActivity() {
         }
     }
 }
-

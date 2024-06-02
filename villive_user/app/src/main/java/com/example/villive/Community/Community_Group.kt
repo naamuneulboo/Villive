@@ -20,6 +20,7 @@ import retrofit2.Response
 class Community_Group : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var postsAdapter: PostsAdapter
+    private lateinit var postsResponseDtoAPI: PostsResponseDtoAPI
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,9 +31,9 @@ class Community_Group : AppCompatActivity() {
 
         // Retrofit 객체 가져오기
         val retrofit = RetrofitService.getService(this)
-        val postsResponseDtoAPI = retrofit.create(PostsResponseDtoAPI::class.java)
+        postsResponseDtoAPI = retrofit.create(PostsResponseDtoAPI::class.java)
 
-
+        // 게시글 ID 목록 가져오기
         val call = postsResponseDtoAPI.getAllPostsResponseDto()
         call.enqueue(object : Callback<List<PostsResponseDto>> {
             override fun onResponse(call: Call<List<PostsResponseDto>>, response: Response<List<PostsResponseDto>>) {
@@ -41,18 +42,14 @@ class Community_Group : AppCompatActivity() {
                     return
                 }
 
-                val postsResponseDtos = response.body()?.filter { it.category == PostsResponseDto.Category.단체 } ?: return
-                postsAdapter = PostsAdapter(postsResponseDtos)
-                recyclerView.adapter = postsAdapter
-                // 아이템 클릭 리스너 설정
-                postsAdapter.setOnItemClickListener(object : PostsAdapter.OnItemClickListener {
-                    override fun onItemClick(post: PostsResponseDto) {
-                        val intent = Intent(this@Community_Group, Post_Detail_View::class.java).apply {
-                            putExtra("POST_ID", post.id.toString()) // 게시글의 ID를 전달
-                        }
-                        startActivity(intent)
-                    }
-                })
+                // 단체 카테고리의 게시글 ID 목록 필터링
+                val postIds = response.body()
+                    ?.filter { it.category == PostsResponseDto.Category.단체 }
+                    ?.map { it.id }
+                    ?: return
+
+                // 게시글의 상세 정보
+                getPostDetails(postIds)
             }
 
             override fun onFailure(call: Call<List<PostsResponseDto>>, t: Throwable) {
@@ -61,11 +58,59 @@ class Community_Group : AppCompatActivity() {
         })
 
         val write_post = findViewById<Button>(R.id.btn_write_post)
-
         write_post.setOnClickListener {
             val intent = Intent(this, Post_Group::class.java)
             startActivity(intent)
             finish()
         }
+    }
+
+    private fun getPostDetails(postIds: List<Long?>) {
+        val postsDetails = mutableListOf<PostsResponseDto>()
+        var processedCount = 0
+
+        postIds.forEach { id ->
+            id?.let {
+                postsResponseDtoAPI.getPostById(it).enqueue(object : Callback<PostsResponseDto> {
+                    override fun onResponse(call: Call<PostsResponseDto>, response: Response<PostsResponseDto>) {
+                        if (response.isSuccessful) {
+                            response.body()?.let { postDetail ->
+                                postsDetails.add(postDetail)
+                            }
+                        }
+                        processedCount++
+                        if (processedCount == postIds.size) {
+                            updateRecyclerView(postsDetails)
+                        }
+                    }
+
+                    override fun onFailure(call: Call<PostsResponseDto>, t: Throwable) {
+                        processedCount++
+                        if (processedCount == postIds.size) {
+                            updateRecyclerView(postsDetails)
+                        }
+                    }
+                })
+            } ?: run {
+                processedCount++
+                if (processedCount == postIds.size) {
+                    updateRecyclerView(postsDetails)
+                }
+            }
+        }
+    }
+
+    private fun updateRecyclerView(postsDetails: List<PostsResponseDto>) {
+        postsAdapter = PostsAdapter(postsDetails)
+        recyclerView.adapter = postsAdapter
+
+        postsAdapter.setOnItemClickListener(object : PostsAdapter.OnItemClickListener {
+            override fun onItemClick(post: PostsResponseDto) {
+                val intent = Intent(this@Community_Group, Post_Detail_View::class.java).apply {
+                    putExtra("POST_ID", post.id.toString())
+                }
+                startActivity(intent)
+            }
+        })
     }
 }
