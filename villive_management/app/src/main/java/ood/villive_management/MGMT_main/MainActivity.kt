@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
         complain.setOnClickListener {
-            val intent = Intent(this@MainActivity, SolveComplain::class.java) // 다음 화면으로 넘어가기 위한 intent 객체 생성
+            val intent = Intent(this@MainActivity, ComplainList::class.java) // 다음 화면으로 넘어가기 위한 intent 객체 생성
             startActivity(intent)
         }
     }

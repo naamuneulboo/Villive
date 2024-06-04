@@ -42,6 +42,9 @@
             android:name=".MGMT_main.MainActivity"
             android:exported="false" />
         <activity
+            android:name=".MGMT_main.ComplainList"
+            android:exported="false" />
+        <activity
             android:name=".MGMT_main.Login"
             android:exported="true">
             <intent-filter>

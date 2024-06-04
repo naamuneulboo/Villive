@@ -13,6 +13,7 @@ import androidx.core.content.ContextCompat.startActivity
 import com.example.villive.Retrofit.RetrofitService
 import okhttp3.ResponseBody
 import ood.villive_management.Model.LogInRequestDto
+import ood.villive_management.Model.LoginResponse
 import ood.villive_management.R
 import ood.villive_management.Retrofit.LogInRequestDtoAPI
 import retrofit2.Call
@@ -43,24 +44,32 @@ class Login : AppCompatActivity() {
                 val logInRequestDto = LogInRequestDto(memberId, pwd)
 
                 // 로그인 요청
-                logInRequestDtoAPI.login(logInRequestDto).enqueue(object : Callback<ResponseBody> {
-                    override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+                logInRequestDtoAPI.login(logInRequestDto).enqueue(object : Callback<LoginResponse> {
+                    override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
                         if (response.isSuccessful && response.body() != null) {
-                            val token = response.body()?.string()
+                            val loginResponse = response.body()
+                            val token = loginResponse?.token
+                            val hasBuildingCode = loginResponse?.hasBuildingCode ?: false
+
                             Log.d("LoginActivity", "Received Token: $token")
                             saveToken(token)
 
                             Toast.makeText(this@Login, "로그인 성공", Toast.LENGTH_LONG).show()
 
-                            // 건물 인증 페이지로 이동
-                            showConfirmationDialog()
+                            if (hasBuildingCode) {
+                                val intent = Intent(this@Login, MainActivity::class.java)
+                                startActivity(intent)
+                                finish()
+                            } else {
+                                showConfirmationDialog()
+                            }
                         } else {
                             Toast.makeText(this@Login, "로그인 실패: ${response.message()}", Toast.LENGTH_LONG).show()
                             Log.e("LoginActivity", "Response failed: ${response.errorBody()?.string()}")
                         }
                     }
 
-                    override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                    override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
                         Toast.makeText(this@Login, "네트워크 오류: ${t.message}", Toast.LENGTH_LONG).show()
                         Log.e("LoginActivity", "Network error", t)
                     }

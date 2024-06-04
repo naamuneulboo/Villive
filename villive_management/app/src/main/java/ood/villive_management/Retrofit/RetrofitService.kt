@@ -18,13 +18,19 @@ object RetrofitService {
 
         val client = OkHttpClient.Builder()
             .addInterceptor { chain ->
+                val requestBuilder = chain.request().newBuilder()
                 val sharedPreferences = context.getSharedPreferences("auth", Context.MODE_PRIVATE)
                 val token = sharedPreferences.getString("token", null)
-                val request = chain.request().newBuilder()
-                    .addHeader("Authorization", "Bearer $token")
-                    .build()
-                chain.proceed(request)
+                // 로그인 요청이 아닐 때만 토큰을 추가합니다.
+                if (!chain.request().url.encodedPath.contains("/member/login")) {
+                    if (token != null) {
+                        requestBuilder.addHeader("Authorization", "Bearer $token")
+                    }
+                }
+
+                chain.proceed(requestBuilder.build())
             }
+
             // 로깅 인터셉터 추가
             .addInterceptor(logging)
             .build()
