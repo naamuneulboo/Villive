@@ -238,12 +238,9 @@
   <component name="ChangeListManager">
     <list default="true" id="49dc9a04-b9ae-4551-9034-a4dde2c0c86a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Community/Community_Club.kt" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Community/Community_Club.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Community/Community_Group.kt" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Community/Community_Group.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Community/Community_Purchase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Community/Community_Purchase.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Community/Community_Share.kt" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Community/Community_Share.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/ConfigurationPage/UnregisterActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/ConfigurationPage/UnregisterActivity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Post_model_adapter/PostsAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Post_model_adapter/PostsAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/res/layout/item_post_response.xml" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/res/layout/item_post_response.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Retrofit/DeleteMemRequestDtoAPI.kt" beforeDir="false" afterPath="$PROJECT_DIR$/villive_user/app/src/main/java/com/example/villive/Retrofit/DeleteMemRequestDtoAPI.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -301,9 +298,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
-        <option value="Kotlin Class" />
         <option value="layoutResourceFile" />
         <option value="resourceFile" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
