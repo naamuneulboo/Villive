@@ -11,15 +11,16 @@
 
     <ImageView
         android:layout_width="390dp"
-    android:layout_height="100dp"
+        android:layout_height="100dp"
         android:src="@drawable/cl_event"
+        android:layout_gravity="center"
     />
 
         <TextView
             android:id="@+id/eventdayTextView"
             android:layout_width="103dp"
             android:layout_height="40dp"
-            android:layout_marginLeft="25dp"
+            android:layout_marginLeft="35dp"
             android:layout_marginTop="30dp"
             android:text=""
             android:textColor="@android:color/black"
@@ -30,7 +31,7 @@
             android:id="@+id/eventNameTextView"
             android:layout_width="190dp"
             android:layout_height="40dp"
-            android:layout_marginLeft="150dp"
+            android:layout_marginLeft="160dp"
             android:layout_marginTop="30dp"
             android:fontFamily="@font/gmarketsansttfmedium"
             android:text=""
