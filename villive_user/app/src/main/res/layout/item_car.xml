@@ -14,16 +14,9 @@
         android:background="@drawable/st_round_rectangle"
         android:backgroundTint="#D0F6DC">
 
-        <Button
-            android:layout_width="350dp"
-            android:layout_height="80dp"
-            android:background="@drawable/st_round_rectangle"
-            android:alpha="0"
-            />
-
         <TextView
             android:id="@+id/carNum_tv"
-            android:layout_width="220dp"
+            android:layout_width="200dp"
             android:layout_height="80dp"
             android:text=""
             android:fontFamily="@font/wavvepadoregular"
@@ -36,20 +29,32 @@
             android:layout_width="1dp"
             android:layout_height="80dp"
             android:background="@drawable/sero_line"
-            android:layout_marginLeft="220dp"
+            android:layout_marginLeft="200dp"
             />
 
         <TextView
             android:id="@+id/carStatus_tv"
-            android:layout_width="130dp"
+            android:layout_width="110dp"
             android:layout_height="80dp"
-            android:text=""
-            android:layout_marginLeft="220dp"
+            android:layout_marginLeft="200dp"
             android:fontFamily="@font/wavvepadoregular"
-            android:textSize="30sp"
-            android:textColor="@color/black"
             android:gravity="center"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="30sp" />
+
+        <ImageView
+            android:id="@+id/car_menu_view"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="310dp"
+            android:src="@drawable/baseline_more_horiz_24"
+            android:contentDescription="Overflow Menu"
+            android:backgroundTint="@color/dark_gray"
+            android:padding="8dp"
             />
+
+
 
     </FrameLayout>
 

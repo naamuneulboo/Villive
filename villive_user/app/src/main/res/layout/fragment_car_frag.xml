@@ -31,12 +31,20 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="20dp"
         android:text="한 가구당 2대의 차량만 등록이 가능합니다."
         android:gravity="center"
         android:textColor="@color/black"
         android:fontFamily="@font/gmarketsansttfmedium"
         android:layout_marginTop="10sp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:text="차량 등록에는 5초가량 소요됩니다."
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:fontFamily="@font/gmarketsansttfmedium"
+        />
 
 
 </LinearLayout>

@@ -42,7 +42,11 @@ class CalendarFragment : Fragment() {
         allEvents.add(C_event("2024-06-03", "음식물 쓰레기 배출일"))
         allEvents.add(C_event("2024-06-06", "현충일"))
         allEvents.add(C_event("2024-06-06", "관리인 휴무"))
-        allEvents.add(C_event("2024-06-8", "엘리베이터 점검"))
+        allEvents.add(C_event("2024-06-08", "엘리베이터 점검"))
+        allEvents.add(C_event("2024-06-10", "정기 소독"))
+        allEvents.add(C_event("2024-06-10", "벌레 약 지급"))
+        allEvents.add(C_event("2024-06-13", "하수도 점검"))
+        allEvents.add(C_event("2024-06-13", "2시 단수"))
 
         eventAdapter = EventAdapter(emptyList())
         recyclerView.adapter = eventAdapter
