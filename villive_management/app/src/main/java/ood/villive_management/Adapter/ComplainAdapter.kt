@@ -1,11 +1,13 @@
 package com.example.villive.Community
 
+import android.app.AlertDialog
+import android.content.Context
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Spinner
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import ood.villive_management.Model.ComplainResponseDto
 import ood.villive_management.R
@@ -17,7 +19,6 @@ class ComplainAdapter(private val complainList: List<ComplainResponseDto>) :
         fun onUpdateClick(complain: ComplainResponseDto, nextstatus: ComplainResponseDto.Status)
     }
 
-    // 클릭 리스너 변수 선언
     private var onUpdateStatusClickListener: OnUpdateStatusClickListener? = null
 
     fun setOnUpdateStatusClickListener(listener: OnUpdateStatusClickListener) {
@@ -50,40 +51,31 @@ class ComplainAdapter(private val complainList: List<ComplainResponseDto>) :
         holder.type.text = currentItem.type?.name
         holder.status.text = currentItem.status?.name
 
-        holder.status.setOnClickListener {
-            val nextStatus = getNextStatus(holder.currentStatus)
-            holder.currentStatus = nextStatus
-            holder.status.text = nextStatus.name
-            holder.status.setTextColor(getStatusColor(nextStatus))
+        holder.itemView.setOnClickListener {
+            val statusList = arrayOf("접수", "처리중", "완료")
 
-            onUpdateStatusClickListener?.onUpdateClick(currentItem, nextStatus)
-        }
+            val dialog = AlertDialog.Builder(holder.itemView.context)
+                .setTitle("상태 변경")
+                .setItems(statusList) { _, which ->
+                    val selectedStatus = statusList[which]
+                    val nextStatus = when (selectedStatus) {
+                        "접수" -> ComplainResponseDto.Status.접수
+                        "처리중" -> ComplainResponseDto.Status.처리중
+                        "완료" -> ComplainResponseDto.Status.완료
+                        else -> ComplainResponseDto.Status.접수
+                    }
+                    holder.currentStatus = nextStatus
+                    holder.status.text = selectedStatus
+                    holder.status.setTextColor(getStatusColor(nextStatus))
 
-        /*
-        val nextStatus = getNextStatus(holder.currentStatus)
-        holder.currentStatus = nextStatus
-        holder.status.text = nextStatus.name
-        holder.status.setTextColor(getStatusColor(nextStatus))
+                    onUpdateStatusClickListener?.onUpdateClick(currentItem, nextStatus)
+                }
+                .setNegativeButton("취소") { dialog, _ ->
+                    dialog.dismiss()
+                }
+                .create()
 
-        holder.status.setOnClickListener {
-            val nextStatus = getNextStatus(holder.currentStatus)
-            holder.currentStatus = nextStatus
-            holder.status.text = nextStatus.name
-            holder.status.setTextColor(getStatusColor(nextStatus))
-            // 민원 상태 업데이트
-
-            onUpdateStatusClickListener?.onUpdateClick(currentItem)
-        }
-
- */
-    }
-
-    private fun getNextStatus(currentStatus: ComplainResponseDto.Status?): ComplainResponseDto.Status {
-        return when (currentStatus) {
-            ComplainResponseDto.Status.접수 -> ComplainResponseDto.Status.처리중
-            ComplainResponseDto.Status.처리중 -> ComplainResponseDto.Status.완료
-            ComplainResponseDto.Status.완료 -> ComplainResponseDto.Status.접수
-            else -> ComplainResponseDto.Status.접수
+            dialog.show()
         }
     }
 
@@ -92,7 +84,7 @@ class ComplainAdapter(private val complainList: List<ComplainResponseDto>) :
             ComplainResponseDto.Status.접수 -> Color.BLACK
             ComplainResponseDto.Status.처리중 -> Color.RED
             ComplainResponseDto.Status.완료 -> Color.BLUE
-            else -> Color.BLACK // 기본 색상을 검정으로
+            else -> Color.BLACK
         }
     }
 

@@ -9,12 +9,12 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.villive.Retrofit.RetrofitService
 import ood.villive_management.Adapter.NoticeAdapter
 import ood.villive_management.Model.NoticeRequestDto
 import ood.villive_management.Model.NoticeResponseDto
 import ood.villive_management.R
 import ood.villive_management.Retrofit.NoticeResponseDtoAPI
+import ood.villive_management.Retrofit.RetrofitService
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

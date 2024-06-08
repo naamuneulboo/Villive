@@ -7,7 +7,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.villive.Retrofit.RetrofitService
+import ood.villive_management.Retrofit.RetrofitService
 import okhttp3.ResponseBody
 import ood.villive_management.Model.NoticeRequestDto
 import ood.villive_management.Model.NoticeResponseDto

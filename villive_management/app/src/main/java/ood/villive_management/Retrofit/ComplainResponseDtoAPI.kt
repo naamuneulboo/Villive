@@ -7,6 +7,7 @@ import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.PUT
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface ComplainResponseDtoAPI {
 
@@ -14,5 +15,6 @@ interface ComplainResponseDtoAPI {
     fun getAllComplainResponseDto(): Call<List<ComplainResponseDto>>
 
     @PUT("/complain/{id}")  // 민원 상태 변경
-    fun updateComplain(@Path("id") id: Long, @Body status: ComplainResponseDto): Call<ResponseBody>
+    fun updateComplain(@Path("id") id: Long, @Query("status") status: String, @Body complainRequestDto: ComplainResponseDto): Call<ResponseBody>
+
 }

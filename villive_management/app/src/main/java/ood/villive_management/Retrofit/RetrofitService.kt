@@ -1,12 +1,11 @@
-// RetrofitService.kt
-package com.example.villive.Retrofit
+package ood.villive_management.Retrofit
+
 
 import android.content.Context
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-
 
 object RetrofitService {
     private const val BASE_URL = "http://113.198.235.222:8080"
@@ -21,7 +20,8 @@ object RetrofitService {
                 val requestBuilder = chain.request().newBuilder()
                 val sharedPreferences = context.getSharedPreferences("auth", Context.MODE_PRIVATE)
                 val token = sharedPreferences.getString("token", null)
-                // 로그인 요청이 아닐 때만 토큰을 추가합니다.
+
+                // 로그인 요청이 아닐 때만 토큰을 추가
                 if (!chain.request().url.encodedPath.contains("/member/login")) {
                     if (token != null) {
                         requestBuilder.addHeader("Authorization", "Bearer $token")
@@ -30,8 +30,6 @@ object RetrofitService {
 
                 chain.proceed(requestBuilder.build())
             }
-
-            // 로깅 인터셉터 추가
             .addInterceptor(logging)
             .build()
 
