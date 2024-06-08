@@ -42,7 +42,7 @@
 
             <ImageView
                 android:id="@+id/imageView2"
-                android:layout_width="100dp"
+                android:layout_width="120dp"
                 android:layout_height="10dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
@@ -54,7 +54,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="@string/setting_description6"
+                android:text="사용자 설정"
                 android:textColor="@color/real_dark_gray"
                 android:textSize="26sp"
                 android:textStyle="bold" />
